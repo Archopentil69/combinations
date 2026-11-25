@@ -1,0 +1,1738 @@
+[
+  {
+    "number": 1288,
+    "page": 176,
+    "error": "Не найдено решение в OCR-тексте диапазона",
+    "crop": "debug_crops\\10_f4_f6\\page176_num_1288.png",
+    "white": [
+      "c5",
+      "b4",
+      "f4",
+      "c3",
+      "g3",
+      "c1",
+      "e1"
+    ],
+    "black": [
+      "d8",
+      "f8",
+      "e7",
+      "d6",
+      "f6",
+      "a5",
+      "e5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1289,
+    "page": 176,
+    "error": "Главная линия, полуход 7 (белые): Ход 'f:f8X' не найден среди легальных: c3:a5",
+    "repairs_before_fail": [
+      "ply 2: OCR-ремонт: 'f:h6' -> 'f6:h8'",
+      "ply 3: Восстановлен пропущенный OCR вынужденный бой -> 'd4:f6:d8'",
+      "ply 5: Восстановлен пропущенный OCR вынужденный бой -> 'f4:d6'",
+      "ply 6: OCR-ремонт: 'd:b4' -> 'a5-b4'"
+    ],
+    "raw_solution": "1289. 1. hg7! f: h6 (1. . .f: hS 2. d : clSx) 2. de5 d: b4 3. f: f8X.",
+    "parsed_tokens": [
+      "hg7!",
+      "f:h6",
+      "de5",
+      "d:b4",
+      "f:f8X"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1289.png",
+    "white": [
+      "h6",
+      "d4",
+      "f4",
+      "c3",
+      "g3",
+      "d2",
+      "f2",
+      "c1"
+    ],
+    "black": [
+      "e7",
+      "d6",
+      "f6",
+      "a5",
+      "e5",
+      "a3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1290,
+    "page": 176,
+    "error": "Главная линия, полуход 1 (белые): Ход 'ab4!' не найден среди легальных: h8:f6:d4:b6:d8",
+    "repairs_before_fail": [],
+    "raw_solution": "1290. 1. ab4! e : a3 2. ed4 gf6 3. de5 d : b4 4. f : bS X.",
+    "parsed_tokens": [
+      "ab4!",
+      "e:a3",
+      "ed4",
+      "gf6",
+      "de5",
+      "d:b4",
+      "f:bS"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1290.png",
+    "white": [
+      "h8",
+      "f4",
+      "h4",
+      "a3",
+      "c3",
+      "e3",
+      "g3",
+      "d2",
+      "h2",
+      "c1"
+    ],
+    "black": [
+      "f8",
+      "c7",
+      "g7",
+      "d6",
+      "h6",
+      "c5",
+      "e5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1291,
+    "page": 176,
+    "error": "Главная линия, полуход 1 (белые): Ход 'ab4!' не найден среди легальных: f4:d6:f8",
+    "repairs_before_fail": [],
+    "raw_solution": "1291. 1. ab4! d : b2 2. beo d : b4 3. f : fS h : f4 4. f : c1 X.",
+    "parsed_tokens": [
+      "ab4!",
+      "d:b2",
+      "d:b4",
+      "f:fS",
+      "h:f4",
+      "f:c1"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1291.png",
+    "white": [
+      "a7",
+      "g5",
+      "f4",
+      "a3",
+      "c3",
+      "g3",
+      "d2",
+      "h2",
+      "g1"
+    ],
+    "black": [
+      "b8",
+      "e7",
+      "h6",
+      "a5",
+      "e5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1293,
+    "page": 176,
+    "error": "Главная линия, полуход 8 (чёрные): Ход 'h:f4' не найден среди легальных: d8-c7, d8-e7, f6-e5, f6-g5, b2-a1, b2-c1, b4-a3, b4-c3",
+    "repairs_before_fail": [
+      "ply 2: OCR-ремонт: 'eb6' -> 'c7-b6'",
+      "ply 3: OCR-ремонт: 'deS!' -> 'd4-c5'",
+      "ply 5: OCR-ремонт: 'beS' -> 'b4-c5'"
+    ],
+    "raw_solution": "1293. C. IOmKeBH4. 1. ab4! eb6 2. deS! b : b2 3. beS d : b4 4. f : f8 h ; f4 S. f: e7 d : f6 6. gf2 X .",
+    "parsed_tokens": [
+      "ab4!",
+      "eb6",
+      "deS!",
+      "b:b2",
+      "beS",
+      "d:b4",
+      "f:f8",
+      "h:f4",
+      "f:e7",
+      "d:f6",
+      "gf2"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1293.png",
+    "white": [
+      "h6",
+      "d4",
+      "f4",
+      "a3",
+      "c3",
+      "g3",
+      "g1"
+    ],
+    "black": [
+      "d8",
+      "c7",
+      "e7",
+      "d6",
+      "f6",
+      "e5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1294,
+    "page": 176,
+    "error": "Главная линия, полуход 3 (белые): Ход 'e:gS' не найден среди легальных: e3:c5:e7",
+    "repairs_before_fail": [
+      "ply 2: OCR-ремонт: 'e:c1' -> 'c5:a3:c1'"
+    ],
+    "raw_solution": "1294. 1. ab4! e : c1 2. e : gS e : gl 3. f ; bS h : h2 4. ba7 X.",
+    "parsed_tokens": [
+      "ab4!",
+      "e:c1",
+      "e:gS",
+      "e:g1",
+      "f:bS",
+      "h:h2",
+      "ba7"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1294.png",
+    "white": [
+      "b6",
+      "f4",
+      "a3",
+      "e3",
+      "g3",
+      "b2",
+      "d2",
+      "f2",
+      "a1",
+      "e1"
+    ],
+    "black": [
+      "d6",
+      "c5",
+      "e5",
+      "d4"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1296,
+    "page": 176,
+    "error": "Главная линия, полуход 1 (белые): Ход 'be3!' не найден среди легальных: e5-d6, e5-f6, f4-g5, g3-h4, b2-a3, b2-c3, d2-c3, d2-e3",
+    "repairs_before_fail": [],
+    "raw_solution": "1296. 1. be3! ba3 (1. .. ef6 2. e: as f : d4 3. fgS h : f4 4. g: e3X) 2. eb4 a : e5 3. ed6 e : e7 4. i: i8 X .",
+    "parsed_tokens": [
+      "be3!",
+      "ba3",
+      "eb4",
+      "a:e5",
+      "ed6",
+      "e:e7"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1296.png",
+    "white": [
+      "e5",
+      "f4",
+      "g3",
+      "b2",
+      "d2",
+      "h2",
+      "e1"
+    ],
+    "black": [
+      "h8",
+      "c7",
+      "e7",
+      "b4"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1298,
+    "page": 176,
+    "error": "Не найдено решение в OCR-тексте диапазона",
+    "crop": "debug_crops\\10_f4_f6\\page176_num_1298.png",
+    "white": [
+      "f4",
+      "a3",
+      "e3",
+      "g3",
+      "d2",
+      "a1"
+    ],
+    "black": [
+      "d8",
+      "e7",
+      "a5",
+      "c5",
+      "c3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1299,
+    "page": 176,
+    "error": "Главная линия, полуход 2 (чёрные): Ход 'd:b4' не найден среди легальных: e7-f6, g7-f6, g7-h6, d6-c5",
+    "repairs_before_fail": [
+      "ply 1: OCR-ремонт: 'deS' -> 'd4-e5'"
+    ],
+    "raw_solution": "1299. 1. deS d : b4 2. a : e3 e : as 3. eb4 a : e3 4. ed4 e : e5 S. f ; h6 X .",
+    "parsed_tokens": [
+      "deS",
+      "d:b4",
+      "a:e3",
+      "eb4",
+      "a:e3",
+      "ed4",
+      "e:e5",
+      "f:h6"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1299.png",
+    "white": [
+      "b6",
+      "a5",
+      "d4",
+      "f4",
+      "e3",
+      "g3"
+    ],
+    "black": [
+      "d8",
+      "c7",
+      "e7",
+      "g7",
+      "d6"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1300,
+    "page": 177,
+    "error": "Главная линия, полуход 1 (белые): Ход 'eb4!' не найден среди легальных: c5-b6, c5-d6, f4-e5, f4-g5, c3-b4, c3-d4, e3-d4, g3-h4",
+    "repairs_before_fail": [],
+    "raw_solution": "1300. Jl. nonmOB - H. XaqaTYPoB, 1934. 1. eb4! a: e3 2. eb6! (eeml cpa3Y \"pOpblBaTbeH B naMI<H \"FeM 2. ed4? e : eS 3. f : f8 noclenyeT 3 ... cdG e : g5 4. h : h2=) 2 ... C : a5 3. ed4 e : e5 4. f: f8 X .",
+    "parsed_tokens": [
+      "eb4!",
+      "a:e3",
+      "eb6!",
+      "ed4",
+      "e:e5",
+      "f:f8"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1300.png",
+    "white": [
+      "c5",
+      "f4",
+      "c3",
+      "e3",
+      "g3",
+      "a1",
+      "c1",
+      "e1"
+    ],
+    "black": [
+      "b8",
+      "h8",
+      "c7",
+      "e7",
+      "f6",
+      "h6",
+      "a5",
+      "a3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1301,
+    "page": 177,
+    "error": "Главная линия, полуход 1 (белые): Ход 'g:e7' не найден среди легальных: e5-d6, e5-f6, a3-b4, e3-d4, c1-b2, c1-d2",
+    "repairs_before_fail": [],
+    "raw_solution": "1301. I. efo! g: e7 (1. .. g : eo 2. f : bSx) 2. aM a : c3 3. ed4 e: e5 4. f : f8 X .",
+    "parsed_tokens": [
+      "g:e7",
+      "ab4",
+      "a:c3",
+      "ed4",
+      "e:e5",
+      "f:f8"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1301.png",
+    "white": [
+      "e5",
+      "f4",
+      "a3",
+      "e3",
+      "g3",
+      "f2",
+      "c1"
+    ],
+    "black": [
+      "c7",
+      "g7",
+      "b6",
+      "h6",
+      "a5",
+      "g5",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1304,
+    "page": 177,
+    "error": "Главная линия, полуход 3 (белые): Ход 'eb4' не найден среди легальных: f4-e5, f4-g5, c3-b4, c3-d4, e3-d4, g3-h4, g1-f2, g1-h2",
+    "repairs_before_fail": [
+      "ply 2: OCR-ремонт: 'e:e7' -> 'c5:e7'"
+    ],
+    "raw_solution": "1304. 1. ed6! e : e7 (1. .. e : eS 2. f : b4 X) 2. eb4 a : e3 3. ed4 e : e5 4. f: b8x.",
+    "parsed_tokens": [
+      "ed6!",
+      "e:e7",
+      "eb4",
+      "a:e3",
+      "ed4",
+      "e:e5",
+      "f:b8x"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1304.png",
+    "white": [
+      "e5",
+      "f4",
+      "c3",
+      "e3",
+      "g3",
+      "g1"
+    ],
+    "black": [
+      "d8",
+      "f8",
+      "h8",
+      "c7",
+      "a5",
+      "c5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1305,
+    "page": 177,
+    "error": "Главная линия, полуход 1 (белые): Ход 'eb4!' не найден среди легальных: e5-d6, f4-g5, c3-b4, c3-d4, e3-d4, g3-h4, c1-b2, c1-d2",
+    "repairs_before_fail": [],
+    "raw_solution": "1305. 1. eb4! a: e3 (1. .. f : d4 2. b : bSx) 2. ed6 e : e73. ed4 e : e5 4. f: b8 X.",
+    "parsed_tokens": [
+      "eb4!",
+      "a:e3",
+      "ed6",
+      "e:e7",
+      "ed4",
+      "e:e5",
+      "f:b8"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1305.png",
+    "white": [
+      "e5",
+      "f4",
+      "c3",
+      "e3",
+      "g3",
+      "f2",
+      "c1",
+      "e1"
+    ],
+    "black": [
+      "h8",
+      "c7",
+      "g7",
+      "f6",
+      "h6",
+      "a5",
+      "c5",
+      "a3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1306,
+    "page": 177,
+    "error": "Главная линия, полуход 1 (белые): Ход 'c:eS' не найден среди легальных: a7-b8, e5-d6, e5-f6, g5-f6, a3-b4, c3-b4, c3-d4, g3-h4",
+    "repairs_before_fail": [],
+    "raw_solution": "1306. A. CaJIbHHKoB. 1. eel6! c : eS 2. f : fS h : h2 3. a : e7 b : d6 4. ed4 e: e3 5. f: gl X.",
+    "parsed_tokens": [
+      "c:eS",
+      "f:fS",
+      "h:h2",
+      "a:e7",
+      "b:d6",
+      "ed4",
+      "e:e3",
+      "f:g1"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1306.png",
+    "white": [
+      "f8",
+      "a7",
+      "a5",
+      "e5",
+      "g5",
+      "f4",
+      "a3",
+      "c3",
+      "g3"
+    ],
+    "black": [
+      "c7",
+      "b6",
+      "h6",
+      "c5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1310,
+    "page": 177,
+    "error": "Главная линия, полуход 6 (чёрные): Ход 'f:fS' не найден среди легальных: a7-b6, e7-d6, e7-f6",
+    "repairs_before_fail": [
+      "ply 1: Восстановлен пропущенный OCR вынужденный бой -> 'g7:e5'",
+      "ply 3: OCR-ремонт: 'e:c1' -> 'c3:a5:c7'",
+      "ply 4: OCR-ремонт: 'eb4' -> 'c5-b4'",
+      "ply 5: OCR-ремонт: 'a:eS' -> 'a3:c5'"
+    ],
+    "raw_solution": "1310. H. KYKyeB. 1. ab4! e : c1 4. g: 2. eb4 a : eS 3. f: fS e : f4 g7x.",
+    "parsed_tokens": [
+      "ab4!",
+      "e:c1",
+      "eb4",
+      "a:eS",
+      "f:fS",
+      "e:f4"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1310.png",
+    "white": [
+      "g7",
+      "d4",
+      "f4",
+      "a3",
+      "c3",
+      "e3",
+      "g3",
+      "b2",
+      "f2",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "e7",
+      "b6",
+      "f6",
+      "h6",
+      "a5",
+      "c5",
+      "g5",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1312,
+    "page": 178,
+    "error": "Главная линия, полуход 2 (чёрные): Ход 'ba3' не найден среди легальных: g5:e3:g1, g5:e3:c5, b4:d2",
+    "repairs_before_fail": [],
+    "raw_solution": "1312. 1. ed4! ba3 (1. .. be3 2. ba3 e : e5 3. f : fS X) 2. de5 a: c1 3. ef6 g: e5 4. f: f8 e : f4 5. g: eS X .",
+    "parsed_tokens": [
+      "ed4!",
+      "ba3",
+      "de5",
+      "a:c1",
+      "ef6",
+      "g:e5",
+      "f:f8",
+      "e:f4",
+      "g:eS"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1312.png",
+    "white": [
+      "a5",
+      "f4",
+      "c3",
+      "e3",
+      "g3",
+      "b2",
+      "f2",
+      "h2",
+      "e1"
+    ],
+    "black": [
+      "b8",
+      "d8",
+      "h8",
+      "c7",
+      "e7",
+      "g7",
+      "h6",
+      "g5",
+      "b4"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1314,
+    "page": 178,
+    "error": "Главная линия, полуход 1 (белые): Ход 'be5!' не найден среди легальных: b4-c5, d4-c5, d4-e5, f4-e5, f4-g5, g3-h4",
+    "repairs_before_fail": [],
+    "raw_solution": "1314. H. KYKyeB - A. OpexoB, 1930. 1. be5! d : d2 2. ab4 a : e5 3. f:c1x.",
+    "parsed_tokens": [
+      "be5!",
+      "d:d2",
+      "ab4",
+      "a:e5",
+      "f:c1x"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1314.png",
+    "white": [
+      "b4",
+      "d4",
+      "f4",
+      "a3",
+      "c3",
+      "g3"
+    ],
+    "black": [
+      "e7",
+      "g7",
+      "b6",
+      "d6",
+      "f6",
+      "a5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1316,
+    "page": 178,
+    "error": "Главная линия, полуход 1 (белые): Ход 'be5!' не найден среди легальных: b4-c5, d4-c5, d4-e5, f4-e5",
+    "repairs_before_fail": [],
+    "raw_solution": "1316. 1. be5! d : d2 2. ab4 a : e5 3. f : f8 h : f4 4. f : c1 x.",
+    "parsed_tokens": [
+      "be5!",
+      "d:d2",
+      "ab4",
+      "a:e5",
+      "f:f8",
+      "h:f4",
+      "f:c1"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1316.png",
+    "white": [
+      "g5",
+      "b4",
+      "d4",
+      "f4",
+      "h4",
+      "a3",
+      "c3",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "b8",
+      "d8",
+      "a7",
+      "e7",
+      "g7",
+      "b6",
+      "d6",
+      "f6",
+      "h6",
+      "a5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1318,
+    "page": 178,
+    "error": "Главная линия, полуход 4 (чёрные): Ход 'a:e3' не найден среди легальных: f6:d4:b2",
+    "repairs_before_fail": [],
+    "raw_solution": "1318. A. fypaJIbHHK. 1. ef2! (e yrpo30H 2. de5) 1 ... ba5 2. de5! a: e3 3. fg3 d : b4 4. ed4 e : e5 5. f: h6 h : f4 6. h : h4 X .",
+    "parsed_tokens": [
+      "ef2!",
+      "ba5",
+      "de5!",
+      "a:e3",
+      "fg3",
+      "d:b4",
+      "ed4",
+      "e:e5",
+      "f:h6",
+      "h:f4",
+      "h:h4"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1318.png",
+    "white": [
+      "b4",
+      "d4",
+      "f4",
+      "c3",
+      "e3",
+      "e1",
+      "g1"
+    ],
+    "black": [
+      "c7",
+      "e7",
+      "g7",
+      "b6",
+      "d6",
+      "f6",
+      "h2"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1319,
+    "page": 178,
+    "error": "Главная линия, полуход 5 (белые): Ход 'a:e3' не найден среди легальных: f4-e5, f4-g5, g1-f2, a3-b4",
+    "repairs_before_fail": [
+      "ply 1: OCR-ремонт: 'de5!' -> 'd4-c5'",
+      "ply 3: Восстановлен пропущенный OCR вынужденный бой -> 'c1:a3'",
+      "ply 4: Вынужденный бой (OCR 'de3' -> 'a5:c3:e1')"
+    ],
+    "raw_solution": "1319. M. PaxYHoB. 1. de5! f : b2 2. de3 a : e3 3. gf2! d : b4 4. fg3 e : a5 5. ed4 e: e5 6. f: h6 h : f4 7. h: f8 X .",
+    "parsed_tokens": [
+      "de5!",
+      "f:b2",
+      "de3",
+      "a:e3",
+      "gf2!",
+      "d:b4",
+      "fg3",
+      "e:a5",
+      "ed4",
+      "e:e5",
+      "f:h6",
+      "h:f4",
+      "h:f8"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1319.png",
+    "white": [
+      "a7",
+      "b6",
+      "e5",
+      "b4",
+      "d4",
+      "f4",
+      "c3",
+      "d2",
+      "c1",
+      "g1"
+    ],
+    "black": [
+      "b8",
+      "d8",
+      "c7",
+      "e7",
+      "g7",
+      "d6",
+      "f6",
+      "a5",
+      "h2"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1323,
+    "page": 178,
+    "error": "Главная линия, полуход 3 (белые): Ход 'e:g7' не найден среди легальных: c3:e5, e3:c5",
+    "repairs_before_fail": [
+      "ply 2: OCR-ремонт: 'b:d4' -> 'f6:d4'"
+    ],
+    "raw_solution": "1323. J. de5! b: d4 2. e : g7 h : i6 (2 ... a : al 3. hg3 H T. ,n.) 3. hg3 a : a 1 4. ed4 a: e5 5. f: b8 X .",
+    "parsed_tokens": [
+      "de5!",
+      "b:d4",
+      "e:g7",
+      "hg3",
+      "a:a1",
+      "ed4",
+      "a:e5",
+      "f:b8"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1323.png",
+    "white": [
+      "b4",
+      "d4",
+      "f4",
+      "c3",
+      "e3",
+      "b2",
+      "d2",
+      "f2",
+      "h2",
+      "e1",
+      "g1"
+    ],
+    "black": [
+      "f8",
+      "h8",
+      "a7",
+      "c7",
+      "e7",
+      "b6",
+      "f6",
+      "h6",
+      "a5",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1324,
+    "page": 179,
+    "error": "Главная линия, полуход 4 (чёрные): Ход 'a:a1' не найден среди легальных: a5:c3",
+    "repairs_before_fail": [
+      "ply 2: OCR-ремонт: 'b:d4' -> 'f6:d4'",
+      "ply 3: OCR-ремонт: 'e:e7' -> 'c3:e5:c7'"
+    ],
+    "raw_solution": "1324. 1. de5! b : d4 2. e: e7 a : al 3. fg3 d : b6 4. ed4 a : e55. f : h6X (eM. TaK)Ke D,uarp. 741).",
+    "parsed_tokens": [
+      "de5!",
+      "b:d4",
+      "e:e7",
+      "a:a1",
+      "fg3",
+      "d:b6",
+      "ed4",
+      "a:e5",
+      "f:h6X"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1324.png",
+    "white": [
+      "b4",
+      "d4",
+      "f4",
+      "a3",
+      "c3",
+      "e3",
+      "b2",
+      "f2",
+      "a1",
+      "c1"
+    ],
+    "black": [
+      "d8",
+      "a7",
+      "e7",
+      "g7",
+      "b6",
+      "d6",
+      "f6",
+      "a5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1325,
+    "page": 179,
+    "error": "Главная линия, полуход 7 (белые): Ход 'eb2' не найден среди легальных: b6-a7, g3-h4, c1-b2, c1-d2, e1-d2, e1-f2, f4-e5, f4-g5",
+    "repairs_before_fail": [
+      "ply 2: OCR-ремонт: 'e:e3' -> 'e5:c3'",
+      "ply 4: Восстановлен пропущенный OCR вынужденный бой -> 'c3:a1'",
+      "ply 6: OCR-ремонт: 'a:e3' -> 'a5:c3'"
+    ],
+    "raw_solution": "1325. C. PyeaKoB. 1. ef4! e : e3 2. ab2! e : 81 3. ab4 a : e34. eb2 e : a5 5. b : d4 a: e5 6. f: h6x (eM. TaK)Ke,nHarp. 775,1691,1931,2296),",
+    "parsed_tokens": [
+      "ef4!",
+      "e:e3",
+      "ab2!",
+      "ab4",
+      "a:e3",
+      "eb2",
+      "e:a5",
+      "b:d4",
+      "a:e5",
+      "f:h6x"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1325.png",
+    "white": [
+      "b6",
+      "d4",
+      "a3",
+      "e3",
+      "g3",
+      "a1",
+      "c1",
+      "e1"
+    ],
+    "black": [
+      "b8",
+      "d8",
+      "c7",
+      "e7",
+      "g7",
+      "f6",
+      "a5",
+      "e5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1326,
+    "page": 179,
+    "error": "Главная линия, полуход 5 (белые): Ход 'a:a1' не найден среди легальных: a3:c5, c3:a5",
+    "repairs_before_fail": [
+      "ply 1: OCR-ремонт: 'be5!' -> 'b4-c5'",
+      "ply 3: Восстановлен пропущенный OCR вынужденный бой -> 'e1:c3'"
+    ],
+    "raw_solution": "1326. A. KOBPH>KKHH. 1. be5! d : d2 2. ab4! a : al 3. ed4 a : e5 4. f : b8 h : f4 5. e : e7 f : d6 6. b : h8 X .",
+    "parsed_tokens": [
+      "be5!",
+      "d:d2",
+      "ab4!",
+      "a:a1",
+      "ed4",
+      "a:e5",
+      "f:b8",
+      "h:f4",
+      "e:e7",
+      "f:d6",
+      "b:h8"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1326.png",
+    "white": [
+      "b4",
+      "f4",
+      "a3",
+      "c3",
+      "e3",
+      "g3",
+      "b2",
+      "c1",
+      "e1",
+      "g1"
+    ],
+    "black": [
+      "f8",
+      "a7",
+      "c7",
+      "g7",
+      "d6",
+      "f6",
+      "h6",
+      "a5",
+      "h2"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1327,
+    "page": 179,
+    "error": "Главная линия, полуход 2 (чёрные): Ход 'a:e1' не найден среди легальных: b8-c7, g7-h6, b6-a5, d6-e5, f6-e5, f6-g5, a3-b2",
+    "repairs_before_fail": [
+      "ply 1: OCR-ремонт: 'ed4!' -> 'c3-d4'"
+    ],
+    "raw_solution": "1327. A. fypaJIbHHK. J. ed4! a: el (1. .. a : e5 2. de3 b : d4 3. e : e5 d : b4 4. f : h6 X) 2. ab2! d : b4 3. fe3! e : h4 4. ed2! a : cl 5. hg3 h : e5 6. f : h6 e : g5 7. h : h4 X .",
+    "parsed_tokens": [
+      "ed4!",
+      "a:e1",
+      "ab2!",
+      "d:b4",
+      "fe3!",
+      "e:h4",
+      "ed2!",
+      "a:c1",
+      "hg3",
+      "h:e5",
+      "f:h6",
+      "e:g5",
+      "h:h4"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1327.png",
+    "white": [
+      "c5",
+      "b4",
+      "f4",
+      "c3",
+      "g3",
+      "d2",
+      "f2",
+      "h2",
+      "a1",
+      "c1",
+      "e1",
+      "g1"
+    ],
+    "black": [
+      "b8",
+      "h8",
+      "a7",
+      "e7",
+      "g7",
+      "b6",
+      "d6",
+      "f6",
+      "a3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1330,
+    "page": 179,
+    "error": "Главная линия, полуход 2 (чёрные): Ход 'e:e3' не найден среди легальных: d8-e7, c7-d6, g7-h6, a5-b4, e5-f4, g5-f4, g5-h4",
+    "repairs_before_fail": [],
+    "raw_solution": "1330. 1. ed4! e : e32. d : b4 a : e3 3. gf4 e : a5 4. f : f8x (eM. TaK)Ke .ll,Harp. 1847).",
+    "parsed_tokens": [
+      "ed4!",
+      "e:e3",
+      "d:b4",
+      "a:e3",
+      "gf4",
+      "e:a5",
+      "f:f8x"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1330.png",
+    "white": [
+      "a7",
+      "b6",
+      "a3",
+      "c3",
+      "e3",
+      "g3",
+      "d2",
+      "a1",
+      "e1",
+      "g1"
+    ],
+    "black": [
+      "b8",
+      "d8",
+      "c7",
+      "g7",
+      "f6",
+      "a5",
+      "e5",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1331,
+    "page": 179,
+    "error": "Главная линия, полуход 6 (чёрные): Ход 'd:b4' не найден среди легальных: e5:g3",
+    "repairs_before_fail": [
+      "ply 2: OCR-ремонт: 'e:a5' -> 'c7:a5'",
+      "ply 4: OCR-ремонт: 'a:e5' -> 'd6-e5'",
+      "ply 5: OCR-ремонт: 'ef4' -> 'g3-f4'"
+    ],
+    "raw_solution": "1331. 1. ab6! e: a5 2. ed4 a: e5 3. ef4 cl: b4 4. f: h6X.",
+    "parsed_tokens": [
+      "ab6!",
+      "e:a5",
+      "ed4",
+      "a:e5",
+      "ef4",
+      "d:b4",
+      "f:h6X"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1331.png",
+    "white": [
+      "a5",
+      "c5",
+      "b4",
+      "c3",
+      "e3",
+      "g3",
+      "a1",
+      "c1"
+    ],
+    "black": [
+      "b8",
+      "d8",
+      "c7",
+      "e7",
+      "g7",
+      "d6",
+      "f6"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1332,
+    "page": 179,
+    "error": "Главная линия, полуход 6 (чёрные): Ход 'd:b4' не найден среди легальных: e5:g3",
+    "repairs_before_fail": [
+      "ply 4: OCR-ремонт: 'a:e5' -> 'd6-e5'",
+      "ply 5: OCR-ремонт: 'ef4' -> 'g3-f4'"
+    ],
+    "raw_solution": "1332. A. nJIaKXHH - B. fpaKOBHlJ, 1964. 1. ed4! h : f2 (1. .. a : e5 2. ef4 H T . .ll,.) 2. e: g3 a: e53. ef4 d : b4 4. f: f8X (eM. TaK)Ke ,nHarp. 755, 1872).",
+    "parsed_tokens": [
+      "ed4!",
+      "h:f2",
+      "e:g3",
+      "a:e5",
+      "ef4",
+      "d:b4",
+      "f:f8X"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1332.png",
+    "white": [
+      "c5",
+      "b4",
+      "c3",
+      "e3",
+      "g3",
+      "b2",
+      "a1",
+      "c1",
+      "e1",
+      "g1"
+    ],
+    "black": [
+      "b8",
+      "d8",
+      "h8",
+      "a7",
+      "c7",
+      "e7",
+      "d6",
+      "f6",
+      "a5",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1333,
+    "page": 179,
+    "error": "Главная линия, полуход 5 (белые): Ход 'ef4' не найден среди легальных: d4:f6:d8:b6, d4:f6:d8:a5",
+    "repairs_before_fail": [
+      "ply 4: OCR-ремонт: 'a:e5' -> 'd6-e5'"
+    ],
+    "raw_solution": "1333. 1. gf4! e : g3 2. ed4 a : e5 3. ef4 d : b4 4. f : h6, H Ha 4 ..• gh2-5. fg3 h : f4 6. h: d8X (eM. TaK)Ke ,nHarp. 1778).",
+    "parsed_tokens": [
+      "gf4!",
+      "e:g3",
+      "ed4",
+      "a:e5",
+      "ef4",
+      "d:b4",
+      "f:h6"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1333.png",
+    "white": [
+      "c5",
+      "b4",
+      "h4",
+      "a3",
+      "c3",
+      "e3",
+      "g3",
+      "f2",
+      "a1",
+      "c1",
+      "e1"
+    ],
+    "black": [
+      "b8",
+      "h8",
+      "a7",
+      "c7",
+      "e7",
+      "g7",
+      "d6",
+      "e5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1334,
+    "page": 179,
+    "error": "Главная линия, полуход 2 (чёрные): Ход 'e:e3' не найден среди легальных: d8-c7, g7-h6, f6-g5, e5-f4",
+    "repairs_before_fail": [],
+    "raw_solution": "1334. 1. ed4! e: e3 (l. .. a : e3 2. ef4 d : b4 3. f: h6x) 2. b: d4 a: e5 3. ef4 d: b4 4. f: h6X (eM. TaK)Ke .ll,Harp. 756).",
+    "parsed_tokens": [
+      "ed4!",
+      "e:e3",
+      "b:d4",
+      "a:e5",
+      "ef4",
+      "d:b4",
+      "f:h6X"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1334.png",
+    "white": [
+      "c5",
+      "b4",
+      "c3",
+      "e3",
+      "g3",
+      "b2",
+      "a1",
+      "c1"
+    ],
+    "black": [
+      "d8",
+      "h8",
+      "e7",
+      "g7",
+      "d6",
+      "f6",
+      "a5",
+      "e5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1337,
+    "page": 180,
+    "error": "Главная линия, полуход 3 (белые): Ход 'a:e3' не найден среди легальных: b6-c7, g3-f4, g3-h4",
+    "repairs_before_fail": [
+      "ply 1: OCR-ремонт: 'ed6!' -> 'c5-d6'"
+    ],
+    "raw_solution": "1337. H,neH M. npH6blJIbeKoro. 1. ed6! e: e3 (1. .. a : e3 2. d : a3X' 2. gf4 a: e5 3. f: f4 X .",
+    "parsed_tokens": [
+      "ed6!",
+      "e:e3",
+      "a:e3",
+      "gf4",
+      "a:e5",
+      "f:f4"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1337.png",
+    "white": [
+      "b6",
+      "c5",
+      "d4",
+      "g3"
+    ],
+    "black": [
+      "a7",
+      "e7",
+      "g7",
+      "g5",
+      "b2"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1338,
+    "page": 180,
+    "error": "Главная линия, полуход 1 (белые): Ход 'eb6!' не найден среди легальных: c5-b6, c5-d6, e5-d6, h2-g3, a1-b2, e1-d2, e1-f2",
+    "repairs_before_fail": [],
+    "raw_solution": "1338. 6. lllaBep)!,SlH. 1. eb6! a : e3 2. hg3 a : e3 3. gf4 f : d4 4. f : f4 ed6 5. f: e7 b : d6 6. ab4!, H lJepHblM He enaeTHeb. Haii.ll,IITe BbIHrpbIIli eaMoeTOHTeJIbHO.",
+    "parsed_tokens": [
+      "eb6!",
+      "a:e3",
+      "hg3",
+      "a:e3",
+      "gf4",
+      "f:d4",
+      "f:f4",
+      "ed6",
+      "f:e7",
+      "b:d6",
+      "ab4!"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1338.png",
+    "white": [
+      "c5",
+      "e5",
+      "b4",
+      "d4",
+      "a3",
+      "h2",
+      "a1",
+      "e1"
+    ],
+    "black": [
+      "b8",
+      "a7",
+      "c7",
+      "e7",
+      "g7",
+      "f6",
+      "a5",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1340,
+    "page": 180,
+    "error": "Главная линия, полуход 2 (чёрные): Ход 'a:e1' не найден среди легальных: c7-d6, b6-c5, a5-b4",
+    "repairs_before_fail": [
+      "ply 1: Вынужденный бой (OCR 'eb4!' -> 'h8:f6:h4')"
+    ],
+    "raw_solution": "1340. 1. eb4! a : el 2. gf4 e : g3 3. f : f8 g : d6 4. f : a7X (eM. TaK)Ke )!,lIarp. 1045, 1060, 2306).",
+    "parsed_tokens": [
+      "eb4!",
+      "a:e1",
+      "gf4",
+      "e:g3",
+      "f:f8",
+      "g:d6",
+      "f:a7X"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1340.png",
+    "white": [
+      "h8",
+      "e5",
+      "c3",
+      "e3",
+      "g3",
+      "d2",
+      "f2"
+    ],
+    "black": [
+      "c7",
+      "g7",
+      "b6",
+      "a5",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1344,
+    "page": 180,
+    "error": "Главная линия, полуход 2 (чёрные): Ход 'fe3' не найден среди легальных: a7-b6, g7-f6, g7-h6, g5-f4, g5-h4, c3-b2, c3-d2",
+    "repairs_before_fail": [],
+    "raw_solution": "1344. ,ltIK. fiepHM3H. 1. gf2! fe3 (ocTaJIbHOe TaK)Ke He BbllIrpblBaeTy6e)!,lITeCb caMoCTOllTeJIbHo) 2. hg3! e : gl 3. ef2! g : e3 4. ab6 a : c5 5. gf4, 1I HIIIJbll. HanpllMep, 5 ... cb2 6. f : b4 bal 7. ba5.",
+    "parsed_tokens": [
+      "gf2!",
+      "fe3",
+      "hg3!",
+      "e:g1",
+      "ef2!",
+      "g:e3",
+      "ab6",
+      "a:c5",
+      "gf4"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1344.png",
+    "white": [
+      "a5",
+      "h2",
+      "c1",
+      "e1",
+      "g1"
+    ],
+    "black": [
+      "a7",
+      "g7",
+      "g5",
+      "c3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1346,
+    "page": 180,
+    "error": "Главная линия, полуход 1 (белые): Ход 'ab6!' не найден среди легальных: h8:f6:d4, h8:f6:d8:b6",
+    "repairs_before_fail": [],
+    "raw_solution": "1346. 1. ab6! e : a5 2. ab4 d : b2 3. de3 a : c3 4. gf6 e : g5 5. f : c1 X.",
+    "parsed_tokens": [
+      "ab6!",
+      "e:a5",
+      "ab4",
+      "d:b2",
+      "de3",
+      "a:c3",
+      "gf6",
+      "e:g5",
+      "f:c1"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1346.png",
+    "white": [
+      "h8",
+      "a5",
+      "g5",
+      "f4",
+      "a3",
+      "c3",
+      "g3",
+      "d2"
+    ],
+    "black": [
+      "b8",
+      "c7",
+      "e7",
+      "g7",
+      "d6",
+      "e5"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1347,
+    "page": 180,
+    "error": "Главная линия, полуход 11 (белые): Ход 'f:a3' не найден среди легальных: a3:e7, a3:f8",
+    "repairs_before_fail": [
+      "ply 9: Вынужденный бой (OCR 'f:f8' -> 'f4:h6:f8:a3')"
+    ],
+    "raw_solution": "1347. M. BaJl. 1. dc5! ba3 (1. .. bc3 2. b : d4 d : b4 3. dc5 b : d6 4. gh6 X) 2. gf2! a: c1 3. fe3 d : b4 4. gf6 e : g5 5. f : 18 c : d6 6. f: a3 X . dlHHAnbHblR YAAP WAWKOR f6 TaKTH4ecIH1e 3I1eMeHTbl KOM6HHau,HH 1. Y)!,aJIeHHe qepHOH llIallIKlI e nOJIll d8. 2. DepeBo)!' qepHOH: llIaUlKII Ha rrOJIe e7. 3. DepeBo)!' 6eJIOH: llIallIKIl Ha nOJIe f6.",
+    "parsed_tokens": [
+      "dc5!",
+      "ba3",
+      "gf2!",
+      "a:c1",
+      "fe3",
+      "d:b4",
+      "gf6",
+      "e:g5",
+      "f:f8",
+      "c:d6",
+      "f:a3"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1347.png",
+    "white": [
+      "e5",
+      "g5",
+      "d4",
+      "f4",
+      "b2",
+      "g1"
+    ],
+    "black": [
+      "d8",
+      "c7",
+      "e7",
+      "g7",
+      "d6",
+      "b4"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1348,
+    "page": 183,
+    "error": "Главная линия, полуход 7 (белые): Ход 'e:a1' не найден среди легальных: c1-b2, c1-d2, a5-b6, a5-c7, a5-d8",
+    "repairs_before_fail": [
+      "ply 3: OCR-ремонт: 'be7' -> 'b6-c7'"
+    ],
+    "raw_solution": "1348. M. 6yraeB. 1. hg3! f : h4 2. be7 d : b6 3. f : a5 h : f6 4. eb21 e : al 5. a: h8 X.",
+    "parsed_tokens": [
+      "hg3!",
+      "f:h4",
+      "be7",
+      "d:b6",
+      "f:a5",
+      "h:f6",
+      "e:a1",
+      "a:h8"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1348.png",
+    "white": [
+      "b8",
+      "b6",
+      "f6",
+      "g5",
+      "h2",
+      "c1"
+    ],
+    "black": [
+      "d8",
+      "e7",
+      "b4",
+      "c3",
+      "f2"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1349,
+    "page": 183,
+    "error": "Главная линия, полуход 4 (чёрные): Ход 'b:d6' не найден среди легальных: d8-c7, f8-g7, h8-g7, e7-d6, g5-f4, b4-c3, h4-g3, a3-b2",
+    "repairs_before_fail": [
+      "ply 1: OCR-ремонт: 'eb6!' -> 'c5-b6'",
+      "ply 2: OCR-ремонт: 'e:a5' -> 'c7:a5'",
+      "ply 3: OCR-ремонт: 'deS!' -> 'd4-e5'"
+    ],
+    "raw_solution": "1349. M. KpyneHbKoB. 1. eb6! e : a5 2. deS! b : d6 3. eb2 a : c1 4. de3 e : f4 5. fg3 h : f2 6. e : e7 d : b6 7. f : d8x.",
+    "parsed_tokens": [
+      "eb6!",
+      "e:a5",
+      "deS!",
+      "b:d6",
+      "eb2",
+      "a:c1",
+      "de3",
+      "e:f4",
+      "fg3",
+      "h:f2",
+      "e:e7",
+      "d:b6",
+      "f:d8x"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1349.png",
+    "white": [
+      "f6",
+      "c5",
+      "d4",
+      "e3",
+      "d2",
+      "f2",
+      "h2",
+      "c1",
+      "e1"
+    ],
+    "black": [
+      "d8",
+      "f8",
+      "h8",
+      "c7",
+      "e7",
+      "g5",
+      "b4",
+      "h4",
+      "a3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1350,
+    "page": 183,
+    "error": "Главная линия, полуход 1 (белые): Ход 'ab6!' не найден среди легальных: f6-e7, f6-g7, g5-h6, f4-e5, d2-c3, d2-e3, f2-e3, f2-g3",
+    "repairs_before_fail": [],
+    "raw_solution": "1350. T. MapKYc. 1. fe5! dc3 2. de3 cd2 (H36eraH yrp03bl 3. ed6) 3. ed4! C : gl 4. c : e3 g : c5 (4 ... g : d4 5. e : e7 x) 5. ed6 c : e7 6. f: eJ X. 6. Ka3apHc, 1933. 1. ab6! a: e5 2. ed41",
+    "parsed_tokens": [
+      "ab6!",
+      "a:e5"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1350.png",
+    "white": [
+      "f6",
+      "g5",
+      "f4",
+      "d2",
+      "f2",
+      "c1"
+    ],
+    "black": [
+      "f8",
+      "h8",
+      "b6",
+      "c5",
+      "b4",
+      "d4"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1351,
+    "page": 183,
+    "error": "Не найдено решение в OCR-тексте диапазона",
+    "crop": "debug_crops\\10_f4_f6\\page183_num_1351.png",
+    "white": [
+      "b6",
+      "a5",
+      "e5",
+      "f4",
+      "e3",
+      "g3",
+      "b2",
+      "d2",
+      "c1",
+      "e1"
+    ],
+    "black": [
+      "a7",
+      "c7",
+      "e7",
+      "d6",
+      "h6",
+      "h4",
+      "a3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1352,
+    "page": 183,
+    "error": "Главная линия, полуход 3 (белые): Ход 'ab4!' не найден среди легальных: c5-b6, c5-d6, d4-e5, h2-g3",
+    "repairs_before_fail": [],
+    "raw_solution": "1352. 10. KacnapoB ~ 10. ApYCTaMOB, 1969. 1. de5! KOM6lIHalJ,HIO MO)KHO HaqaTb XO)J.OM 1. ab4! 1. .. e: gl 2. ab4! g: b6 3. ef6 a : c3 4. f: h6 X . .",
+    "parsed_tokens": [
+      "ab4!",
+      "e:g1",
+      "ab4!",
+      "g:b6",
+      "ef6",
+      "a:c3",
+      "f:h6"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1352.png",
+    "white": [
+      "c5",
+      "d4",
+      "a3",
+      "f2",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "e7",
+      "a5",
+      "g5",
+      "e3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1359,
+    "page": 184,
+    "error": "Главная линия, полуход 1 (белые): Ход 'eb6!' не найден среди легальных: c5-b6, c5-d6, e5-d6, e5-f6, f4-g5, h2-g3, c1-b2, c1-d2",
+    "repairs_before_fail": [],
+    "raw_solution": "1359. H)J,ell A. ~eMHllIeBa. 1. eb6! a : g5 2. hg3! a : e3 3. ef6 h : f2 4. f:f6X.",
+    "parsed_tokens": [
+      "eb6!",
+      "a:g5",
+      "hg3!",
+      "a:e3",
+      "ef6",
+      "h:f2",
+      "f:f6X"
+    ],
+    "crop": "debug_crops\\10_f4_f6\\puzzle_1359.png",
+    "white": [
+      "c5",
+      "e5",
+      "b4",
+      "d4",
+      "f4",
+      "a3",
+      "h2",
+      "c1"
+    ],
+    "black": [
+      "b8",
+      "f8",
+      "a7",
+      "c7",
+      "e7",
+      "h6",
+      "a5",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1363,
+    "page": 185,
+    "error": "Не найдено решение в OCR-тексте диапазона",
+    "crop": "debug_crops\\10_f4_f6\\page185_num_1363.png",
+    "white": [
+      "a5",
+      "e5",
+      "f4",
+      "c3",
+      "h2",
+      "a1",
+      "e1"
+    ],
+    "black": [
+      "b8",
+      "h8",
+      "a7",
+      "e7",
+      "g7",
+      "g3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1364,
+    "page": 185,
+    "error": "Не найдено решение в OCR-тексте диапазона",
+    "crop": "debug_crops\\10_f4_f6\\page185_num_1364.png",
+    "white": [
+      "b6",
+      "e5",
+      "b4",
+      "f4",
+      "c3",
+      "e3",
+      "h2",
+      "e1"
+    ],
+    "black": [
+      "b8",
+      "c7",
+      "e7",
+      "g7",
+      "d6",
+      "g3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  },
+  {
+    "number": 1365,
+    "page": 185,
+    "error": "Не найдено решение в OCR-тексте диапазона",
+    "crop": "debug_crops\\10_f4_f6\\page185_num_1365.png",
+    "white": [
+      "a5",
+      "b4",
+      "f4",
+      "a3",
+      "c3",
+      "e3",
+      "h2"
+    ],
+    "black": [
+      "b8",
+      "f8",
+      "b6",
+      "d6",
+      "c5",
+      "g3"
+    ],
+    "whiteKings": [],
+    "blackKings": []
+  }
+]

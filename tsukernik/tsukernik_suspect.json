@@ -1,0 +1,4851 @@
+[
+  {
+    "id": "tsukernik-42",
+    "number": 42,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b4",
+      "d2",
+      "f2",
+      "f4",
+      "g1",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "b6",
+      "b8",
+      "d6",
+      "e5",
+      "h4",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-g5",
+      "h6:f4",
+      "f2-e3",
+      "h4:f2:d4",
+      "b4-c5",
+      "d6:b4",
+      "a3:c5:a7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №42"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1245,
+    "auditError": "Подозрительный финал: белые потеряли материал (+1 -> -1) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-67",
+    "number": 67,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c1",
+      "f2",
+      "f4",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "c5",
+      "d4",
+      "d6",
+      "e5",
+      "f6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-b2",
+      "c5-b4",
+      "f2-e3",
+      "d4:f2:h4",
+      "b2-a3",
+      "e5:g3",
+      "a3:c5:e7:g5",
+      "h4:f6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №67"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1680,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-70",
+    "number": 70,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a5",
+      "c1",
+      "c3",
+      "d2",
+      "g1"
+    ],
+    "black": [
+      "b4",
+      "b8",
+      "c5",
+      "c7",
+      "f6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-d4",
+      "c5:e3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №70"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1070,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-77",
+    "number": 77,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "a5",
+      "b4",
+      "c1",
+      "c3",
+      "d2",
+      "g1",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "c7",
+      "d4",
+      "d6",
+      "e5",
+      "e7",
+      "f4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b4-c5",
+      "d4:b2",
+      "h4-g5",
+      "b6:d4",
+      "g5:e3:c5",
+      "d6:b4"
+    ],
+    "branches": [
+      {
+        "afterPly": 3,
+        "moves": [
+          "d6:b4",
+          "a5:c3:a1"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №77"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1670,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-89",
+    "number": 89,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "KpaebKo - MOp030B",
+    "goal": "win",
+    "white": [
+      "a3",
+      "a5",
+      "b4",
+      "c1",
+      "e1",
+      "f2",
+      "f4",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "b8",
+      "c7",
+      "d4",
+      "d6",
+      "e5",
+      "f6",
+      "f8",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b4-c5",
+      "d4:b6",
+      "f2-e3",
+      "h4:f2:d4",
+      "a3-b4",
+      "e5:g3",
+      "b4-c5",
+      "d6:b4",
+      "a5:c3:e5:g7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №89"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1715,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-119",
+    "number": 119,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "a. U.YKepHHK",
+    "goal": "win",
+    "white": [
+      "a3",
+      "a5",
+      "c1",
+      "c3",
+      "e3",
+      "f2",
+      "f4",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "b8",
+      "c5",
+      "d6",
+      "d8",
+      "e5",
+      "f8",
+      "g7",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a3-b4",
+      "c5:a3",
+      "e3-d4",
+      "g7-f6",
+      "f2-e3",
+      "h4:f2",
+      "c1-d2",
+      "e5:g3",
+      "c3-b4",
+      "a3:c5",
+      "d4:b6",
+      "f2:d4",
+      "b6-c7",
+      "d8:b6",
+      "a5:c7:e5:g7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №119"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1800,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-122",
+    "number": 122,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b4",
+      "b6",
+      "c3",
+      "c5",
+      "e1",
+      "e3",
+      "h6"
+    ],
+    "black": [
+      "a7",
+      "b8",
+      "d8",
+      "e7",
+      "g3",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h6-g7",
+      "h8:f6",
+      "e1-f2",
+      "g3:e1",
+      "b4-a5",
+      "e1:b4:d6",
+      "b6-c7",
+      "d8:b6",
+      "a5:c7:e5:g7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №122"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1715,
+    "auditError": "Подозрительный финал: белые потеряли материал (+1 -> -1) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-124",
+    "number": 124,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b2",
+      "b4",
+      "b6",
+      "c1",
+      "c3",
+      "g1"
+    ],
+    "black": [
+      "b8",
+      "d8",
+      "e3",
+      "e7",
+      "f6",
+      "g3"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-d2",
+      "e3:c1",
+      "g1-f2",
+      "g3:e1",
+      "b4-a5",
+      "e1:b4",
+      "a3:c5",
+      "c1:a3:d6",
+      "b6-c7",
+      "d8:b6",
+      "a5:c7:e5:g7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №124"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 2185,
+    "auditError": "Подозрительный финал: белые потеряли материал (+1 -> -1) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-125",
+    "number": 125,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "A. MYJIbTax",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b2",
+      "c5",
+      "d2",
+      "d4",
+      "e3",
+      "f2",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "b8",
+      "e7",
+      "f4",
+      "f6",
+      "g5",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h2-g3",
+      "f4:h2",
+      "e3-f4",
+      "g5:e3:c1",
+      "a3-b4",
+      "c1:a3",
+      "b4-a5",
+      "a3:d6",
+      "a5:c7:e5:g7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №125"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 2195,
+    "auditError": "Подозрительный финал: белые потеряли материал (+1 -> -1) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-161",
+    "number": 161,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a5",
+      "c1",
+      "d2",
+      "d4",
+      "f2",
+      "f4"
+    ],
+    "black": [
+      "b8",
+      "c7",
+      "d6",
+      "f6",
+      "g7",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d4-e5",
+      "f6:d4",
+      "f4-g5",
+      "h6:f4",
+      "a5-b6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №161"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1175,
+    "auditError": "Обрыв перед боем чёрных: материальный баланс падает (+0 -> -3)"
+  },
+  {
+    "id": "tsukernik-162",
+    "number": 162,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "J'\\:1. feJIJIep - B. KYTbIPKHH, 1956",
+    "goal": "win",
+    "white": [
+      "a5",
+      "b2",
+      "c1",
+      "c3",
+      "e1",
+      "e3",
+      "f4"
+    ],
+    "black": [
+      "b4",
+      "b8",
+      "c7",
+      "d6",
+      "g7",
+      "h4",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e1-f2",
+      "b4:d2",
+      "a5-b6",
+      "c7:a5",
+      "f2-g3",
+      "h4:f2:d4"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №162"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1210,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-169",
+    "number": 169,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c1",
+      "d2",
+      "e1",
+      "e3",
+      "f2"
+    ],
+    "black": [
+      "b4",
+      "d6",
+      "f6",
+      "h4",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h4:f2:d4",
+      "d2-e3",
+      "d4:f2"
+    ],
+    "branches": [
+      {
+        "afterPly": 3,
+        "moves": [
+          "d4:f2"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №169"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1200,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-170",
+    "number": 170,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b2",
+      "c1",
+      "e1",
+      "e3",
+      "f4",
+      "g3"
+    ],
+    "black": [
+      "b6",
+      "d8",
+      "f6",
+      "f8",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-g5",
+      "f6:h4:f2:d4",
+      "b2-c3",
+      "d4:b2",
+      "c1:a3"
+    ],
+    "branches": [
+      {
+        "afterPly": 3,
+        "moves": [
+          "d4:b2"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №170"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1235,
+    "auditError": "Подозрительный финал: белые потеряли материал (+1 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-210",
+    "number": 210,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b2",
+      "c3",
+      "d2",
+      "f2",
+      "f4"
+    ],
+    "black": [
+      "b6",
+      "c5",
+      "d6",
+      "f8",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h4:f2",
+      "d2-e3",
+      "f2:d4"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №210"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1140,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-222",
+    "number": 222,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a5",
+      "b2",
+      "c1",
+      "c3",
+      "d2",
+      "d4",
+      "e3",
+      "f4"
+    ],
+    "black": [
+      "a7",
+      "c7",
+      "d6",
+      "f6",
+      "f8",
+      "g7",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a5-b6",
+      "c7:a5",
+      "d4-e5",
+      "f6:d4:f2",
+      "d2-e3",
+      "f2:d4",
+      "c3:e5:c7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №222"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1245,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-237",
+    "number": 237,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b2",
+      "d2",
+      "e1",
+      "e3",
+      "f4",
+      "g1",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "b6",
+      "c5",
+      "d6",
+      "d8",
+      "e5",
+      "f6",
+      "h4",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d2-c3",
+      "h4:f2:d4",
+      "g1-f2",
+      "e5:g3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №237"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1140,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-243",
+    "number": 243,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c1",
+      "d4",
+      "e1",
+      "e3",
+      "f2",
+      "f4"
+    ],
+    "black": [
+      "b6",
+      "c5",
+      "d6",
+      "f6",
+      "f8",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d4-e5",
+      "f6:d4",
+      "f4-g5",
+      "h6:f4:d2"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №243"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1140,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-244",
+    "number": 244,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b2",
+      "d2",
+      "d4",
+      "e1",
+      "f4",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "b4",
+      "d8",
+      "e7",
+      "f6",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d4-e5",
+      "f6:d4",
+      "f4-g5",
+      "h4:f6",
+      "d2-e3",
+      "d4:f2",
+      "e1:g3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №244"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1245,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-247",
+    "number": 247,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c3",
+      "d2",
+      "e1",
+      "f2",
+      "f4",
+      "h4"
+    ],
+    "black": [
+      "b6",
+      "d6",
+      "d8",
+      "f8",
+      "g7",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-e5",
+      "d6:f4",
+      "d2-e3",
+      "f4:d2",
+      "b4-a5",
+      "d2:b4",
+      "a5:c7",
+      "d8:b6",
+      "h4-g5",
+      "h6:f4",
+      "f2-e3",
+      "f4:d2",
+      "e1:c3:a5:c7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №247"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 2200,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-265",
+    "number": 265,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "b8",
+      "d2",
+      "d4",
+      "e1",
+      "e5",
+      "f2",
+      "h2"
+    ],
+    "black": [
+      "b6",
+      "e7",
+      "f8",
+      "g5",
+      "h4",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e5-f6",
+      "e7-d6",
+      "d4-e5",
+      "d6:f4",
+      "f6-g7",
+      "h8:f6",
+      "f2-g3",
+      "h4:f2"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №265"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1280,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-294",
+    "number": 294,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "P. fa)l,Hen +- B. CHMOHSlH, 1981",
+    "goal": "win",
+    "white": [
+      "c1",
+      "d2",
+      "d4",
+      "e1",
+      "e3",
+      "f2",
+      "f4",
+      "g3",
+      "h4"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "c5",
+      "d6",
+      "f6",
+      "g5",
+      "g7",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d4-e5",
+      "f6:d4",
+      "h4:f6",
+      "g7:e5",
+      "g3-h4",
+      "e5:g3",
+      "h4-g5",
+      "h6:f4",
+      "f2:h4",
+      "d4:f2"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №294"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1750,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-305",
+    "number": 305,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "a5",
+      "b4",
+      "e1",
+      "f2"
+    ],
+    "black": [
+      "b6",
+      "c7",
+      "d6",
+      "f4",
+      "f8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b4-c5",
+      "b6:d4",
+      "a5-b6",
+      "c7:a5",
+      "f2-e3",
+      "f4:d2"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №305"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1210,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-313",
+    "number": 313,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "a5",
+      "c1",
+      "d2",
+      "e1",
+      "f2",
+      "f4",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "b6",
+      "b8",
+      "c7",
+      "d4",
+      "d6",
+      "d8",
+      "f6",
+      "f8",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-e5",
+      "d6:f4:h2",
+      "f2-g3",
+      "h2:f4",
+      "d2-e3",
+      "f4:d2"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "d4:f2"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №313"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1270,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-319",
+    "number": 319,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "A. DOPO).J,HHCKHH +- n. CJIe3KHH, 1926",
+    "goal": "win",
+    "white": [
+      "b2",
+      "b4",
+      "c1",
+      "d2",
+      "d4",
+      "e1",
+      "f2",
+      "g1",
+      "h4"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "b8",
+      "d6",
+      "d8",
+      "f6",
+      "f8",
+      "g7",
+      "h2"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h2:f4",
+      "d4-e5",
+      "f6:d4",
+      "d2-e3",
+      "f4:d2"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "d4:f2"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №319"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1270,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-322",
+    "number": 322,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "C. neTpoB +- C. ,lJ.aHHJIHH, 1962",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a5",
+      "c5",
+      "d2",
+      "d4",
+      "e1",
+      "f2",
+      "g1",
+      "h4"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "b8",
+      "c7",
+      "d8",
+      "f6",
+      "g5",
+      "h2",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d4-e5",
+      "b6:d4",
+      "e5:g7",
+      "h8:f6",
+      "f2-g3",
+      "h2:f4",
+      "d2-e3",
+      "f4:d2"
+    ],
+    "branches": [
+      {
+        "afterPly": 7,
+        "moves": [
+          "d4:f2"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №322"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1740,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-323",
+    "number": 323,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c5",
+      "d2",
+      "e1",
+      "g1",
+      "h4"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "d8",
+      "e7",
+      "f6",
+      "h2"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "g1-f2",
+      "b6:d4",
+      "f2-g3",
+      "h2:f4",
+      "d2-e3",
+      "f4:d2"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "d4:f2"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №323"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1270,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-325",
+    "number": 325,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c1",
+      "c3",
+      "c5",
+      "e1",
+      "f2",
+      "g1",
+      "h6"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "b8",
+      "d8",
+      "e5",
+      "f6",
+      "f8",
+      "h2"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-d4",
+      "e5:c3:a5",
+      "f2-g3",
+      "b6:d4",
+      "g1-f2",
+      "h2:f4",
+      "f2-e3",
+      "f4:d2",
+      "e1:c3:e5:g7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №325"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1715,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-375",
+    "number": 375,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "B. farapHH +- 3. UYKepHHK, 1962",
+    "goal": "win",
+    "white": [
+      "c1",
+      "d4",
+      "e1",
+      "e3",
+      "e5",
+      "f2",
+      "f4",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "b4",
+      "b6",
+      "c7",
+      "f8",
+      "g5",
+      "h4",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h4:f2",
+      "e1:g3",
+      "g5-h4",
+      "e5-f6",
+      "h4:f2",
+      "d4-e5",
+      "f2:d4"
+    ],
+    "branches": [
+      {
+        "afterPly": 3,
+        "moves": [
+          "f8-g7",
+          "g3-h4",
+          "g7-f6",
+          "e5:g7",
+          "h8:f6",
+          "f4-e5"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №375"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1740,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-427",
+    "number": 427,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "C. KOBaJIeB",
+    "goal": "win",
+    "white": [
+      "b2",
+      "d4",
+      "e1",
+      "f4",
+      "g1",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "b6",
+      "c3",
+      "c7",
+      "f6",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h4-g5",
+      "f6:h4",
+      "d4-e5",
+      "c3:a1",
+      "e1-f2",
+      "a1:f6",
+      "f4-g5",
+      "h6:f4",
+      "f2-g3",
+      "h4:f2",
+      "g1:e3:g5:e7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №427"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1385,
+    "auditError": "Подозрительный финал: белые потеряли материал (+1 -> -1) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-446",
+    "number": 446,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c1",
+      "d2",
+      "d4",
+      "e3",
+      "f2",
+      "f4",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "c5",
+      "d6",
+      "d8",
+      "e7",
+      "f6",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d4-e5",
+      "f6:d4",
+      "f4-g5",
+      "h6:f4"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №446"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1140,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-466",
+    "number": 466,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c1",
+      "d2",
+      "d4",
+      "e1",
+      "e3",
+      "f4",
+      "g5",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "a3",
+      "b4",
+      "b6",
+      "d6",
+      "e7",
+      "f6",
+      "f8",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d4-e5",
+      "f6:d4:f2",
+      "e1:g3",
+      "b4-c3",
+      "d2:b4",
+      "a3:c5",
+      "f4-e5"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №466"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1645,
+    "auditError": "Обрыв перед боем чёрных: материальный баланс падает (+0 -> -2)"
+  },
+  {
+    "id": "tsukernik-498",
+    "number": 498,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "H. fpyrneBeKHH",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "b2",
+      "d2",
+      "e1",
+      "e3",
+      "h4"
+    ],
+    "black": [
+      "a5",
+      "c5",
+      "c7",
+      "e5",
+      "e7",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "c5:e3:c1",
+      "h4-g5",
+      "h6:f4",
+      "e1-d2",
+      "c1:e3",
+      "a3-b4",
+      "a5:c3",
+      "b2:d4:f2"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №498"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1795,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -3) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-502",
+    "number": 502,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "b2",
+      "c3",
+      "d2",
+      "f2",
+      "g3"
+    ],
+    "black": [
+      "a5",
+      "b8",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-d4",
+      "e5:c3:e1",
+      "g3-f4",
+      "e1:g3:e5",
+      "a3-b4",
+      "a5:c3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №502"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1290,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-517",
+    "number": 517,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "l(. 1(0prnYHoB - B. COKOB, 1933",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "b2",
+      "c3",
+      "d2",
+      "e3",
+      "f4",
+      "g1",
+      "h4"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b6",
+      "d6",
+      "e5",
+      "e7",
+      "f8",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h4-g5",
+      "e5:g3",
+      "e3-f4",
+      "g3:e5",
+      "a3-b4",
+      "h6:f4",
+      "d2-e3",
+      "f4:d2",
+      "c3:e1",
+      "a5:c3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №517"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1750,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-533",
+    "number": 533,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "b2",
+      "b4",
+      "e1",
+      "e3",
+      "f2",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "c5",
+      "c7",
+      "d4",
+      "d6",
+      "f6",
+      "f8",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-f4",
+      "a5:c3",
+      "f4-e5",
+      "d6:f4:h2",
+      "f2-e3",
+      "d4:f2",
+      "e1:g3",
+      "h4:f2"
+    ],
+    "branches": [
+      {
+        "afterPly": 7,
+        "moves": [
+          "h2:f4"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №533"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1740,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-539",
+    "number": 539,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "faJIHMOB +- B. E<f!HMeHKo",
+    "goal": "win",
+    "white": [
+      "a1",
+      "b2",
+      "c3",
+      "f4",
+      "g3",
+      "h4",
+      "h6"
+    ],
+    "black": [
+      "a5",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "f8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h6-g7",
+      "f8:h6",
+      "h4-g5",
+      "f6:h4:f2",
+      "f4-g5",
+      "h6:f4",
+      "c3-b4",
+      "a5:c3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №539"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1680,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-546",
+    "number": 546,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "b2",
+      "c3",
+      "d2",
+      "f2",
+      "g3",
+      "h4",
+      "h6"
+    ],
+    "black": [
+      "a5",
+      "c5",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "f8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h4-g5",
+      "f6:h4",
+      "f2-e3",
+      "h4:f2:d4",
+      "d2-e3",
+      "d4:f2",
+      "c3-b4",
+      "a5:c3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №546"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1680,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-593",
+    "number": 593,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "6. KOBe.TIbMaH +- H. KYPHOCOB, 1958",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a5",
+      "b2",
+      "c1",
+      "c3",
+      "d2",
+      "e1",
+      "f6",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "b8",
+      "c5",
+      "c7",
+      "d6",
+      "d8",
+      "g7",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d2-e3",
+      "g7:e5",
+      "a5-b6",
+      "c7:a5",
+      "e3-d4",
+      "c5:e3",
+      "c3-b4",
+      "a5:c3",
+      "b2:d4:f6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №593"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1315,
+    "auditError": "Подозрительный финал: белые потеряли материал (+1 -> -1) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-596",
+    "number": 596,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "b4",
+      "c1",
+      "c3",
+      "d2",
+      "e1",
+      "f4",
+      "f6",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "b8",
+      "c5",
+      "c7",
+      "d6",
+      "d8",
+      "e7",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-e5",
+      "e7:g5",
+      "c1-b2",
+      "d6:f4",
+      "b4:d6",
+      "c7:e5",
+      "c3-b4",
+      "a5:c3",
+      "b2:d4:f6:h4",
+      "h6-g5"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №596"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1350,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-633",
+    "number": 633,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "c1",
+      "c3",
+      "d2",
+      "e1",
+      "e3",
+      "g1"
+    ],
+    "black": [
+      "a5",
+      "c5",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f4",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "c5:e3",
+      "c1-b2",
+      "e3:c1",
+      "e1-d2",
+      "c1:e3",
+      "c3-b4",
+      "a5:c3",
+      "b2:d4:f2"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №633"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1715,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-665",
+    "number": 665,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "6. llIeeTaKoB",
+    "goal": "win",
+    "white": [
+      "a1",
+      "b2",
+      "b4",
+      "c1",
+      "c3",
+      "e1",
+      "f4",
+      "g1",
+      "g3",
+      "h4",
+      "h6"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b6",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "f8",
+      "g7",
+      "h2"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b4-c5",
+      "b6:d4",
+      "c3-b4",
+      "a5:c3",
+      "e1-d2",
+      "c3:e1",
+      "f4-g5",
+      "h2:f4"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №665"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 2080,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-677",
+    "number": 677,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "M. CepreeB - C. TaKcep",
+    "goal": "win",
+    "white": [
+      "a3",
+      "a5",
+      "b2",
+      "b4",
+      "d2",
+      "f4",
+      "g1",
+      "g3",
+      "g5",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "b8",
+      "c5",
+      "c7",
+      "d6",
+      "e7",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-e5",
+      "h6:f4",
+      "e5-f6",
+      "e7:g5",
+      "g3:e5",
+      "d6:f4",
+      "b4:d6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №677"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1245,
+    "auditError": "Обрыв перед боем чёрных: материальный баланс падает (+2 -> +0)"
+  },
+  {
+    "id": "tsukernik-752",
+    "number": 752,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "M. faJlKHH",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b4",
+      "c3",
+      "e3",
+      "f2",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "d8",
+      "e5",
+      "g5",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-f4",
+      "e5:g3:e1",
+      "g1-f2",
+      "e1:g3",
+      "h2:f4",
+      "g5:e3",
+      "c3-d4",
+      "e3:c5",
+      "b4:d6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №752"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1795,
+    "auditError": "Подозрительный финал: белые потеряли материал (+1 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-863",
+    "number": 863,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "n. IllYJleB",
+    "goal": "win",
+    "white": [
+      "c1",
+      "c3",
+      "c5",
+      "d2",
+      "d4",
+      "e5",
+      "g3"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "a7",
+      "c7",
+      "e7",
+      "f6",
+      "g5",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e5-d6",
+      "c7:e5",
+      "g3-f4",
+      "e5:g3",
+      "c5-b6",
+      "a5:c7",
+      "c3-b4",
+      "a3:c5:e3",
+      "d2:f4:h2"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №863"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1715,
+    "auditError": "Подозрительный финал: белые потеряли материал (-1 -> -4) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-868",
+    "number": 868,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "H. COTHHKOB+-E. )1.PYlKHHHH, 1971",
+    "goal": "win",
+    "white": [
+      "a3",
+      "c1",
+      "c3",
+      "d2",
+      "e3",
+      "f4",
+      "g3"
+    ],
+    "black": [
+      "a5",
+      "c5",
+      "d6",
+      "d8",
+      "e5",
+      "g5",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "c5:e3",
+      "g3-h4",
+      "e5:g3",
+      "d2:f4:h2",
+      "g5-f4",
+      "c1-d2",
+      "h6-g5"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №868"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1680,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-932",
+    "number": 932,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "H. 6yraeB",
+    "goal": "win",
+    "white": [
+      "c1",
+      "d2",
+      "e1",
+      "f2",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "c5",
+      "d4",
+      "e5",
+      "f6",
+      "g5",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d2-e3",
+      "d4-c3",
+      "e3-f4",
+      "g5:e3:g1",
+      "c1-d2",
+      "h4:f2",
+      "d2:b4:d6:f4"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №932"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1725,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-983",
+    "number": 983,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "H. CurHaeBcKuH",
+    "goal": "win",
+    "white": [
+      "a3",
+      "c3",
+      "c5",
+      "d2",
+      "d4",
+      "e3",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "e5",
+      "e7",
+      "f4",
+      "f6",
+      "g3",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a3-b4",
+      "g5-h4",
+      "e3:g5",
+      "g3-f2",
+      "d2-e3",
+      "f2-g1",
+      "c5-b6",
+      "a5:c7",
+      "h2-g3",
+      "h4:f2",
+      "b4-c5",
+      "f6:h4",
+      "d4:f6:d8:b6",
+      "f2:d4:b2",
+      "b6-a7",
+      "g1:b6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №983"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 2200,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-1016",
+    "number": 1016,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "3. IJ.UpUK - <1>. CepoB, 1954",
+    "goal": "win",
+    "white": [
+      "c5",
+      "d4",
+      "e3",
+      "f2",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "c7",
+      "e7",
+      "g5",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-f4",
+      "g5:e3",
+      "c5-b6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1016"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1105,
+    "auditError": "Обрыв перед боем чёрных: материальный баланс падает (+0 -> -2)"
+  },
+  {
+    "id": "tsukernik-1037",
+    "number": 1037,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "B. COKOB",
+    "goal": "win",
+    "white": [
+      "a1",
+      "c5",
+      "d2",
+      "d4",
+      "e3",
+      "e5",
+      "g1"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "b8",
+      "f8",
+      "g3",
+      "g5",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c5-b6",
+      "a5:c7",
+      "e5-f6",
+      "g5:e7",
+      "d2-c3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1037"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1975,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-1039",
+    "number": 1039,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "A. fypaJIbHHK",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "c3",
+      "d2",
+      "e3",
+      "f4",
+      "g1"
+    ],
+    "black": [
+      "b8",
+      "c5",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a3-b4",
+      "c5:a3",
+      "e3-d4",
+      "e5:g3",
+      "d2-e3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1039"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1975,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-1083",
+    "number": 1083,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "c1",
+      "c3",
+      "e3",
+      "f2",
+      "f4",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a5",
+      "b8",
+      "c5",
+      "c7",
+      "e7",
+      "g5",
+      "g7",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-b4",
+      "a5:c3",
+      "a1-b2",
+      "c3:a1",
+      "f4-e5",
+      "a1:f6",
+      "c1-b2",
+      "f6:a1",
+      "e3-f4",
+      "g5:e3",
+      "f2:d4:b6:d8:f6:h8",
+      "h4:f2",
+      "g1:e3",
+      "a1-d4"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1083"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 2200,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-1093",
+    "number": 1093,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "T. IllMYJlbHH - AcpaHaebeB",
+    "goal": "win",
+    "white": [
+      "a1",
+      "c1",
+      "c3",
+      "d2",
+      "e1",
+      "e3",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "a3",
+      "c5",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f4",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "c5:e3",
+      "c3-b4",
+      "a3:c5",
+      "e1-f2"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1093"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1975,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-1120",
+    "number": 1120,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "r. EawHpoB - B. AMpancnlH, 1980",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c1",
+      "e3",
+      "f2",
+      "f4",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a3",
+      "b8",
+      "c5",
+      "c7",
+      "d6",
+      "g5",
+      "h4",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "c5:e3",
+      "f4:d2",
+      "a3:c5",
+      "g3-f4",
+      "g5:e3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1120"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1210,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-1140",
+    "number": 1140,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "A. naYKIllTHe - H. IllHpoKoB, 1974",
+    "goal": "win",
+    "white": [
+      "b2",
+      "b4",
+      "e1",
+      "e3",
+      "e5",
+      "f2",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "b8",
+      "c7",
+      "d8",
+      "g5",
+      "g7",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h2-g3",
+      "a5:c3:a1",
+      "e5-d6",
+      "c7:e5",
+      "e3-f4",
+      "g5:e3",
+      "f2:d4:f6:h8",
+      "h4:f2",
+      "g1:e3",
+      "a1-d4"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1140"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1830,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-1342",
+    "number": 1342,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "M. fieJlbCKHH",
+    "goal": "win",
+    "white": [
+      "a3",
+      "c3",
+      "d2",
+      "f2"
+    ],
+    "black": [
+      "a5",
+      "e5",
+      "g5",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d2-e3",
+      "e5-f4",
+      "e3-d4",
+      "f4-e3",
+      "f2-g3",
+      "e3:c5",
+      "c3-d4",
+      "c5:e3",
+      "a3-b4",
+      "a5:c3",
+      "g3-f4"
+    ],
+    "branches": [
+      {
+        "afterPly": 3,
+        "moves": [
+          "g5-h4",
+          "f2-e3",
+          "f4:d2:b4",
+          "a3:c5"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №1342"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1445,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -3) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-1343",
+    "number": 1343,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "T. lllMYJlbSlH - n. PeMHeB, 1965",
+    "goal": "win",
+    "white": [
+      "a5",
+      "c1",
+      "c3",
+      "e1",
+      "e3",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a7",
+      "b8",
+      "c5",
+      "e5",
+      "e7",
+      "g5",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "c5:e3",
+      "a5-b6",
+      "a7:c5",
+      "c3-d4",
+      "e5:c3",
+      "g3-f4"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1343"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 2045,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -3) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-1356",
+    "number": 1356,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c3",
+      "d2",
+      "e1",
+      "g1",
+      "h4",
+      "h6"
+    ],
+    "black": [
+      "a5",
+      "d6",
+      "d8",
+      "f4",
+      "f8",
+      "g7",
+      "h2"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h4-g5",
+      "f4-g3",
+      "c3-d4",
+      "a5:c3:e5",
+      "g5-f6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1356"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1175,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-1441",
+    "number": 1441,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c3",
+      "d4",
+      "e1",
+      "e5",
+      "f2",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b6",
+      "c7",
+      "e7",
+      "f6",
+      "g5",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d4-c5",
+      "b6:d4:b2",
+      "h2-g3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1441"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1505,
+    "auditError": "Обрыв перед боем чёрных: материальный баланс падает (+0 -> -3)"
+  },
+  {
+    "id": "tsukernik-1597",
+    "number": 1597,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "If. Koou,eB",
+    "goal": "win",
+    "white": [
+      "a1",
+      "b2",
+      "c5",
+      "d2",
+      "f2",
+      "g1",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b6",
+      "e5",
+      "e7",
+      "g5",
+      "g7",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b2-a3",
+      "b6:d4",
+      "a3-b4",
+      "a5:c3:e1",
+      "g3-f4",
+      "g5:e3"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "e5:g3",
+          "h2:f4:h6:f8:c5:e3",
+          "e1:g3",
+          "g1-h2"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №1597"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 2150,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -6) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-1736",
+    "number": 1736,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "A. CapaeB -+- C. fepUIT, 1978",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "b2",
+      "b4",
+      "c3",
+      "e3",
+      "f2",
+      "g1",
+      "g3",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "b6",
+      "b8",
+      "c5",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "f8",
+      "g5",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "g3-f4",
+      "e5:g3:e1",
+      "e3-d4",
+      "c5:e3",
+      "b4-a5",
+      "e1:b4",
+      "a5:c7:e5",
+      "f6:d4",
+      "a3:c5",
+      "d4:b6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1736"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1830,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-1768",
+    "number": 1768,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b2",
+      "b6",
+      "c1",
+      "d2",
+      "d4",
+      "e1",
+      "e3",
+      "g1",
+      "h4"
+    ],
+    "black": [
+      "a5",
+      "b8",
+      "d6",
+      "d8",
+      "e7",
+      "f6",
+      "f8",
+      "g5",
+      "g7",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b6-c7",
+      "d8:b6",
+      "d4-e5",
+      "d6:f4",
+      "a3-b4",
+      "a5:c3:a1",
+      "c1-b2",
+      "a1:d4:f2",
+      "e1:g3:e5",
+      "f6:d4"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1768"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1830,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-1777",
+    "number": 1777,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "A. POMM",
+    "goal": "win",
+    "white": [
+      "c1",
+      "d2",
+      "e3",
+      "f4",
+      "g1",
+      "g3",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "b4",
+      "d6",
+      "d8",
+      "e7",
+      "f6",
+      "f8",
+      "g5",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d2-c3",
+      "b4:d2",
+      "f4-e5",
+      "f6:d4:f2",
+      "g1:e3",
+      "d2:f4",
+      "g3:e5:c7",
+      "d8:b6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1777"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 2080,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-1808",
+    "number": 1808,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "b2",
+      "c3",
+      "d4",
+      "e3",
+      "f4",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b6",
+      "c5",
+      "c7",
+      "d6",
+      "e7",
+      "f8",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-e5",
+      "d6:f4:d2:b4",
+      "h2-g3",
+      "c5:e3",
+      "a3:c5",
+      "b6:d4",
+      "g3-f4",
+      "e3:g5"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1808"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1280,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-1829",
+    "number": 1829,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "A. KOBpUlKKUH",
+    "goal": "win",
+    "white": [
+      "c1",
+      "d4",
+      "e3",
+      "g3",
+      "h2",
+      "h4",
+      "h6"
+    ],
+    "black": [
+      "a3",
+      "b4",
+      "b6",
+      "c5",
+      "d6",
+      "e7",
+      "f6",
+      "f8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h6-g7",
+      "f8:h6",
+      "c1-b2",
+      "a3:c1:f4",
+      "g3:e5:g7",
+      "c5:e3",
+      "h2-g3",
+      "h6:f8",
+      "g3-f4",
+      "e3:g5"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1829"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1830,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-1877",
+    "number": 1877,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "H. KYKyeB",
+    "goal": "win",
+    "white": [
+      "c5",
+      "f2",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "e7",
+      "f4",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "f4-e3",
+      "g1-f2",
+      "e3:g1",
+      "g3-h4",
+      "g1:b6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №1877"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1210,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2022",
+    "number": 2022,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "M. BaJJ",
+    "goal": "win",
+    "white": [
+      "b2",
+      "c1",
+      "e3",
+      "f2",
+      "g1",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "a3",
+      "b4",
+      "c5",
+      "c7",
+      "e5",
+      "e7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-d2",
+      "a3:c1",
+      "e3-d4",
+      "e5:c3:e1"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2022"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 2020,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -7) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-2036",
+    "number": 2036,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "M. H 3. XauKHHbl",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b2",
+      "d2",
+      "f2",
+      "f4",
+      "g1",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "b6",
+      "c5",
+      "d4",
+      "d6",
+      "e7",
+      "f6",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d2-e3",
+      "f6-e5",
+      "a3-b4",
+      "c5:a3:c1",
+      "e3:c5:a7",
+      "e5:g3:e1",
+      "g1-f2",
+      "e1:g3",
+      "h2:f4",
+      "c1:g5"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2036"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1830,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2044",
+    "number": 2044,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "M. IO)].HH +- A. YeTHHoB, 19B1. Y 6eJIbIX T5IJKeJIa5I rro3Hu.H5I H3-3a OTCTaJIOH lI1all1KH b2",
+    "goal": "draw",
+    "white": [
+      "b2",
+      "c1",
+      "c3",
+      "e1",
+      "f4",
+      "g3",
+      "h6"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "b4",
+      "d6",
+      "e5",
+      "e7",
+      "f8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e1-f2",
+      "b4:d2",
+      "c1:e3",
+      "a3:c1",
+      "e3-d4",
+      "e5:c3",
+      "g3-h4",
+      "c1:g5"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "c1:g5",
+          "d4:f6:d8"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №2044"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "ничья",
+      "тихий старт"
+    ],
+    "rating": 1740,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2046",
+    "number": 2046,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "M. CTaHOBeKHu - 1940",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "b2",
+      "b4",
+      "c1",
+      "c3",
+      "e1",
+      "f2",
+      "f4",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b8",
+      "c5",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f8",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-d4",
+      "c5:e3:g1",
+      "e1-f2",
+      "a5:c3",
+      "b2:d4:f6:d8:b6",
+      "a7:c5",
+      "g3-h4",
+      "g1:e3:g5"
+    ],
+    "branches": [
+      {
+        "afterPly": 3,
+        "moves": [
+          "g1:e3:g5",
+          "g3-h4"
+        ]
+      },
+      {
+        "afterPly": 5,
+        "moves": [
+          "g1:e3:g5",
+          "g3-h4"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №2046"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1820,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2048",
+    "number": 2048,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "3. U.YKepHHK",
+    "goal": "win",
+    "white": [
+      "b2",
+      "b4",
+      "c1",
+      "d2",
+      "e3",
+      "f2",
+      "f4",
+      "h2"
+    ],
+    "black": [
+      "a3",
+      "c5",
+      "c7",
+      "d4",
+      "d6",
+      "e7",
+      "f8",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b2-c3",
+      "d4:b2",
+      "d2-c3",
+      "b2:d4",
+      "c1-b2",
+      "a3:c1",
+      "h2-g3",
+      "c5:a3",
+      "e3:c5",
+      "d6:b4",
+      "g3-h4",
+      "c1:g5"
+    ],
+    "branches": [
+      {
+        "afterPly": 9,
+        "moves": [
+          "c1:g5",
+          "g3-h4"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №2048"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1860,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2101",
+    "number": 2101,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "c3",
+      "d2",
+      "e1",
+      "e3",
+      "f2",
+      "f4",
+      "g3",
+      "h4"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b6",
+      "c5",
+      "d6",
+      "e5",
+      "e7",
+      "f8",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-d4",
+      "e5:c3",
+      "d2:b4",
+      "a5:c3",
+      "e3-d4",
+      "c5:e3:g1",
+      "e1-f2",
+      "g1:e3:g5"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "c3:e5",
+          "a3-b4",
+          "c5:a3",
+          "a1-b2",
+          "a3:c1:g5",
+          "h4:f6:d8:a5"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №2101"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1820,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2125",
+    "number": 2125,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "A. AqJOHUH",
+    "goal": "win",
+    "white": [
+      "a3",
+      "c1",
+      "c3",
+      "e1",
+      "f4",
+      "g1",
+      "g5"
+    ],
+    "black": [
+      "b6",
+      "c5",
+      "c7",
+      "d6",
+      "e7",
+      "f8",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-b4",
+      "g7-h6",
+      "e1-f2",
+      "f8-g7",
+      "g1-h2",
+      "b6-a5",
+      "h2-g3",
+      "a5:c3",
+      "c1-d2",
+      "c3:e1",
+      "g3-h4",
+      "e1:g3:e5",
+      "g5-f6",
+      "e7:g5"
+    ],
+    "branches": [
+      {
+        "afterPly": 3,
+        "moves": [
+          "b6-a5",
+          "g5-f6"
+        ]
+      },
+      {
+        "afterPly": 5,
+        "moves": [
+          "g7-f6",
+          "c1-d2",
+          "f6:h4",
+          "f4-e5",
+          "d6:f4",
+          "b4:d6:b8"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №2125"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 2200,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2132",
+    "number": 2132,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c1",
+      "c3",
+      "d2",
+      "e5",
+      "f4",
+      "g5",
+      "h2"
+    ],
+    "black": [
+      "a3",
+      "c5",
+      "c7",
+      "d6",
+      "e7",
+      "g7",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-d4",
+      "c5:e3",
+      "h2-g3",
+      "a3:c5",
+      "e5-f6",
+      "g7:e5",
+      "g3-h4",
+      "e5:g3",
+      "h4:f2:d4:b6:d8:f6",
+      "h6:f4",
+      "f6-e5",
+      "f4-e3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2132"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1880,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2221",
+    "number": 2221,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "d2",
+      "g1",
+      "h2",
+      "h4",
+      "h6"
+    ],
+    "black": [
+      "c5",
+      "d4",
+      "d6",
+      "e5",
+      "f4",
+      "f6",
+      "f8",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a3-b4",
+      "c5:a3",
+      "d2-e3",
+      "f4:d2",
+      "h4-g5",
+      "f6:h4",
+      "h2-g3",
+      "h4:f2",
+      "g1:e3:c5:e7",
+      "f8:d6"
+    ],
+    "branches": [
+      {
+        "afterPly": 3,
+        "moves": [
+          "d4:f2",
+          "g1:e3:g5:e7:c5"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №2221"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 1410,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2241",
+    "number": 2241,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "M. II 3. XauKHHbl",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b4",
+      "c1",
+      "e3",
+      "f2",
+      "g1",
+      "g3",
+      "h6"
+    ],
+    "black": [
+      "a5",
+      "c5",
+      "d6",
+      "f6",
+      "f8",
+      "g7",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "g3-h4",
+      "a5:c3",
+      "e3-d4",
+      "c3:e5"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2241"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1940,
+    "auditError": "Подозрительный финал: белые потеряли материал (+1 -> -1) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-2277",
+    "number": 2277,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "B. (1oxaHeoH",
+    "goal": "win",
+    "white": [
+      "b2",
+      "c1",
+      "c3",
+      "e3",
+      "f4",
+      "h6"
+    ],
+    "black": [
+      "a3",
+      "c5",
+      "d6",
+      "f6",
+      "f8",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-d4",
+      "c5-b4",
+      "b2-c3",
+      "b4:d2",
+      "f4-e5",
+      "d2:f4",
+      "e5:c7",
+      "f4-g3",
+      "d4-e5",
+      "f6:d4"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "d6:f4",
+          "e3:g5:e7",
+          "f8:d6",
+          "h6:f8:b4:e1"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №2277"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 2200,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-2279",
+    "number": 2279,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "10. <POMHHhIX",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b2",
+      "c1",
+      "g5",
+      "h6"
+    ],
+    "black": [
+      "a5",
+      "c5",
+      "d4",
+      "e5"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b2-c3",
+      "d4:b2",
+      "g5-f6",
+      "e5:g7",
+      "h6:f8:b4",
+      "a5:c3",
+      "a3-b4",
+      "c3:a5"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2279"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1360,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2281",
+    "number": 2281,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "A. AlOnoB",
+    "goal": "win",
+    "white": [
+      "a5",
+      "b4",
+      "c3",
+      "g3",
+      "h6"
+    ],
+    "black": [
+      "a3",
+      "d4",
+      "d6",
+      "e5",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "g3-h4",
+      "d4:b2",
+      "h4-g5",
+      "a3:c5",
+      "a5-b6",
+      "c5:a7",
+      "g5-f6",
+      "e5:g7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2281"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1280,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2289",
+    "number": 2289,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "A. Canenm",
+    "goal": "win",
+    "white": [
+      "a1",
+      "b2",
+      "f4",
+      "h6"
+    ],
+    "black": [
+      "a5",
+      "b4",
+      "d6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b2-a3",
+      "b4-c3",
+      "a3-b4",
+      "c3-d2",
+      "f4-g5",
+      "a5:c3",
+      "a1-b2",
+      "c3:a1",
+      "g5-f6",
+      "a1:g7"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2289"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1750,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2363",
+    "number": 2363,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a5",
+      "c3",
+      "e3",
+      "g5",
+      "h6"
+    ],
+    "black": [
+      "a7",
+      "c5",
+      "e5",
+      "e7",
+      "f8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "c5:e3",
+      "a5-b6",
+      "a7:c5",
+      "c3-d4",
+      "e5:c3",
+      "g5-f6",
+      "e7:g5"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2363"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1280,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2385",
+    "number": 2385,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b2",
+      "c3",
+      "d4",
+      "e3",
+      "f2",
+      "g1"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "d6",
+      "f6",
+      "h4",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h4:f2",
+      "d4-e5",
+      "d6:f4:d2:b4",
+      "g1:e3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2385"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1175,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -3) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-2432",
+    "number": 2432,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a5",
+      "b2",
+      "c1",
+      "e1",
+      "e3",
+      "g1",
+      "h4"
+    ],
+    "black": [
+      "a3",
+      "b8",
+      "c5",
+      "c7",
+      "e5",
+      "e7",
+      "f6",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h4-g5",
+      "f6:h4",
+      "c1-d2",
+      "a3:c1",
+      "e3-d4",
+      "e5:c3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2432"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 2010,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2456",
+    "number": 2456,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "B. A6aymm",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b2",
+      "c1",
+      "c3",
+      "d2",
+      "d4",
+      "e1",
+      "f2",
+      "f4",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b6",
+      "c7",
+      "d8",
+      "e7",
+      "f8",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-b4",
+      "a5:c3:a1",
+      "d2-e3",
+      "a1:e5:g3",
+      "f2:h4"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2456"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1655,
+    "auditError": "Подозрительный финал: белые потеряли материал (+1 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-2497",
+    "number": 2497,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "B. rOpO,!I,eu.Kuii",
+    "goal": "win",
+    "white": [
+      "a5",
+      "b4",
+      "c1",
+      "c3",
+      "d2",
+      "e1",
+      "e3",
+      "f2",
+      "g1"
+    ],
+    "black": [
+      "a7",
+      "b8",
+      "c7",
+      "e5",
+      "e7",
+      "f6",
+      "g5",
+      "g7",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a5-b6",
+      "c7:a5",
+      "e3-f4",
+      "e5:g3",
+      "c3-d4",
+      "a5:c3:e5",
+      "g1-h2"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2497"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 2045,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -4) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-2520",
+    "number": 2520,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "B. COKOB +- Nt CMOJISlK, 1934",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "a5",
+      "c3",
+      "d2",
+      "e1",
+      "f2",
+      "g1",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "b8",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "g5",
+      "g7",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a5-b6",
+      "c7:a5",
+      "c3-d4",
+      "e5:c3",
+      "d2:b4",
+      "a5:c3",
+      "e1-d2",
+      "c3:e1",
+      "g3-h4",
+      "e1:g3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2520"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1750,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2568",
+    "number": 2568,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "B. fOpO)l.ell,KHH",
+    "goal": "win",
+    "white": [
+      "a1",
+      "b2",
+      "c1",
+      "c3",
+      "c5",
+      "d4",
+      "e3",
+      "f2",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "b8",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "g7",
+      "h4",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h4:f2",
+      "b2-a3",
+      "d6:b4:d2:f4",
+      "g1:e3:g5",
+      "e5:c3",
+      "g5-h6"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2568"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 2045,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -3) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-2569",
+    "number": 2569,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "H. Ko6l1,eB",
+    "goal": "win",
+    "white": [
+      "c1",
+      "d2",
+      "d4",
+      "e3",
+      "f2",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "b4",
+      "b6",
+      "e5",
+      "e7",
+      "f6",
+      "g7",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d2-c3",
+      "b4:d2:f4",
+      "f2-g3",
+      "h4:f2",
+      "g1:e3:g5",
+      "e5:c3",
+      "g5-h6"
+    ],
+    "branches": [
+      {
+        "afterPly": 3,
+        "moves": [
+          "e5:c3",
+          "g3:e5",
+          "f6:d4",
+          "h2-g3",
+          "h4:f2",
+          "g1:e3:c5:a7"
+        ]
+      }
+    ],
+    "sources": [
+      "Антология Цукерника №2569"
+    ],
+    "altWins": [],
+    "tags": [
+      "варианты защиты",
+      "тихий старт"
+    ],
+    "rating": 2105,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-2576",
+    "number": 2576,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "A. MaJIIOTa",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b2",
+      "b4",
+      "c1",
+      "d2",
+      "e1",
+      "e3",
+      "f2",
+      "g3"
+    ],
+    "black": [
+      "a5",
+      "c5",
+      "d4",
+      "d6",
+      "d8",
+      "g7",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "g3-f4",
+      "a5:c3:a1",
+      "a3-b4",
+      "c5:a3",
+      "e3:c5:e7",
+      "d8:f6",
+      "f4-e5",
+      "f6:d4",
+      "d2-c3",
+      "d4:b2",
+      "f2-g3",
+      "h4:f2",
+      "e1:g3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2576"
+    ],
+    "altWins": [],
+    "tags": [
+      "превращение в бою",
+      "тихий старт"
+    ],
+    "rating": 1880,
+    "auditError": "Подозрительный финал: белые потеряли материал (+2 -> -4) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-2582",
+    "number": 2582,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "H. fpyweBcKHH",
+    "goal": "win",
+    "white": [
+      "c1",
+      "c3",
+      "e1",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "c5",
+      "e5",
+      "f2",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "g3-h4",
+      "f2-g1",
+      "h4:f6:d4:b6",
+      "a7:c5",
+      "c3-d4",
+      "c5:e3",
+      "e1-f2",
+      "e3-d2"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2582"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1680,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2585",
+    "number": 2585,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "C. 6amKaJIapCKHH",
+    "goal": "win",
+    "white": [
+      "c1",
+      "c3",
+      "e1",
+      "f2",
+      "f4",
+      "g3"
+    ],
+    "black": [
+      "b6",
+      "c7",
+      "d4",
+      "d6",
+      "e5",
+      "f6",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-g5",
+      "d4:b2",
+      "g5:e7:c5:a7",
+      "b2-a1",
+      "c1-b2",
+      "a1:d4:g1",
+      "a7-b8",
+      "h4:f2"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2585"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1680,
+    "auditError": "Обрыв линии: у белых остался обязательный бой в конце"
+  },
+  {
+    "id": "tsukernik-2589",
+    "number": 2589,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "3. UYKepHliK +-10. XaplfeHKo, 1966",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b4",
+      "d2",
+      "e1",
+      "f2",
+      "g1",
+      "g3",
+      "h6"
+    ],
+    "black": [
+      "b6",
+      "c5",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "f8",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-e3",
+      "h4:f2:d4",
+      "b4-a5"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2589"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1105,
+    "auditError": "Подозрительный финал: белые потеряли материал (+0 -> -2) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-2591",
+    "number": 2591,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "A. 0YTKeBHlf",
+    "goal": "win",
+    "white": [
+      "a3",
+      "a5",
+      "b4",
+      "c3",
+      "g1",
+      "g3",
+      "h4"
+    ],
+    "black": [
+      "b6",
+      "b8",
+      "c7",
+      "d8",
+      "e3",
+      "f6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h4-g5",
+      "f6:h4:f2",
+      "c3-d4",
+      "e3:c5",
+      "g1:e3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2591"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1575,
+    "auditError": "Подозрительный финал: белые потеряли материал (+1 -> -1) без дамки и запирания"
+  },
+  {
+    "id": "tsukernik-2595",
+    "number": 2595,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c3",
+      "c5",
+      "d2",
+      "e1",
+      "e3",
+      "f2",
+      "h2"
+    ],
+    "black": [
+      "a3",
+      "c7",
+      "f4",
+      "g5",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c5-d6",
+      "c7:e5",
+      "e3-d4",
+      "a3-b2",
+      "d4:f6",
+      "b2:d4",
+      "f2-g3"
+    ],
+    "branches": [],
+    "sources": [
+      "Антология Цукерника №2595"
+    ],
+    "altWins": [],
+    "tags": [
+      "тихий старт"
+    ],
+    "rating": 1245,
+    "auditError": "Обрыв перед боем чёрных: материальный баланс падает (+1 -> -1)"
+  }
+]

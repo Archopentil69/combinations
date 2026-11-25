@@ -1,0 +1,4820 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Шашечный тактик — Антология Цукерника</title>
+  <style>
+    /* =========================================================================
+       БАЗОВЫЕ ПЕРЕМЕННЫЕ И СТИЛИ (АВТОНОМНЫЙ МИНИМАЛИЗМ В СТИЛЕ LIDRAUGHTS)
+       ========================================================================= */
+    :root {
+      --bg-app: #f3f4f6;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f8f9fb;
+      --bg-hover: #eef0f4;
+      --border: #dfe3ea;
+      --border-strong: #c6cdd8;
+      --text-main: #181c24;
+      --text-secondary: #4c5566;
+      --text-muted: #768094;
+      --primary: #252b36;
+      --primary-hover: #14181f;
+      --accent: #3b82f6;
+      --success: #15803d;
+      --success-bg: #ecfdf3;
+      --success-border: #86efac;
+      --warn: #b45309;
+      --warn-bg: #fffbeb;
+      --warn-border: #fcd34d;
+      --danger: #b91c1c;
+      --danger-bg: #fef2f2;
+      --danger-border: #fca5a5;
+      --info: #1d4ed8;
+      --info-bg: #eff6ff;
+      --info-border: #93c5fd;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 8px 24px -6px rgba(15, 23, 42, 0.1);
+      --shadow-board: 0 18px 40px -14px rgba(15, 23, 42, 0.35), 0 4px 12px rgba(15, 23, 42, 0.12);
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+      /* Тема доски по умолчанию: Монохром */
+      --sq-light: #e7e9ee;
+      --sq-dark: #58606e;
+      --board-frame: #20242c;
+      --board-coord: #aeb6c4;
+    }
+
+    /* Темы доски */
+    .theme-monochrome {
+      --sq-light: #e7e9ee;
+      --sq-dark: #58606e;
+      --board-frame: #20242c;
+      --board-coord: #aeb6c4;
+    }
+    .theme-wood {
+      --sq-light: #f0d9b5;
+      --sq-dark: #9c6a44;
+      --board-frame: #3f2718;
+      --board-coord: #e7d4bc;
+    }
+    .theme-emerald {
+      --sq-light: #eeeed2;
+      --sq-dark: #5c8757;
+      --board-frame: #233825;
+      --board-coord: #d2e3cf;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background-color: var(--bg-app);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* =========================================================================
+       ШАПКА И НАВИГАЦИЯ
+       ========================================================================= */
+    .app-header {
+      background: #171b22;
+      color: #f3f4f6;
+      border-bottom: 1px solid #2b313e;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 58px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(145deg, #323947, #1c2028);
+      border: 1px solid #485163;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.15;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: #9aa3b2;
+      margin-top: 1px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #212631;
+      padding: 4px;
+      border-radius: 11px;
+      border: 1px solid #303746;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-tabs::-webkit-scrollbar { display: none; }
+
+    .nav-tabs-mobile {
+      display: none;
+      padding: 0 0 10px 0;
+    }
+
+    .nav-btn {
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #b4bccb;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .nav-btn.active {
+      background: #ffffff;
+      color: #171b22;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .header-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 9px;
+      background: #232934;
+      border: 1px solid #343c4d;
+      font-size: 12px;
+      font-weight: 700;
+      color: #e5e8ef;
+    }
+
+    .header-pill.valid-ok {
+      border-color: rgba(34, 197, 94, 0.4);
+      color: #86efac;
+      cursor: pointer;
+    }
+
+    .header-pill.valid-err {
+      border-color: rgba(239, 68, 68, 0.5);
+      color: #fca5a5;
+      cursor: pointer;
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: #232934;
+      border: 1px solid #343c4d;
+      color: #d6dbe5;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .icon-btn:hover {
+      background: #2f3645;
+      color: #ffffff;
+    }
+
+    /* =========================================================================
+       ОСНОВНАЯ СЕТКА И КАРТОЧКИ
+       ========================================================================= */
+    .app-main {
+      flex: 1;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px 16px 36px;
+    }
+
+    .mode-view {
+      display: block;
+    }
+
+    .mode-view.hidden {
+      display: none !important;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .board-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .board-wrap-limit {
+      width: 100%;
+      max-width: 590px;
+    }
+
+    .side-column {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-compact {
+      padding: 14px 16px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    /* =========================================================================
+       ПАНЕЛЬ НАД ДОСКОЙ И ТЕМА ДОСКИ
+       ========================================================================= */
+    .board-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .turn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .turn-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .turn-dot.white {
+      background: #f9fafb;
+      border: 2px solid #4b5563;
+    }
+
+    .turn-dot.black {
+      background: #1f242d;
+      border: 2px solid #6b7280;
+    }
+
+    .turn-dot.done {
+      background: #16a34a;
+      border: 2px solid #166534;
+    }
+
+    .segmented {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 3px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .seg-btn {
+      padding: 5px 10px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: all 0.15s;
+    }
+
+    .seg-btn:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+
+    .seg-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* =========================================================================
+       ИНТЕРАКТИВНАЯ ШАШЕЧНАЯ ДОСКА 8×8
+       ========================================================================= */
+    .board-frame {
+      background: var(--board-frame);
+      border-radius: 14px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow-board);
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    .board-matrix {
+      display: grid;
+      grid-template-columns: 18px 1fr 18px;
+      grid-template-rows: 16px 1fr 16px;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .coords-row {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      text-align: center;
+    }
+
+    .coords-col {
+      display: grid;
+      grid-template-rows: repeat(8, 1fr);
+      height: 100%;
+      align-items: center;
+      text-align: center;
+    }
+
+    .coord-lbl {
+      color: var(--board-coord);
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.03em;
+    }
+
+    .board-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--sq-dark);
+    }
+
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .sq {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .sq-light { background-color: var(--sq-light); }
+    .sq-dark { background-color: var(--sq-dark); }
+    .sq-clickable { cursor: pointer; }
+
+    /* Подсветки состояний клеток */
+    .sq-last::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(250, 204, 21, 0.28);
+      pointer-events: none;
+    }
+
+    .sq-selected::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(250, 204, 21, 0.45);
+      box-shadow: inset 0 0 0 3px rgba(254, 240, 138, 0.92);
+      pointer-events: none;
+    }
+
+    .sq-error::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(239, 68, 68, 0.52);
+      pointer-events: none;
+      animation: pulseFade 0.55s ease;
+    }
+
+    .sq-hint-from::after {
+      content: '';
+      position: absolute;
+      inset: 6%;
+      border-radius: 50%;
+      border: 4px solid #facc15;
+      box-shadow: 0 0 14px rgba(250, 204, 21, 0.9);
+      pointer-events: none;
+      z-index: 16;
+      animation: hintPulse 1.2s ease-in-out infinite;
+    }
+
+    .sq-hint-to::after {
+      content: '';
+      position: absolute;
+      inset: 14%;
+      border-radius: 50%;
+      border: 3px dashed #fde047;
+      background: rgba(250, 204, 21, 0.28);
+      pointer-events: none;
+      z-index: 16;
+      animation: hintPulse 1.2s ease-in-out infinite;
+    }
+
+    .sq-trail::after {
+      content: '';
+      position: absolute;
+      width: 24%;
+      height: 24%;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+      z-index: 11;
+    }
+
+    /* Индикаторы доступных ходов */
+    .dot-quiet {
+      width: 30%;
+      height: 30%;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.86);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.78), 0 2px 5px rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+      z-index: 14;
+      transition: transform 0.14s ease;
+    }
+
+    .sq-clickable:hover .dot-quiet {
+      transform: scale(1.16);
+    }
+
+    .dot-capture {
+      width: 38%;
+      height: 38%;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, 0.92);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.88), 0 0 12px rgba(245, 158, 11, 0.75);
+      pointer-events: none;
+      z-index: 14;
+      animation: softPulse 1.15s ease-in-out infinite;
+    }
+
+    .dot-shortcut {
+      width: 46%;
+      height: 46%;
+      border-radius: 50%;
+      border: 3px dashed rgba(255, 255, 255, 0.94);
+      background: rgba(16, 185, 129, 0.44);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+      pointer-events: none;
+      z-index: 14;
+    }
+
+    /* Шашки */
+    .piece-wrap {
+      width: 84%;
+      height: 84%;
+      position: relative;
+      z-index: 10;
+      pointer-events: none;
+      transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.15s ease;
+    }
+
+    .sq-clickable:hover .piece-wrap {
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    .piece-must-capture {
+      filter: drop-shadow(0 0 6px rgba(250, 204, 21, 0.9));
+    }
+
+    .piece-captured-pending {
+      opacity: 0.56;
+      transform: scale(0.9);
+    }
+
+    .captured-ring {
+      position: absolute;
+      inset: 8%;
+      border-radius: 50%;
+      border: 3.5px solid rgba(239, 68, 68, 0.92);
+      background: rgba(239, 68, 68, 0.22);
+      pointer-events: none;
+      z-index: 15;
+    }
+
+    /* SVG слой поверх доски для стрелок подсказок и траектории */
+    .board-svg-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 22;
+    }
+
+    /* Плавающая шашка для плавной анимации */
+    .anim-piece {
+      position: absolute;
+      width: 12.5%;
+      height: 12.5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 30;
+      transition: left 0.22s cubic-bezier(0.25, 0.8, 0.25, 1), top 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .chain-banner {
+      margin-top: 10px;
+      padding: 9px 13px;
+      border-radius: 10px;
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      color: var(--warn);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .link-btn {
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: underline;
+      color: inherit;
+      flex-shrink: 0;
+    }
+
+    /* =========================================================================
+       СТАТИСТИКА, КНОПКИ, БЕЙДЖИ, ОБРАТНАЯ СВЯЗЬ
+       ========================================================================= */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .stat-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 11px 13px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+    }
+
+    .stat-value {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 2px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .stat-delta {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .stat-delta.up { color: var(--success); }
+    .stat-delta.down { color: var(--danger); }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .badge-diff-1 { background: #ecfdf3; color: #166534; border: 1px solid #bbf7d0; }
+    .badge-diff-2 { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+    .badge-diff-3 { background: #f5f3ff; color: #5b21b6; border: 1px solid #ddd6fe; }
+    .badge-section { background: #f1f3f7; color: #374151; border: 1px solid #dfe3ea; }
+    .badge-solved { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .badge-custom { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+
+    .puzzle-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .puzzle-title {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-main);
+    }
+
+    .puzzle-meta {
+      margin: 4px 0 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Переключатель веток защиты */
+    .branches-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .branch-pill {
+      padding: 6px 11px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s;
+    }
+
+    .branch-pill:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+
+    .branch-pill.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .branch-pill .br-check {
+      color: #22c55e;
+      font-weight: 800;
+    }
+
+    /* Плашка статуса / обратной связи */
+    .feedback-box {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      font-size: 13.5px;
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--text-main);
+    }
+
+    .feedback-box.ok { background: var(--success-bg); border-color: var(--success-border); color: #14532d; }
+    .feedback-box.win { background: #15803d; border-color: #166534; color: #ffffff; }
+    .feedback-box.altwin { background: #0f766e; border-color: #115e59; color: #ffffff; }
+    .feedback-box.alttry { background: var(--info-bg); border-color: var(--info-border); color: #1e3a8a; }
+    .feedback-box.err { background: var(--danger-bg); border-color: var(--danger-border); color: #991b1b; }
+    .feedback-box.warn { background: var(--warn-bg); border-color: var(--warn-border); color: #92400e; }
+
+    .feedback-actions {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Кнопки управления */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 13px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+      line-height: 1.2;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+
+    .btn-secondary {
+      background: var(--bg-subtle);
+      border-color: var(--border-strong);
+      color: var(--text-main);
+    }
+    .btn-secondary:hover:not(:disabled) { background: var(--bg-hover); }
+
+    .btn-success {
+      background: #15803d;
+      color: #ffffff;
+    }
+    .btn-success:hover:not(:disabled) { background: #166534; }
+
+    .btn-danger {
+      background: #dc2626;
+      color: #ffffff;
+    }
+    .btn-danger:hover:not(:disabled) { background: #b91c1c; }
+
+    .btn-ghost-light {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+    }
+    .btn-ghost-light:hover:not(:disabled) { background: rgba(255, 255, 255, 0.28); }
+
+    .btn-sm {
+      padding: 6px 10px;
+      font-size: 12px;
+      border-radius: 8px;
+    }
+
+    .action-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .action-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    /* Лог нотации ходов */
+    .moves-log {
+      min-height: 68px;
+      max-height: 170px;
+      overflow-y: auto;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-main);
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 6px 10px;
+    }
+
+    .move-pair {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 3px 8px;
+    }
+
+    .move-num { color: var(--text-muted); font-size: 11px; }
+    .move-w { font-weight: 700; color: var(--text-main); }
+    .move-b { color: var(--text-secondary); }
+
+    /* =========================================================================
+       КАТАЛОГ ЗАДАЧ
+       ========================================================================= */
+    .filters-bar {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 0.8fr 0.8fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .input, .select, .textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      background: #ffffff;
+      font-size: 13.5px;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .input:focus, .select:focus, .textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 43, 54, 0.12);
+    }
+
+    .textarea {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .chapter-progress-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .chapter-chip {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+
+    .chapter-chip-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .progress-track {
+      height: 6px;
+      border-radius: 999px;
+      background: #e2e6ee;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #16a34a;
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .catalog-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+    }
+
+    .catalog-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-strong);
+    }
+
+    .catalog-card.solved {
+      border-color: #86efac;
+    }
+
+    .catalog-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* =========================================================================
+       ТАБЛИЦЫ ВАЛИДАТОРА И ИМПОРТЕРА
+       ========================================================================= */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-top: 12px;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+      background: #ffffff;
+    }
+
+    .data-table th {
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* =========================================================================
+       РЕДАКТОР ЗАДАЧ
+       ========================================================================= */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-bottom: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 6px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tool-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 7px 4px;
+      border-radius: 9px;
+      border: 2px solid transparent;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      transition: all 0.14s;
+    }
+
+    .tool-btn:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+
+    .tool-btn.active {
+      border-color: var(--primary);
+      background: #eef1f6;
+      color: var(--text-main);
+    }
+
+    .tool-icon {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-field {
+      margin-bottom: 10px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .editor-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    /* =========================================================================
+       УВЕДОМЛЕНИЯ (TOASTS) И АНИМАЦИИ
+       ========================================================================= */
+    .toast-container {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 340px;
+      pointer-events: none;
+    }
+
+    .toast {
+      pointer-events: auto;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      animation: toastIn 0.2s ease forwards;
+    }
+
+    .toast.info { background: #1e242e; color: #f8fafc; border: 1px solid #353e4f; }
+    .toast.success { background: #15803d; color: #ffffff; }
+    .toast.warn { background: #b45309; color: #ffffff; }
+    .toast.error { background: #b91c1c; color: #ffffff; }
+
+    @keyframes boardShake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+
+    .animate-shake { animation: boardShake 0.34s ease; }
+
+    @keyframes hintPulse {
+      0%, 100% { transform: scale(0.95); opacity: 0.95; }
+      50% { transform: scale(1.04); opacity: 0.55; }
+    }
+
+    @keyframes softPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.13); }
+    }
+
+    @keyframes pulseFade {
+      0% { opacity: 0.95; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =========================================================================
+       АДАПТИВНОСТЬ ДЛЯ ПЛАНШЕТОВ И СМАРТФОНОВ
+       ========================================================================= */
+    @media (max-width: 1020px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      .nav-tabs-desktop {
+        display: none;
+      }
+      .nav-tabs-mobile {
+        display: flex;
+      }
+      .filters-bar {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .app-main {
+        padding: 12px 10px 28px;
+      }
+      .brand-sub { display: none; }
+      .header-pill.valid-ok span.v-text,
+      .header-pill.valid-err span.v-text { display: none; }
+      .board-frame { padding: 7px 8px; }
+      .board-matrix { grid-template-columns: 14px 1fr 14px; grid-template-rows: 14px 1fr 14px; gap: 3px; }
+      .coord-lbl { font-size: 10px; }
+      .filters-bar { grid-template-columns: 1fr; }
+      .action-grid-3 { grid-template-columns: 1fr 1fr; }
+      .card { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== ШАПКА ПРИЛОЖЕНИЯ ==================== -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand" onclick="switchMode('puzzle')">
+          <div class="brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="22" height="22">
+              <circle cx="16" cy="16" r="12" fill="#f3f4f6" stroke="#64748b" stroke-width="2"/>
+              <circle cx="16" cy="16" r="7.5" fill="none" stroke="#94a3b8" stroke-width="1.4"/>
+              <path d="M11 19.5 L12.5 12.5 L16 15.2 L19.5 12.5 L21 19.5 Z" fill="#1e293b"/>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-title">Шашечный тактик</div>
+            <div class="brand-sub">Антология Цукерника • Русские шашки 8×8</div>
+          </div>
+        </div>
+
+        <!-- Десктоп-навигация -->
+        <nav class="nav-tabs nav-tabs-desktop" aria-label="Разделы приложения">
+          <button class="nav-btn" data-nav="puzzle" onclick="switchMode('puzzle')">Решать задачи</button>
+          <button class="nav-btn" data-nav="catalog" onclick="switchMode('catalog')">Каталог Цукерника</button>
+          <button class="nav-btn" data-nav="validator" onclick="switchMode('validator')">Импорт и Валидатор</button>
+          <button class="nav-btn" data-nav="editor" onclick="switchMode('editor')">Редактор задач</button>
+          <button class="nav-btn" data-nav="free" onclick="switchMode('free')">Свободная доска</button>
+        </nav>
+
+        <!-- Правый блок -->
+        <div class="header-right">
+          <button id="header-valid-pill" class="header-pill valid-ok" onclick="switchMode('validator')" title="Статус автовалидации базы задач">
+            <span id="header-valid-icon">✓</span>
+            <span id="header-valid-count">24/24</span>
+            <span class="v-text">проверено</span>
+          </button>
+          <div class="header-pill" title="Тактический рейтинг">
+            <span>★</span>
+            <span id="header-rating">1200</span>
+          </div>
+          <button id="btn-sound" class="icon-btn" onclick="toggleSound()" title="Включить или выключить звук" aria-label="Звук"></button>
+        </div>
+      </div>
+
+      <!-- Мобильная навигация -->
+      <nav class="nav-tabs nav-tabs-mobile" aria-label="Мобильная навигация">
+        <button class="nav-btn" data-nav="puzzle" onclick="switchMode('puzzle')">Решать задачи</button>
+        <button class="nav-btn" data-nav="catalog" onclick="switchMode('catalog')">Каталог</button>
+        <button class="nav-btn" data-nav="validator" onclick="switchMode('validator')">Импорт и Валидатор</button>
+        <button class="nav-btn" data-nav="editor" onclick="switchMode('editor')">Редактор</button>
+        <button class="nav-btn" data-nav="free" onclick="switchMode('free')">Свободная доска</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== ОСНОВНОЕ СОДЕРЖИМОЕ ==================== -->
+  <main class="app-main">
+
+    <!-- ==================== 1. РЕШАТЬ ЗАДАЧИ ==================== -->
+    <section id="view-puzzle" class="mode-view">
+      <div class="two-col">
+        <!-- Левая колонка: доска -->
+        <div class="board-column">
+          <div class="board-wrap-limit">
+            <div class="board-toolbar">
+              <div id="puzzle-turn-pill" class="turn-pill">
+                <span class="turn-dot white"></span>
+                <span>Ход белых</span>
+              </div>
+              <div class="segmented" role="group" aria-label="Тема доски">
+                <button class="seg-btn" data-theme-btn="monochrome" onclick="setBoardTheme('monochrome')">Монохром</button>
+                <button class="seg-btn" data-theme-btn="wood" onclick="setBoardTheme('wood')">Дерево</button>
+                <button class="seg-btn" data-theme-btn="emerald" onclick="setBoardTheme('emerald')">Изумруд</button>
+              </div>
+            </div>
+
+            <div id="puzzle-board-host"></div>
+
+            <div id="puzzle-chain-banner" class="chain-banner hidden">
+              <span id="puzzle-chain-text"></span>
+              <button class="link-btn" onclick="cancelActiveSelection()">Отменить выбор</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая колонка: статистика, карточка задачи, ветки, нотация -->
+        <div class="side-column">
+          <div class="stats-row">
+            <div class="stat-box">
+              <div class="stat-label">Рейтинг</div>
+              <div class="stat-value">
+                <span id="stat-rating">1200</span>
+                <span id="stat-delta" class="stat-delta"></span>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Серия</div>
+              <div class="stat-value">
+                <span id="stat-streak">0</span>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Решено</div>
+              <div class="stat-value">
+                <span id="stat-solved-pct">0%</span>
+                <span id="stat-solved-frac" style="font-size:12px;color:var(--text-muted);font-weight:600;">0/24</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="badge-row">
+              <span id="puzzle-diff-badge" class="badge badge-diff-1">* Простая</span>
+              <span id="puzzle-section-badge" class="badge badge-section">Финальный удар шашкой a1</span>
+              <span id="puzzle-solved-badge" class="badge badge-solved hidden">✓ Решена</span>
+            </div>
+
+            <div class="puzzle-head">
+              <div>
+                <h1 id="puzzle-title" class="puzzle-title">Комбинация №1</h1>
+                <p id="puzzle-author" class="puzzle-meta">Э. Г. Цукерник — «Антология шашечных комбинаций» (1987)</p>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="prevPuzzle()" title="Предыдущая задача">←</button>
+            </div>
+
+            <!-- Переключатель боковых вариантов защиты -->
+            <div id="puzzle-branches-bar" class="branches-bar hidden"></div>
+
+            <!-- Обратная связь -->
+            <div id="puzzle-feedback" class="feedback-box">
+              Ход белых — найдите выигрывающую комбинацию.
+            </div>
+
+            <!-- Основные действия -->
+            <div class="action-grid-3">
+              <button id="btn-hint" class="btn btn-secondary" onclick="requestPuzzleHint()">💡 Подсказка</button>
+              <button id="btn-show-sol" class="btn btn-secondary" onclick="toggleShowSolution()">▶ Решение</button>
+              <button class="btn btn-primary" onclick="nextPuzzle()">Следующая →</button>
+            </div>
+            <div class="action-grid-2">
+              <button class="btn btn-secondary btn-sm" onclick="restartCurrentPuzzle()">↺ Начать заново</button>
+              <button class="btn btn-secondary btn-sm" onclick="analyzeCurrentOnFreeBoard()">🔍 Разобрать на доске</button>
+            </div>
+          </div>
+
+          <div class="card card-compact">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <div class="section-kicker" style="margin-bottom:0;">Ход партии (нотация)</div>
+              <span id="puzzle-ply-counter" style="font-size:11px;color:var(--text-muted);font-weight:600;"></span>
+            </div>
+            <div id="puzzle-moves-log" class="moves-log"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. КАТАЛОГ ЦУКЕРНИКА ==================== -->
+    <section id="view-catalog" class="mode-view hidden">
+      <div class="card">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;">
+          <div>
+            <h1 style="margin:0;font-size:21px;font-weight:800;">Каталог комбинаций Э. Г. Цукерника</h1>
+            <p style="margin:4px 0 0;font-size:13.5px;color:var(--text-secondary);">«Антология шашечных комбинаций» (1987) и добавленные вами задачи</p>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-secondary btn-sm" onclick="switchMode('validator')">⬆ Импорт JSON/PDN</button>
+            <button class="btn btn-primary btn-sm" onclick="switchMode('editor')">+ Новая задача</button>
+          </div>
+        </div>
+
+        <!-- Прогресс по главам -->
+        <div id="catalog-chapters-progress" class="chapter-progress-list"></div>
+
+        <!-- Фильтры -->
+        <div class="filters-bar">
+          <input id="cat-search" class="input" type="text" placeholder="Поиск по номеру (напр. 12) или автору (Адамович)..." oninput="renderCatalogView()" />
+          <select id="cat-section" class="select" onchange="renderCatalogView()">
+            <option value="all">Все разделы</option>
+          </select>
+          <select id="cat-diff" class="select" onchange="renderCatalogView()">
+            <option value="all">Любая сложность</option>
+            <option value="1">* Простые</option>
+            <option value="2">** Средние</option>
+            <option value="3">*** Сложные</option>
+          </select>
+          <select id="cat-status" class="select" onchange="renderCatalogView()">
+            <option value="all">Все статусы</option>
+            <option value="unsolved">Нерешённые</option>
+            <option value="solved">Решённые</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="catalog-grid" class="catalog-grid"></div>
+    </section>
+
+    <!-- ==================== 3. ИМПОРТ И ВАЛИДАТОР ==================== -->
+    <section id="view-validator" class="mode-view hidden">
+      <div class="two-col" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);">
+        <!-- Левая колонка: автотест активной базы -->
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+            <div>
+              <h1 style="margin:0;font-size:19px;font-weight:800;">Автовалидатор базы задач</h1>
+              <p style="margin:4px 0 0;font-size:13px;color:var(--text-secondary);">Полный прогон всех задач, веток, altWins и altTries через движок правил 8×8</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="runFullDatabaseValidation(true)">↻ Перепроверить</button>
+          </div>
+
+          <div id="validator-summary-box" class="feedback-box ok" style="margin-top:12px;"></div>
+
+          <div class="table-wrap" style="max-height:460px;overflow-y:auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Раздел / Автор</th>
+                  <th>Ветки</th>
+                  <th>Статус</th>
+                </tr>
+              </thead>
+              <tbody id="validator-db-tbody"></tbody>
+            </table>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;">
+            <button class="btn btn-secondary btn-sm" onclick="exportDatabaseJSON(false)">⬇ Экспорт своих задач (JSON)</button>
+            <button class="btn btn-secondary btn-sm" onclick="exportDatabaseJSON(true)">⬇ Экспорт всей базы (JSON)</button>
+          </div>
+        </div>
+
+        <!-- Правая колонка: Импорт JSON / PDN -->
+        <div class="card">
+          <h2 style="margin:0;font-size:19px;font-weight:800;">Импорт и проверка новых задач</h2>
+          <p style="margin:4px 0 12px;font-size:13px;color:var(--text-secondary);">
+            Поддерживается JSON нашего формата (массив задач) и текстовый формат <strong>PDN</strong> (с алгебраическим или цифровым FEN 1–32).
+          </p>
+
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+            <label class="btn btn-secondary btn-sm" style="cursor:pointer;">
+              📂 Загрузить .json / .pdn
+              <input id="import-file-input" type="file" accept=".json,.pdn,.txt,application/json,text/plain" class="hidden" onchange="handleImportFile(event)" />
+            </label>
+            <button class="btn btn-secondary btn-sm" onclick="insertSampleJSON()">Пример JSON</button>
+            <button class="btn btn-secondary btn-sm" onclick="insertSamplePDN()">Пример PDN</button>
+            <button class="btn btn-secondary btn-sm" onclick="clearImportArea()">Очистить</button>
+          </div>
+
+          <textarea id="import-textarea" class="textarea" placeholder='Вставьте JSON-массив задач или текст PDN и нажмите «Проверить и разобрать»...'></textarea>
+
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+            <button class="btn btn-primary" onclick="parseAndValidateImport()">🔍 Проверить и разобрать</button>
+            <button id="btn-commit-import" class="btn btn-success hidden" onclick="commitValidatedImport()">+ Добавить валидные в каталог</button>
+          </div>
+
+          <div id="import-report-area" class="hidden" style="margin-top:14px;">
+            <div id="import-summary-box" class="feedback-box"></div>
+            <div class="table-wrap" style="max-height:280px;overflow-y:auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Задача</th>
+                    <th>Проверка</th>
+                    <th>Детали</th>
+                  </tr>
+                </thead>
+                <tbody id="import-preview-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. РЕДАКТОР ЗАДАЧ ==================== -->
+    <section id="view-editor" class="mode-view hidden">
+      <div class="two-col">
+        <!-- Левая колонка: доска редактора -->
+        <div class="board-column">
+          <div class="board-wrap-limit">
+            <div class="board-toolbar">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span id="ed-pill-setup" class="badge badge-diff-2">1. Расстановка</span>
+                <span style="color:var(--text-muted);font-size:12px;">→</span>
+                <span id="ed-pill-rec" class="badge badge-section">2. Запись ходов и веток</span>
+              </div>
+              <div style="display:flex;gap:6px;">
+                <button class="btn btn-secondary btn-sm" onclick="editorLoadStandard()">12×12</button>
+                <button class="btn btn-secondary btn-sm" onclick="editorClearBoard()">Очистить</button>
+              </div>
+            </div>
+
+            <!-- Палитра фигур (шаг 1) -->
+            <div id="ed-palette" class="palette-grid">
+              <button class="tool-btn active" data-ed-tool="w" onclick="setEditorTool('w')">
+                <div class="tool-icon" id="ed-icon-w"></div>
+                <span>Белая</span>
+              </button>
+              <button class="tool-btn" data-ed-tool="W" onclick="setEditorTool('W')">
+                <div class="tool-icon" id="ed-icon-W"></div>
+                <span>Б. дамка</span>
+              </button>
+              <button class="tool-btn" data-ed-tool="b" onclick="setEditorTool('b')">
+                <div class="tool-icon" id="ed-icon-b"></div>
+                <span>Чёрная</span>
+              </button>
+              <button class="tool-btn" data-ed-tool="B" onclick="setEditorTool('B')">
+                <div class="tool-icon" id="ed-icon-B"></div>
+                <span>Ч. дамка</span>
+              </button>
+              <button class="tool-btn" data-ed-tool="erase" onclick="setEditorTool('erase')">
+                <div class="tool-icon" style="font-size:18px;">✕</div>
+                <span>Ластик</span>
+              </button>
+            </div>
+
+            <!-- Панель записи (шаг 2) -->
+            <div id="ed-rec-toolbar" class="chain-banner hidden" style="margin-top:0;margin-bottom:10px;background:var(--info-bg);border-color:var(--info-border);color:#1e3a8a;">
+              <span id="ed-rec-status-text">Запись главной линии: ход БЕЛЫХ</span>
+              <div style="display:flex;gap:6px;">
+                <button class="btn btn-secondary btn-sm" onclick="editorUndoRecMove()">↶ Ход</button>
+                <button class="btn btn-secondary btn-sm" onclick="editorReturnToSetup()">← Расстановка</button>
+              </div>
+            </div>
+
+            <div id="editor-board-host"></div>
+
+            <div id="editor-chain-banner" class="chain-banner hidden">
+              <span id="editor-chain-text"></span>
+              <button class="link-btn" onclick="cancelActiveSelection()">Отменить выбор</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая колонка: управление записью, ветки, altWins, метаданные -->
+        <div class="side-column">
+          <div class="card">
+            <h1 style="margin:0;font-size:18px;font-weight:800;">Конструктор комбинаций</h1>
+            <p style="margin:4px 0 12px;font-size:13px;color:var(--text-secondary);">
+              Расставьте позицию, разыграйте главную линию, при необходимости добавьте боковые защиты и альтернативные выигрыши.
+            </p>
+
+            <!-- Кнопка перехода к записи -->
+            <div id="ed-step1-panel">
+              <button class="btn btn-primary" style="width:100%;" onclick="editorEnterRecordMode()">Перейти к записи решения →</button>
+            </div>
+
+            <!-- Панель записи линий и веток -->
+            <div id="ed-step2-panel" class="hidden">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span class="section-kicker" style="margin-bottom:0;">Активная линия: <strong id="ed-active-line-name" style="color:var(--text-main);">Главная линия</strong></span>
+                <button id="ed-back-main-btn" class="link-btn hidden" onclick="editorSwitchToMainLine()">К главной линии</button>
+              </div>
+              <div id="ed-active-moves-log" class="moves-log" style="min-height:56px;max-height:110px;"></div>
+
+              <!-- Добавление боковой ветки защиты -->
+              <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
+                <div class="section-kicker">Боковые варианты защиты (branches)</div>
+                <div style="display:flex;gap:6px;margin-bottom:8px;">
+                  <select id="ed-branch-ply" class="select" style="font-size:12px;padding:6px 8px;"></select>
+                  <button class="btn btn-secondary btn-sm" style="white-space:nowrap;" onclick="editorStartNewBranch()">+ Записать защиту</button>
+                </div>
+                <div id="ed-branches-list"></div>
+              </div>
+
+              <!-- Добавление альтернативного хода белых -->
+              <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
+                <div class="section-kicker">Альтернативный ход белых (altWin / altTry)</div>
+                <div class="form-grid-2" style="gap:6px;margin-bottom:6px;">
+                  <select id="ed-alt-ply" class="select" style="font-size:12px;padding:6px 8px;" onchange="editorRefreshAltMoves()"></select>
+                  <select id="ed-alt-move" class="select" style="font-size:12px;padding:6px 8px;"></select>
+                </div>
+                <div style="display:flex;gap:6px;margin-bottom:6px;">
+                  <select id="ed-alt-kind" class="select" style="font-size:12px;padding:6px 8px;max-width:165px;" onchange="editorToggleAltMsg()">
+                    <option value="altWin">Равный выигрыш</option>
+                    <option value="altTry">Попытка (altTry)</option>
+                  </select>
+                  <button class="btn btn-secondary btn-sm" style="flex:1;" onclick="editorAddAltMove()">+ Добавить ход</button>
+                </div>
+                <input id="ed-alt-msg" class="input hidden" style="font-size:12px;padding:6px 9px;margin-bottom:6px;" placeholder="Пояснение для altTry (почему главная линия точнее)..." />
+                <div id="ed-alts-list"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Метаданные и сохранение -->
+          <div class="card">
+            <div class="section-kicker">Параметры задачи</div>
+            <div class="form-grid-2">
+              <div class="form-field">
+                <label class="form-label" for="ed-number">Номер задачи</label>
+                <input id="ed-number" class="input" type="number" min="1" value="32" />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="ed-diff">Сложность</label>
+                <select id="ed-diff" class="select">
+                  <option value="1">* Простая</option>
+                  <option value="2">** Средняя</option>
+                  <option value="3">*** Сложная</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="ed-section">Раздел / тема</label>
+              <input id="ed-section" class="input" type="text" value="Финальный удар шашкой a3" />
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="ed-author">Автор / источник (необязательно)</label>
+              <input id="ed-author" class="input" type="text" placeholder="Напр. Э. Цукерник или партия..." />
+            </div>
+
+            <div id="ed-validation-pill" class="feedback-box" style="margin-top:8px;margin-bottom:10px;padding:9px 11px;font-size:12px;">
+              Расставьте шашки и запишите ходы решения.
+            </div>
+
+            <div class="action-grid-2" style="margin-top:0;">
+              <button class="btn btn-success" onclick="editorSavePuzzle()">💾 Сохранить и решить</button>
+              <button class="btn btn-secondary" onclick="editorExportCurrentJSON()">⬇ Экспорт JSON</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. СВОБОДНАЯ ДОСКА ==================== -->
+    <section id="view-free" class="mode-view hidden">
+      <div class="two-col">
+        <div class="board-column">
+          <div class="board-wrap-limit">
+            <div class="board-toolbar">
+              <div id="free-turn-pill" class="turn-pill">
+                <span class="turn-dot white"></span>
+                <span>Ход белых</span>
+              </div>
+              <div style="display:flex;gap:6px;">
+                <button class="btn btn-secondary btn-sm" onclick="flipFreeBoard()">⇅ Перевернуть</button>
+                <button class="btn btn-secondary btn-sm" onclick="undoFreeMove()">↶ Отменить</button>
+              </div>
+            </div>
+
+            <div id="free-board-host"></div>
+
+            <div id="free-chain-banner" class="chain-banner hidden">
+              <span id="free-chain-text"></span>
+              <button class="link-btn" onclick="cancelActiveSelection()">Отменить выбор</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-column">
+          <!-- Баннер анализа позиции из задачи -->
+          <div id="free-origin-card" class="card card-compact hidden" style="background:var(--info-bg);border-color:var(--info-border);">
+            <div style="font-size:13px;font-weight:700;color:#1e3a8a;" id="free-origin-title">Анализ позиции из задачи</div>
+            <div style="display:flex;gap:8px;margin-top:8px;">
+              <button class="btn btn-primary btn-sm" onclick="resetFreeToOrigin()">↺ К началу позиции</button>
+              <button class="btn btn-secondary btn-sm" onclick="switchMode('puzzle')">← Вернуться к задаче</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h1 style="margin:0;font-size:19px;font-weight:800;">Свободная доска (анализ правил)</h1>
+            <p style="margin:5px 0 0;font-size:13px;color:var(--text-secondary);line-height:1.45;">
+              Игра за обе стороны по полным правилам русских шашек 8×8: обязательный бой, бой назад, превращение в дамку в процессе взятия, дальнобойная дамка и «турецкий удар».
+            </p>
+
+            <div id="free-status-box" class="feedback-box" style="margin-top:12px;">
+              Партия началась. Ход белых.
+            </div>
+
+            <div class="stats-row" style="grid-template-columns:1fr 1fr;margin-top:12px;">
+              <div class="stat-box" style="background:var(--bg-subtle);">
+                <div class="stat-label">Белые</div>
+                <div id="free-count-w" class="stat-value">12</div>
+              </div>
+              <div class="stat-box" style="background:var(--bg-subtle);">
+                <div class="stat-label">Чёрные</div>
+                <div id="free-count-b" class="stat-value">12</div>
+              </div>
+            </div>
+
+            <div class="action-grid-2">
+              <button class="btn btn-secondary" onclick="undoFreeMove()">↶ Отменить ход</button>
+              <button class="btn btn-primary" onclick="resetFreeStandard()">↺ Новая партия 12×12</button>
+            </div>
+          </div>
+
+          <div class="card card-compact">
+            <div class="section-kicker">Запись ходов</div>
+            <div id="free-moves-log" class="moves-log" style="min-height:120px;max-height:260px;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Контейнер всплывающих уведомлений -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script>
+    /* =========================================================================
+       1. СТРОГИЙ ДВИЖОК ПРАВИЛ РУССКИХ ШАШЕК 8×8 (CheckersEngine)
+       ========================================================================= */
+    const CheckersEngine = (() => {
+      const FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+      const DIRS = [[-1, -1], [-1, 1], [1, -1], [1, 1]];
+
+      function inBounds(r, c) {
+        return r >= 0 && r < 8 && c >= 0 && c < 8;
+      }
+
+      // Темные игровые поля: (col + rank) % 2 === 1 (где rank = 8 - r, a1 -> col=0, rank=1 -> dark)
+      function isDark(r, c) {
+        const rank = 8 - r;
+        return (c + rank) % 2 === 1;
+      }
+
+      function sqToRC(sq) {
+        if (!sq || typeof sq !== 'string' || sq.length < 2) return null;
+        const c = FILES.indexOf(sq[0].toLowerCase());
+        const rank = parseInt(sq.slice(1), 10);
+        if (c < 0 || Number.isNaN(rank) || rank < 1 || rank > 8) return null;
+        return [8 - rank, c];
+      }
+
+      function rcToSq(r, c) {
+        return FILES[c] + (8 - r);
+      }
+
+      // Конвертация стандартной PDN нумерации (1..32) в алгебраическую координату a1..h8
+      // В русских шашках (и международной 8x8 PDN): 1=b8, 2=d8, 3=f8, 4=h8, 5=a7 ... 32=g1
+      function pdnNumToSq(num) {
+        const n = parseInt(num, 10);
+        if (Number.isNaN(n) || n < 1 || n > 32) return null;
+        const idx = n - 1;
+        const r = Math.floor(idx / 4);
+        const posInRow = idx % 4;
+        const c = (r % 2 === 0) ? (posInRow * 2 + 1) : (posInRow * 2);
+        return rcToSq(r, c);
+      }
+
+      function pieceColor(p) {
+        if (!p) return null;
+        return (p === 'w' || p === 'W') ? 'w' : 'b';
+      }
+
+      function isKing(p) {
+        return p === 'W' || p === 'B';
+      }
+
+      function createEmptyBoard() {
+        return Array.from({ length: 8 }, () => Array(8).fill(null));
+      }
+
+      function cloneBoard(board) {
+        return board.map(row => row.slice());
+      }
+
+      function createStandardBoard() {
+        const b = createEmptyBoard();
+        for (let r = 0; r < 8; r++) {
+          for (let c = 0; c < 8; c++) {
+            if (!isDark(r, c)) continue;
+            if (r <= 2) b[r][c] = 'b';
+            else if (r >= 5) b[r][c] = 'w';
+          }
+        }
+        return b;
+      }
+
+      function boardFromPuzzle(puzzle) {
+        const b = createEmptyBoard();
+        const placeList = (arr, code) => {
+          if (!Array.isArray(arr)) return;
+          for (const sq of arr) {
+            const rc = sqToRC(sq);
+            if (rc && isDark(rc[0], rc[1])) b[rc[0]][rc[1]] = code;
+          }
+        };
+        placeList(puzzle.white, 'w');
+        placeList(puzzle.black, 'b');
+        placeList(puzzle.whiteKings, 'W');
+        placeList(puzzle.blackKings, 'B');
+        return b;
+      }
+
+      function boardToLists(board) {
+        const white = [], black = [], whiteKings = [], blackKings = [];
+        for (let r = 7; r >= 0; r--) {
+          for (let c = 0; c < 8; c++) {
+            const p = board[r][c];
+            if (!p) continue;
+            const sq = rcToSq(r, c);
+            if (p === 'w') white.push(sq);
+            else if (p === 'b') black.push(sq);
+            else if (p === 'W') whiteKings.push(sq);
+            else if (p === 'B') blackKings.push(sq);
+          }
+        }
+        return { white, black, whiteKings, blackKings };
+      }
+
+      function formatNotation(path, isCapture) {
+        if (isCapture) {
+          return path.map(([r, c]) => rcToSq(r, c)).join(':');
+        }
+        return `${rcToSq(path[0][0], path[0][1])}-${rcToSq(path[1][0], path[1][1])}`;
+      }
+
+      function hasRC(list, r, c) {
+        for (let i = 0; i < list.length; i++) {
+          if (list[i][0] === r && list[i][1] === c) return true;
+        }
+        return false;
+      }
+
+      /**
+       * Рекурсивный поиск всех завершенных цепочек взятий для одной шашки.
+       * На workBoard стартовая клетка шашки уже очищена (null),
+       * но все сбитые вражеские шашки ОСТАЮТСЯ на доске до конца хода (правило турецкого удара).
+       */
+      function findCapturesFrom(workBoard, r, c, side, kingFlag, path, captures, promotesAtStep) {
+        const enemy = side === 'w' ? 'b' : 'w';
+        const results = [];
+
+        if (!kingFlag) {
+          // Простая шашка бьет вперед и назад
+          for (const [dr, dc] of DIRS) {
+            const mr = r + dr;
+            const mc = c + dc;
+            const lr = r + 2 * dr;
+            const lc = c + 2 * dc;
+
+            if (!inBounds(lr, lc)) continue;
+            const mid = workBoard[mr][mc];
+            if (!mid || pieceColor(mid) !== enemy) continue;
+            if (hasRC(captures, mr, mc)) continue; // Турецкий удар: повторно бить нельзя
+            if (workBoard[lr][lc] !== null) continue;
+
+            const nextPath = [...path, [lr, lc]];
+            const nextCaptures = [...captures, [mr, mc]];
+
+            // Мгновенное превращение в дамку в процессе боя!
+            let nextKing = false;
+            let nextPromotes = promotesAtStep;
+            if ((side === 'w' && lr === 0) || (side === 'b' && lr === 7)) {
+              nextKing = true;
+              if (nextPromotes === null) nextPromotes = nextPath.length - 1;
+            }
+
+            const continuations = findCapturesFrom(
+              workBoard, lr, lc, side, nextKing, nextPath, nextCaptures, nextPromotes
+            );
+
+            if (continuations.length > 0) {
+              results.push(...continuations);
+            } else {
+              results.push({
+                path: nextPath,
+                captures: nextCaptures,
+                promotesAtStep: nextPromotes,
+                notation: formatNotation(nextPath, true)
+              });
+            }
+          }
+        } else {
+          // Дальнобойная дамка
+          for (const [dr, dc] of DIRS) {
+            let step = 1;
+            let enemyR = -1;
+            let enemyC = -1;
+
+            while (true) {
+              const nr = r + step * dr;
+              const nc = c + step * dc;
+              if (!inBounds(nr, nc)) break;
+
+              const cell = workBoard[nr][nc];
+              if (cell === null) {
+                step++;
+                continue;
+              }
+
+              // Своя шашка или уже сбитая в этой серии шашка блокирует луч (турецкий удар)
+              if (pieceColor(cell) === side || hasRC(captures, nr, nc)) {
+                break;
+              }
+
+              enemyR = nr;
+              enemyC = nc;
+              break;
+            }
+
+            if (enemyR === -1) continue;
+
+            // Собираем все свободные поля приземления за сбитой шашкой
+            const landings = [];
+            let k = 1;
+            while (true) {
+              const lr = enemyR + k * dr;
+              const lc = enemyC + k * dc;
+              if (!inBounds(lr, lc) || workBoard[lr][lc] !== null) break;
+              landings.push([lr, lc]);
+              k++;
+            }
+
+            if (landings.length === 0) continue;
+
+            const nextCaptures = [...captures, [enemyR, enemyC]];
+
+            // Строгое правило русских шашек:
+            // Если хотя бы с одного поля за сбитой шашкой возможно продолжение боя,
+            // дамка обязана встать на одно из полей, дающих продолжение боя.
+            const continuationMoves = [];
+            const terminalMoves = [];
+
+            for (const [lr, lc] of landings) {
+              const nextPath = [...path, [lr, lc]];
+              const sub = findCapturesFrom(
+                workBoard, lr, lc, side, true, nextPath, nextCaptures, promotesAtStep
+              );
+              if (sub.length > 0) {
+                continuationMoves.push(...sub);
+              } else {
+                terminalMoves.push({
+                  path: nextPath,
+                  captures: nextCaptures,
+                  promotesAtStep,
+                  notation: formatNotation(nextPath, true)
+                });
+              }
+            }
+
+            if (continuationMoves.length > 0) {
+              results.push(...continuationMoves);
+            } else {
+              results.push(...terminalMoves);
+            }
+          }
+        }
+
+        return results;
+      }
+
+      /**
+       * Генерирует все легальные ходы стороны side ('w' | 'b').
+       * Взятие обязательно; правила большинства нет.
+       */
+      function getLegalMoves(board, side) {
+        const captureMoves = [];
+
+        for (let r = 0; r < 8; r++) {
+          for (let c = 0; c < 8; c++) {
+            const p = board[r][c];
+            if (!p || pieceColor(p) !== side) continue;
+
+            const work = cloneBoard(board);
+            work[r][c] = null;
+
+            const caps = findCapturesFrom(work, r, c, side, isKing(p), [[r, c]], [], null);
+            if (caps.length > 0) captureMoves.push(...caps);
+          }
+        }
+
+        if (captureMoves.length > 0) return captureMoves;
+
+        // Тихие ходы
+        const quietMoves = [];
+        for (let r = 0; r < 8; r++) {
+          for (let c = 0; c < 8; c++) {
+            const p = board[r][c];
+            if (!p || pieceColor(p) !== side) continue;
+
+            if (!isKing(p)) {
+              const dr = side === 'w' ? -1 : 1;
+              for (const dc of [-1, 1]) {
+                const nr = r + dr;
+                const nc = c + dc;
+                if (!inBounds(nr, nc) || board[nr][nc] !== null) continue;
+                const promotes = (side === 'w' && nr === 0) || (side === 'b' && nr === 7) ? 1 : null;
+                const path = [[r, c], [nr, nc]];
+                quietMoves.push({
+                  path,
+                  captures: [],
+                  promotesAtStep: promotes,
+                  notation: formatNotation(path, false)
+                });
+              }
+            } else {
+              for (const [dr, dc] of DIRS) {
+                let step = 1;
+                while (true) {
+                  const nr = r + step * dr;
+                  const nc = c + step * dc;
+                  if (!inBounds(nr, nc) || board[nr][nc] !== null) break;
+                  const path = [[r, c], [nr, nc]];
+                  quietMoves.push({
+                    path,
+                    captures: [],
+                    promotesAtStep: null,
+                    notation: formatNotation(path, false)
+                  });
+                  step++;
+                }
+              }
+            }
+          }
+        }
+
+        return quietMoves;
+      }
+
+      function applyMove(board, move) {
+        const next = cloneBoard(board);
+        const [r0, c0] = move.path[0];
+        const [rl, cl] = move.path[move.path.length - 1];
+        let piece = next[r0][c0];
+        next[r0][c0] = null;
+
+        for (const [cr, cc] of move.captures) {
+          next[cr][cc] = null;
+        }
+
+        if (move.promotesAtStep !== null) {
+          piece = piece.toUpperCase();
+        }
+        next[rl][cl] = piece;
+        return next;
+      }
+
+      /**
+       * Сопоставляет строковую запись хода ("h4-g5", "a1:c3:a5:c7:e5", или короткую книжную "a1:e5", "a1xe5", "hg5")
+       * с массивом легальных ходов движка.
+       */
+      function resolveNotation(board, side, rawStr) {
+        const legals = getLegalMoves(board, side);
+        if (!rawStr || typeof rawStr !== 'string') return { move: null, reason: 'Пустая запись хода' };
+
+        const cleaned = rawStr.trim().toLowerCase().replace(/[!?+#=×]/g, '').replace(/x/g, ':');
+
+        // 1. Точное совпадение с полной нотацией движка
+        const exact = legals.find(m => m.notation === cleaned);
+        if (exact) return { move: exact };
+
+        // 2. Разбор на список клеток (полных a1..h8 или числовых 1..32)
+        const isCapNotation = cleaned.includes(':');
+        const tokens = cleaned.split(/[-:]/).filter(Boolean);
+
+        // Конвертация числовой нотации (напр. 29-25 или 29:15)
+        if (tokens.length >= 2 && tokens.every(t => /^\d{1,2}$/.test(t))) {
+          const sqTokens = tokens.map(pdnNumToSq);
+          if (sqTokens.every(Boolean)) {
+            const rebuilt = sqTokens.join(isCapNotation ? ':' : '-');
+            const exactNum = legals.find(m => m.notation === rebuilt);
+            if (exactNum) return { move: exactNum };
+            const startSq = sqTokens[0];
+            const endSq = sqTokens[sqTokens.length - 1];
+            const shortMatches = legals.filter(m => {
+              const s = rcToSq(m.path[0][0], m.path[0][1]);
+              const e = rcToSq(m.path[m.path.length - 1][0], m.path[m.path.length - 1][1]);
+              return s === startSq && e === endSq && (isCapNotation ? m.captures.length > 0 : m.captures.length === 0);
+            });
+            if (shortMatches.length === 1) return { move: shortMatches[0] };
+          }
+        }
+
+        // Короткая книжная запись взятия ("a1:e5" или "a:e5")
+        if (tokens.length === 2 && isCapNotation) {
+          const [fromTok, toTok] = tokens;
+          const matches = legals.filter(m => {
+            if (m.captures.length === 0) return false;
+            const s = rcToSq(m.path[0][0], m.path[0][1]);
+            const e = rcToSq(m.path[m.path.length - 1][0], m.path[m.path.length - 1][1]);
+            if (e !== toTok) return false;
+            return fromTok.length === 2 ? s === fromTok : s[0] === fromTok[0];
+          });
+          if (matches.length === 1) return { move: matches[0] };
+          if (matches.length > 1) return { move: null, reason: `Неоднозначное взятие "${rawStr}" (${matches.map(m => m.notation).join(', ')})` };
+        }
+
+        // Короткая книжная запись тихого хода ("hg5" -> h4-g5)
+        if (!isCapNotation && /^[a-h][a-h][1-8]$/.test(cleaned)) {
+          const fromFile = cleaned[0];
+          const toSq = cleaned.slice(1);
+          const matches = legals.filter(m => {
+            if (m.captures.length > 0) return false;
+            const s = rcToSq(m.path[0][0], m.path[0][1]);
+            const e = rcToSq(m.path[m.path.length - 1][0], m.path[m.path.length - 1][1]);
+            return s[0] === fromFile && e === toSq;
+          });
+          if (matches.length === 1) return { move: matches[0] };
+        }
+
+        return {
+          move: null,
+          reason: `Ход "${rawStr}" нелегален (доступно: ${legals.slice(0, 6).map(m => m.notation).join(', ') || 'нет ходов'})`
+        };
+      }
+
+      function countPieces(board) {
+        let w = 0, b = 0;
+        for (let r = 0; r < 8; r++) {
+          for (let c = 0; c < 8; c++) {
+            const p = board[r][c];
+            if (p === 'w' || p === 'W') w++;
+            else if (p === 'b' || p === 'B') b++;
+          }
+        }
+        return { w, b };
+      }
+
+      /**
+       * Полная строгая валидация объекта задачи (позиция, главная линия, branches, altWins, altTries).
+       */
+      function validatePuzzle(puzzle) {
+        const errors = [];
+        const stats = { plies: 0, branches: 0, altWins: 0, altTries: 0 };
+
+        if (!puzzle || typeof puzzle !== 'object') {
+          return { valid: false, errors: ['Некорректная структура задачи'], stats };
+        }
+
+        const occupied = new Set();
+        const checkArr = (arr, label) => {
+          if (!arr) return;
+          if (!Array.isArray(arr)) { errors.push(`Поле ${label} должно быть массивом`); return; }
+          for (const sq of arr) {
+            const rc = sqToRC(sq);
+            if (!rc) { errors.push(`Неверная координата "${sq}" в ${label}`); continue; }
+            if (!isDark(rc[0], rc[1])) { errors.push(`Поле "${sq}" (${label}) — светлое!`); continue; }
+            if (occupied.has(sq.toLowerCase())) { errors.push(`Конфликт: поле "${sq}" занято дважды`); continue; }
+            occupied.add(sq.toLowerCase());
+          }
+        };
+
+        checkArr(puzzle.white, 'white');
+        checkArr(puzzle.black, 'black');
+        checkArr(puzzle.whiteKings, 'whiteKings');
+        checkArr(puzzle.blackKings, 'blackKings');
+
+        if (!Array.isArray(puzzle.mainLine) || puzzle.mainLine.length === 0) {
+          errors.push('Отсутствует главная линия (mainLine)');
+          return { valid: false, errors, stats };
+        }
+
+        const startBoard = boardFromPuzzle(puzzle);
+        const startSide = puzzle.turn === 'b' ? 'b' : 'w';
+        const counts = countPieces(startBoard);
+        if (counts.w === 0 || counts.b === 0) {
+          errors.push('На доске должны быть и белые, и чёрные шашки');
+        }
+
+        // Храним снимки доски перед каждым полуходом главной линии
+        const mainSnapshots = [];
+        let curBoard = cloneBoard(startBoard);
+        let curSide = startSide;
+
+        const validateAltsAtPly = (board, side, plyKey, altWinsObj, altTriesObj, scopeLabel) => {
+          if (altWinsObj && Array.isArray(altWinsObj[plyKey])) {
+            for (const aw of altWinsObj[plyKey]) {
+              const res = resolveNotation(board, side, aw);
+              if (!res.move) errors.push(`${scopeLabel}, полуход ${plyKey} (altWin): ${res.reason}`);
+              else stats.altWins++;
+            }
+          }
+          if (altTriesObj && Array.isArray(altTriesObj[plyKey])) {
+            for (const at of altTriesObj[plyKey]) {
+              const mvStr = typeof at === 'string' ? at : at.move;
+              const res = resolveNotation(board, side, mvStr);
+              if (!res.move) errors.push(`${scopeLabel}, полуход ${plyKey} (altTry): ${res.reason}`);
+              else stats.altTries++;
+            }
+          }
+        };
+
+        for (let i = 0; i < puzzle.mainLine.length; i++) {
+          mainSnapshots.push({ board: cloneBoard(curBoard), side: curSide });
+          validateAltsAtPly(curBoard, curSide, String(i), puzzle.altWins, puzzle.altTries, 'Главная линия');
+
+          const res = resolveNotation(curBoard, curSide, puzzle.mainLine[i]);
+          if (!res.move) {
+            errors.push(`Главная линия, полуход ${i + 1}: ${res.reason}`);
+            break;
+          }
+          curBoard = applyMove(curBoard, res.move);
+          curSide = curSide === 'w' ? 'b' : 'w';
+          stats.plies++;
+        }
+
+        // Проверка боковых веток (branches)
+        if (Array.isArray(puzzle.branches)) {
+          stats.branches = puzzle.branches.length;
+          puzzle.branches.forEach((br, bIdx) => {
+            const label = br.label || `Ветка #${bIdx + 1}`;
+            const afterPly = typeof br.afterPly === 'number' ? br.afterPly : 1;
+            if (afterPly < 0 || afterPly >= mainSnapshots.length) {
+              errors.push(`${label}: некорректный afterPly=${afterPly}`);
+              return;
+            }
+            if (!Array.isArray(br.moves) || br.moves.length === 0) {
+              errors.push(`${label}: пустой список ходов`);
+              return;
+            }
+
+            let bBoard = cloneBoard(mainSnapshots[afterPly].board);
+            let bSide = mainSnapshots[afterPly].side;
+
+            for (let j = 0; j < br.moves.length; j++) {
+              const globalPly = afterPly + j;
+              validateAltsAtPly(bBoard, bSide, String(globalPly), br.altWins, br.altTries, label);
+
+              const res = resolveNotation(bBoard, bSide, br.moves[j]);
+              if (!res.move) {
+                errors.push(`${label}, полуход ${globalPly + 1}: ${res.reason}`);
+                break;
+              }
+              bBoard = applyMove(bBoard, res.move);
+              bSide = bSide === 'w' ? 'b' : 'w';
+            }
+          });
+        }
+
+        return { valid: errors.length === 0, errors, stats };
+      }
+
+      return {
+        inBounds,
+        isDark,
+        sqToRC,
+        rcToSq,
+        pdnNumToSq,
+        pieceColor,
+        isKing,
+        createEmptyBoard,
+        cloneBoard,
+        createStandardBoard,
+        boardFromPuzzle,
+        boardToLists,
+        getLegalMoves,
+        applyMove,
+        resolveNotation,
+        countPieces,
+        validatePuzzle
+      };
+    })();
+
+    /* =========================================================================
+       2. БАЗА ИЗ 24 ПРОВЕРЕННЫХ КОМБИНАЦИЙ Э. Г. ЦУКЕРНИКА (1987)
+       ========================================================================= */
+    const BUILTIN_PUZZLES = [
+      {
+        id: "tsukernik-1", number: 1, section: "Финальный удар шашкой a1", difficulty: 1, author: "",
+        white: ["a1","b2","d2","f2","g3","h4"], black: ["b4","b6","d6","f6","a7","d8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["h4-g5","f6:h4","f2-e3","h4:f2:d4","b2-c3","d4:b2","a1:c3:a5:c7:e5"],
+        branches: []
+      },
+      {
+        id: "tsukernik-3", number: 3, section: "Финальный удар шашкой a1", difficulty: 1, author: "В. Адамович",
+        white: ["a1","e1","b2","d2","f2","e3","d4"], black: ["h4","b6","d6","h6","a7","g7","h8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["d4-c5","d6:b4","f2-g3","h4:f2:d4","b2-c3","d4:b2","a1:c3:a5:c7"],
+        branches: [{ label: "Защита 1... b6:d4", afterPly: 1, moves: ["b6:d4","e3:c5:e7"] }]
+      },
+      {
+        id: "tsukernik-4", number: 4, section: "Финальный удар шашкой a1", difficulty: 1, author: "",
+        white: ["a1","c1","d2","e3","g3"], black: ["b4","h4","b6","a7","f8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["c1-b2","h4:f2:d4","b2-c3","d4:b2","a1:c3:a5:c7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-5", number: 5, section: "Финальный удар шашкой a1", difficulty: 1, author: "",
+        white: ["a1","c1","g1","d2","f2","g3","f4","h6"], black: ["b4","h4","e5","b6","d6","f6","a7","e7"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["f2-e3","h4:f2:d4","c1-b2","e5:g3","b2-c3","d4:b2","a1:c3:a5:c7:e5:g7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-6", number: 6, section: "Финальный удар шашкой a1", difficulty: 2, author: "С. Балжаларский",
+        white: ["a1","c1","b2","f2","c3","g3","b6"], black: ["d4","h4","c5","e5","f6","a7","b8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["b2-a3","d4:b2","b6:d4","e5:c3","f2-e3","h4:f2:d4","a3-b4","c3:a5","a1:c3:e5:g7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-7", number: 7, section: "Финальный удар шашкой a1", difficulty: 2, author: "",
+        white: ["a1","c1","d2","f2","h2","a3","c3","e3","h4","g5","h6"], black: ["b4","f4","a5","c5","b6","f6","a7","e7","b8","d8","f8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["e3-d4","c5:e3:g1","g5:e3","g1:d4:b2","a3:c5","b6:d4","a1:c3:e5:g7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-8", number: 8, section: "Финальный удар шашкой a1", difficulty: 2, author: "Идея В. Сокова",
+        white: ["a1","f2","c3","e3","d4","f4","a5","e5"], black: ["b2","b6","h6","c7","g7","d8","f8","h8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["e5-d6","c7:e5:g3:e1:b4","a5:c7","d8:b6","a1:c3:a5:c7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-10", number: 10, section: "Финальный удар шашкой a3", difficulty: 1, author: "",
+        white: ["f2","h2","a3","e3","d4","f4"], black: ["b4","h4","c5","b6","e7","f8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["f2-g3","h4:f2","e3:g1","c5:e3:g5","a3:c5:a7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-11", number: 11, section: "Финальный удар шашкой a3", difficulty: 2, author: "",
+        white: ["a3","e3","f4","h4","e5","f6"], black: ["b4","c5","h6","a7","f8","h8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["h4-g5","f8-g7","e3-d4","c5:e3","f4:d2","h6:f4:d6","a3:c5:e7","g7:e5","d2-e3"],
+        branches: [{ label: "Защита 1... b4-c3", afterPly: 1, moves: ["b4-c3","e5-d6","c5:e7","f6:d8"] }]
+      },
+      {
+        id: "tsukernik-12", number: 12, section: "Финальный удар шашкой a3", difficulty: 2, author: "В. Дьяков — Н. Абациев, 1955",
+        white: ["d2","a3","e3","d4","e5","f6"], black: ["b4","c5","b6","c7","f8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["f6-g7","f8:h6","e5-f6","c7-d6","e3-f4","c5:e3:c1","a3:c5:e7","c1:g5","f6:h4"],
+        altTries: {
+          "6": [{ move: "a3:c5:a7", message: "Тоже сильный удар, но в книге точнее 4. a3:c5:e7 (не оставляя чёрным шашку d6). Попробуйте главный вариант!" }]
+        },
+        branches: []
+      },
+      {
+        id: "tsukernik-13", number: 13, section: "Финальный удар шашкой a3", difficulty: 1, author: "",
+        white: ["g1","f2","a3","g3","g5"], black: ["b4","a5","c5","d6","e7"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["g5-f6","e7:g5","g3-f4","g5:e3","f2:d4:b6","a5:c7","a3:c5:e7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-14", number: 14, section: "Финальный удар шашкой a3", difficulty: 2, author: "",
+        white: ["a1","c1","g1","f2","h2","a3","e3","g3"], black: ["b4","c5","e5","g5","b6","h6","g7","h8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["e3-d4","e5:c3","c1-d2","c3:e1","g3-h4","e1:g3","h4:f6","g7:e5","h2:f4:d6","c5:e7","a3:c5:a7"],
+        branches: [{ label: "Защита 1... c5:e3", afterPly: 1, moves: ["c5:e3","a3:c5:a7"] }]
+      },
+      {
+        id: "tsukernik-15", number: 15, section: "Финальный удар шашкой a3", difficulty: 2, author: "А. Купцов — Б. Шнер, 1959",
+        white: ["e1","d2","a3","c3","e3","g3","f4"], black: ["b4","a5","c5","e5","d6","f6","h6"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["e1-f2","f6-g5","c3-d4","e5:c3:e1","g3-h4","e1:g3:e5","h4:f6:d4:b6","a5:c7","a3:c5:e7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-16", number: 16, section: "Финальный удар шашкой a3", difficulty: 3, author: "В. Коломийченко",
+        white: ["a1","c1","g1","d2","f2","a3","e3","g3"], black: ["b4","d4","a5","c5","e5","d6","f6","h6"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["g3-f4","e5:g3:e1:c3","c1-b2","d4:f2","b2:d4:b6","a5:c7","a3:c5:e7:g5","h6:f4","g1:e3:g5"],
+        branches: []
+      },
+      {
+        id: "tsukernik-17", number: 17, section: "Финальный удар шашкой a3", difficulty: 3, author: "",
+        white: ["a1","b2","d2","f2","h2","a3","e3","g3","f4","h4"], black: ["b4","d4","a5","c5","e5","d6","f6","c7","g7","h8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["h4-g5","f6:h4","f4-g5","h4:f6","g3-f4","e5:g3:e1:c3","h2-g3","d4:f2:h4","b2:d4:b6:d8:g5","h4:f6","a3:c5:e7:g5"],
+        branches: []
+      },
+      {
+        id: "tsukernik-18", number: 18, section: "Финальный удар шашкой a3", difficulty: 1, author: "",
+        white: ["c1","d2","a3","c3","d4"], black: ["a5","b6","d6","e7","f8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["d4-e5","d6:f4","d2-e3","f4:d2:b4","a3:c5:a7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-19", number: 19, section: "Финальный удар шашкой a3", difficulty: 1, author: "",
+        white: ["g1","d2","f2","a3","e3","f4"], black: ["h4","g5","b6","d6","f6","h6"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["f4-e5","d6:f4","d2-c3","f4:d2:b4","a3:c5:a7"],
+        branches: [{ label: "Защита 1... f6:d4", afterPly: 1, moves: ["f6:d4","e3:c5:e7"], altWins: { "2": ["e3:c5:a7"] } }]
+      },
+      {
+        id: "tsukernik-20", number: 20, section: "Финальный удар шашкой a3", difficulty: 1, author: "",
+        white: ["a1","b2","a3","c3","b4"], black: ["a5","b6","d6","g7","f8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["b4-c5","d6:b4:d2","b2-c3","d2:b4","a3:c5:a7"],
+        branches: [{ label: "Защита 1... b6:d4", afterPly: 1, moves: ["b6:d4","c3:e5:c7"] }]
+      },
+      {
+        id: "tsukernik-26", number: 26, section: "Финальный удар шашкой a3", difficulty: 1, author: "",
+        white: ["a1","g1","b2","f2","a3","e3","d4","f4"], black: ["d6","f6","h6","a7","c7","g7","b8","f8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["d4-e5","f6:d4","e3:c5:e7","f8:d6","f4-g5","h6:f4","f2-e3","f4:d2","b2-c3","d2:b4","a3:c5:e7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-27", number: 27, section: "Финальный удар шашкой a3", difficulty: 1, author: "",
+        white: ["c1","d2","a3","c3","f4","h4"], black: ["a5","d6","f6","h6","b8","d8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["f4-g5","h6:f4","d2-e3","f4:d2:b4","a3:c5:e7:g5"],
+        branches: []
+      },
+      {
+        id: "tsukernik-28", number: 28, section: "Финальный удар шашкой a3", difficulty: 1, author: "",
+        white: ["e1","d2","f2","a3","c3","a5"], black: ["f4","c5","e5","d6","b8","h8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["a5-b6","c5:a7","d2-e3","f4:d2:b4","a3:c5:e7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-29", number: 29, section: "Финальный удар шашкой a3", difficulty: 2, author: "В. Лисенко — В. Павлов",
+        white: ["c1","g1","d2","a3","c3","g3","h4"], black: ["f4","e5","b6","d6","f6","h6","d8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["h4-g5","f6:h4:f2","g1:e3:g5","h6:f4","d2-e3","f4:d2:b4","a3:c5:a7"],
+        branches: []
+      },
+      {
+        id: "tsukernik-30", number: 30, section: "Финальный удар шашкой a3", difficulty: 1, author: "",
+        white: ["b2","f2","a3","b4","a5"], black: ["d4","f4","d6","c7","d8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["b4-c5","d4:b6","f2-e3","f4:d2","b2-c3","d2:b4","a3:c5:a7"],
+        branches: [{ label: "Защита 1... d6:b4", afterPly: 1, moves: ["d6:b4","a3:c5:e3:g5"] }]
+      },
+      {
+        id: "tsukernik-31", number: 31, section: "Финальный удар шашкой a3", difficulty: 1, author: "",
+        white: ["b2","f2","a3","b4","a5"], black: ["d4","f4","f6","g7","b8"],
+        whiteKings: [], blackKings: [], turn: "w",
+        mainLine: ["b4-c5","d4:b6","a5:c7","b8:d6","f2-e3","f4:d2","b2-c3","d2:b4","a3:c5:e7:g5"],
+        branches: []
+      }
+    ];
+
+    /* =========================================================================
+       3. ЗВУКОВОЙ СИНТЕЗАТОР (WEB AUDIO API — МЯГКИЙ ДЕРЕВЯННЫЙ СТУК)
+       ========================================================================= */
+    const SoundFX = (() => {
+      let ctx = null;
+
+      function getCtx() {
+        if (!App.soundEnabled) return null;
+        try {
+          if (!ctx) {
+            const AC = window.AudioContext || window.webkitAudioContext;
+            if (AC) ctx = new AC();
+          }
+          if (ctx && ctx.state === 'suspended') ctx.resume();
+          return ctx;
+        } catch {
+          return null;
+        }
+      }
+
+      function woodClick(freqStart, freqEnd, vol, dur) {
+        const c = getCtx();
+        if (!c) return;
+        const now = c.currentTime;
+        const osc = c.createOscillator();
+        const gain = c.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freqStart, now);
+        osc.frequency.exponentialRampToValueAtTime(freqEnd, now + dur);
+        gain.gain.setValueAtTime(vol, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + dur);
+        osc.connect(gain);
+        gain.connect(c.destination);
+        osc.start(now);
+        osc.stop(now + dur + 0.01);
+      }
+
+      function playMove() {
+        woodClick(240, 92, 0.16, 0.055);
+      }
+
+      function playCapture() {
+        woodClick(390, 130, 0.21, 0.07);
+      }
+
+      function playError() {
+        const c = getCtx();
+        if (!c) return;
+        const now = c.currentTime;
+        [145, 118].forEach((f, idx) => {
+          const osc = c.createOscillator();
+          const gain = c.createGain();
+          osc.type = 'sine';
+          const t = now + idx * 0.085;
+          osc.frequency.setValueAtTime(f, t);
+          gain.gain.setValueAtTime(0.11, t);
+          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
+          osc.connect(gain);
+          gain.connect(c.destination);
+          osc.start(t);
+          osc.stop(t + 0.11);
+        });
+      }
+
+      function playWin() {
+        const c = getCtx();
+        if (!c) return;
+        const now = c.currentTime;
+        [523.25, 659.25, 783.99].forEach((freq, idx) => {
+          const osc = c.createOscillator();
+          const gain = c.createGain();
+          osc.type = 'triangle';
+          const t = now + idx * 0.075;
+          osc.frequency.setValueAtTime(freq, t);
+          gain.gain.setValueAtTime(0.12, t);
+          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.24);
+          osc.connect(gain);
+          gain.connect(c.destination);
+          osc.start(t);
+          osc.stop(t + 0.26);
+        });
+      }
+
+      return { playMove, playCapture, playError, playWin };
+    })();
+
+    /* =========================================================================
+       4. ГЛОБАЛЬНОЕ СОСТОЯНИЕ И ХРАНИЛИЩЕ (localStorage)
+       ========================================================================= */
+    const STORAGE_KEY = 'shashki_tsukernik_v2';
+
+    const App = {
+      mode: 'puzzle', // 'puzzle' | 'catalog' | 'validator' | 'editor' | 'free'
+      boardTheme: 'monochrome',
+      soundEnabled: true,
+      userRating: 1200,
+      streak: 0,
+      solvedIds: [],
+      solvedBranchKeys: {}, // { puzzleId: ['main', 'br-0', ...] }
+      customPuzzles: [],
+      deleteConfirmId: null,
+      dbValidationReport: [],
+      pendingImportValid: [],
+
+      // Режим решения задач
+      puzzle: {
+        currentId: BUILTIN_PUZZLES[0].id,
+        branchIdx: -1, // -1 = главная линия, 0..N = индекс ветки из branches
+        board: CheckersEngine.createEmptyBoard(),
+        turn: 'w',
+        ply: 0,
+        moveHistory: [],
+        lastMove: null,
+        status: 'playing', // 'playing' | 'waiting' | 'solved' | 'altwin' | 'demo'
+        hadMistake: false,
+        hintLevel: 0, // 0, 1 (шашка), 2 (стрелка + цель)
+        errorSq: null,
+        selection: null,
+        animating: false,
+        animOverlay: null,
+        hiddenSourceRC: null,
+        pendingCapturesAnim: null,
+        demoTimer: null,
+        replyTimer: null
+      },
+
+      // Свободная доска
+      free: {
+        board: CheckersEngine.createStandardBoard(),
+        turn: 'w',
+        flipped: false,
+        history: [],
+        lastMove: null,
+        winner: null,
+        originTitle: null,
+        originBoard: null,
+        originTurn: 'w',
+        selection: null,
+        animating: false,
+        animOverlay: null,
+        hiddenSourceRC: null,
+        pendingCapturesAnim: null
+      },
+
+      // Редактор задач
+      editor: {
+        step: 1, // 1 = расстановка, 2 = запись
+        tool: 'w',
+        initialBoard: CheckersEngine.createEmptyBoard(),
+        // Записанная структура
+        mainLine: [],
+        branches: [], // { label, afterPly, moves: [], altWins: {}, altTries: {} }
+        altWins: {},
+        altTries: {},
+        // Активный контекст записи
+        editingBranchIdx: -1, // -1 = mainLine, >=0 = branch index
+        recBoard: CheckersEngine.createEmptyBoard(),
+        recTurn: 'w',
+        recLastMove: null,
+        selection: null,
+        animating: false,
+        animOverlay: null,
+        hiddenSourceRC: null,
+        pendingCapturesAnim: null
+      }
+    };
+
+    function loadStorage() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const d = JSON.parse(raw);
+        if (typeof d.userRating === 'number') App.userRating = d.userRating;
+        if (typeof d.streak === 'number') App.streak = d.streak;
+        if (Array.isArray(d.solvedIds)) App.solvedIds = d.solvedIds;
+        if (d.solvedBranchKeys && typeof d.solvedBranchKeys === 'object') App.solvedBranchKeys = d.solvedBranchKeys;
+        if (Array.isArray(d.customPuzzles)) App.customPuzzles = d.customPuzzles;
+        if (['monochrome', 'wood', 'emerald'].includes(d.boardTheme)) App.boardTheme = d.boardTheme;
+        if (typeof d.soundEnabled === 'boolean') App.soundEnabled = d.soundEnabled;
+      } catch (e) {
+        console.warn('Ошибка чтения localStorage:', e);
+      }
+    }
+
+    function saveStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          userRating: App.userRating,
+          streak: App.streak,
+          solvedIds: App.solvedIds,
+          solvedBranchKeys: App.solvedBranchKeys,
+          customPuzzles: App.customPuzzles,
+          boardTheme: App.boardTheme,
+          soundEnabled: App.soundEnabled
+        }));
+      } catch (e) {
+        console.warn('Ошибка записи localStorage:', e);
+      }
+    }
+
+    function getAllPuzzles() {
+      return [...BUILTIN_PUZZLES, ...App.customPuzzles];
+    }
+
+    function getPuzzleById(id) {
+      return getAllPuzzles().find(p => p.id === id) || BUILTIN_PUZZLES[0];
+    }
+
+    function difficultyLabel(d) {
+      if (d === 1) return '* Простая';
+      if (d === 2) return '** Средняя';
+      return '*** Сложная';
+    }
+
+    function difficultyRating(d) {
+      if (d === 1) return 1150;
+      if (d === 2) return 1350;
+      return 1550;
+    }
+
+    /* =========================================================================
+       5. SVG ШАШКИ И ИКОНКИ
+       ========================================================================= */
+    function getPieceSVG(type) {
+      const isWhite = type === 'w' || type === 'W';
+      const king = type === 'W' || type === 'B';
+      const uid = type + Math.random().toString(36).slice(2, 7);
+
+      if (isWhite) {
+        return `
+          <svg viewBox="0 0 100 100" width="100%" height="100%" style="filter:drop-shadow(0 3px 3px rgba(0,0,0,0.38));">
+            <defs>
+              <radialGradient id="wg_${uid}" cx="35%" cy="28%" r="72%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="68%" stop-color="#eceef2"/>
+                <stop offset="100%" stop-color="#c4c9d4"/>
+              </radialGradient>
+            </defs>
+            <circle cx="50" cy="52.5" r="42.5" fill="#9aa1b0"/>
+            <circle cx="50" cy="48" r="42.5" fill="url(#wg_${uid})" stroke="#aeb5c2" stroke-width="2.2"/>
+            <circle cx="50" cy="48" r="32.5" fill="none" stroke="#d1d5de" stroke-width="2.4"/>
+            <circle cx="50" cy="48" r="22.5" fill="none" stroke="#c3c8d4" stroke-width="1.8"/>
+            ${king ? `
+              <path d="M30 59 L34 36 L44 45 L50 31.5 L56 45 L66 36 L70 59 Z" fill="#1e242e" stroke="#475569" stroke-width="2" stroke-linejoin="round"/>
+              <rect x="31" y="59.5" width="38" height="4.8" rx="2" fill="#334155"/>
+            ` : ''}
+          </svg>
+        `;
+      } else {
+        return `
+          <svg viewBox="0 0 100 100" width="100%" height="100%" style="filter:drop-shadow(0 3px 4px rgba(0,0,0,0.5));">
+            <defs>
+              <radialGradient id="bg_${uid}" cx="34%" cy="26%" r="74%">
+                <stop offset="0%" stop-color="#4e5563"/>
+                <stop offset="56%" stop-color="#22262e"/>
+                <stop offset="100%" stop-color="#0f1217"/>
+              </radialGradient>
+            </defs>
+            <circle cx="50" cy="52.5" r="42.5" fill="#090b0e"/>
+            <circle cx="50" cy="48" r="42.5" fill="url(#bg_${uid})" stroke="#454c5a" stroke-width="2.2"/>
+            <circle cx="50" cy="48" r="32.5" fill="none" stroke="#3c4350" stroke-width="2.4"/>
+            <circle cx="50" cy="48" r="22.5" fill="none" stroke="#323844" stroke-width="1.8"/>
+            ${king ? `
+              <path d="M30 59 L34 36 L44 45 L50 31.5 L56 45 L66 36 L70 59 Z" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-linejoin="round"/>
+              <rect x="31" y="59.5" width="38" height="4.8" rx="2" fill="#cbd5e1"/>
+            ` : ''}
+          </svg>
+        `;
+      }
+    }
+
+    function updateSoundIcon() {
+      const btn = document.getElementById('btn-sound');
+      if (!btn) return;
+      btn.innerHTML = App.soundEnabled
+        ? `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15.5 8.5a5 5 0 010 7M19 5a10 10 0 010 14"/></svg>`
+        : `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="opacity:0.55;"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M23 9l-6 6M17 9l6 6"/></svg>`;
+    }
+
+    function showToast(msg, type = 'info') {
+      const host = document.getElementById('toast-container');
+      const div = document.createElement('div');
+      div.className = `toast ${type}`;
+      div.textContent = msg;
+      host.appendChild(div);
+      setTimeout(() => {
+        div.style.opacity = '0';
+        div.style.transition = 'opacity 0.25s ease';
+        setTimeout(() => div.remove(), 260);
+      }, 2800);
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderMovesLog(notations) {
+      if (!notations || notations.length === 0) {
+        return `<span style="color:var(--text-muted);font-family:var(--font-sans);font-size:12px;">Сделайте первый ход на доске...</span>`;
+      }
+      let out = '';
+      for (let i = 0; i < notations.length; i += 2) {
+        const num = Math.floor(i / 2) + 1;
+        out += `<span class="move-pair"><span class="move-num">${num}.</span><span class="move-w">${escapeHtml(notations[i])}</span>${notations[i + 1] ? `<span class="move-b">${escapeHtml(notations[i + 1])}</span>` : ''}</span>`;
+      }
+      return out;
+    }
+
+    /* =========================================================================
+       6. УНИВЕРСАЛЬНЫЙ РЕНДЕРЕР ДОСКИ (GRID + SVG СТРЕЛКИ И ТРАЕКТОРИЯ)
+       ========================================================================= */
+    function renderInteractiveBoard({
+      hostId,
+      board,
+      flipped = false,
+      legalMoves = [],
+      activeTurn = 'w',
+      selection = null,
+      lastMove = null,
+      hintArrow = null, // { fromSq, toSq, showArrow }
+      errorSq = null,
+      animOverlay = null,
+      hiddenSourceRC = null,
+      pendingCapturesOverride = null,
+      interactive = true,
+      editorSetupMode = false,
+      onSquareClick
+    }) {
+      const host = document.getElementById(hostId);
+      if (!host) return;
+
+      const files = flipped ? ['h','g','f','e','d','c','b','a'] : ['a','b','c','d','e','f','g','h'];
+      const ranks = flipped ? ['1','2','3','4','5','6','7','8'] : ['8','7','6','5','4','3','2','1'];
+
+      const hasCaptures = legalMoves.length > 0 && legalMoves[0].captures.length > 0;
+      const mustCaptureSet = new Set();
+      if (hasCaptures && interactive && !editorSetupMode) {
+        legalMoves.forEach(m => mustCaptureSet.add(`${m.path[0][0]},${m.path[0][1]}`));
+      }
+
+      let selectedDisplayRC = null;
+      let selectedPieceVisual = null;
+      let startOriginKey = null;
+      const pendingCapturesSet = new Set();
+      const nextStepTargets = new Map();
+      const shortcutTargets = new Map();
+      const trailSet = new Set();
+      let trajectoryLines = [];
+
+      if (pendingCapturesOverride) {
+        pendingCapturesOverride.forEach(([cr, cc]) => pendingCapturesSet.add(`${cr},${cc}`));
+      }
+
+      if (selection && selection.candidates.length > 0) {
+        const sample = selection.candidates[0];
+        const step = selection.step;
+        startOriginKey = `${sample.path[0][0]},${sample.path[0][1]}`;
+        selectedDisplayRC = sample.path[step];
+
+        let origPiece = board[sample.path[0][0]][sample.path[0][1]];
+        if (origPiece && sample.promotesAtStep !== null && step >= sample.promotesAtStep) {
+          origPiece = origPiece.toUpperCase();
+        }
+        selectedPieceVisual = origPiece;
+
+        // Пройденный путь и уже сбитые шашки
+        for (let i = 0; i < step; i++) {
+          trailSet.add(`${sample.path[i][0]},${sample.path[i][1]}`);
+          if (sample.captures[i]) {
+            pendingCapturesSet.add(`${sample.captures[i][0]},${sample.captures[i][1]}`);
+          }
+          trajectoryLines.push([sample.path[i], sample.path[i + 1]]);
+        }
+
+        // Следующие шаги цепи
+        for (const m of selection.candidates) {
+          const nextRC = m.path[step + 1];
+          if (nextRC) {
+            nextStepTargets.set(`${nextRC[0]},${nextRC[1]}`, { isCapture: m.captures.length > 0 });
+          }
+        }
+
+        // Прямой клик по однозначному конечному полю всей цепочки
+        const finalCounts = new Map();
+        const finalMoves = new Map();
+        for (const m of selection.candidates) {
+          if (m.path.length - 1 > step + 1) {
+            const last = m.path[m.path.length - 1];
+            const k = `${last[0]},${last[1]}`;
+            finalCounts.set(k, (finalCounts.get(k) || 0) + 1);
+            finalMoves.set(k, m);
+          }
+        }
+        for (const [k, cnt] of finalCounts.entries()) {
+          if (cnt === 1 && !nextStepTargets.has(k)) {
+            shortcutTargets.set(k, finalMoves.get(k));
+          }
+        }
+      }
+
+      const lastFromKey = lastMove ? `${lastMove.path[0][0]},${lastMove.path[0][1]}` : null;
+      const lastToKey = lastMove ? `${lastMove.path[lastMove.path.length - 1][0]},${lastMove.path[lastMove.path.length - 1][1]}` : null;
+      const hiddenKey = hiddenSourceRC ? `${hiddenSourceRC[0]},${hiddenSourceRC[1]}` : null;
+
+      // Построение SVG-слоя (стрелка подсказки + пунктир траектории взятий)
+      let svgInner = `
+        <defs>
+          <marker id="hint-arrowhead-${hostId}" markerWidth="4.2" markerHeight="4.2" refX="2.8" refY="2.1" orient="auto">
+            <polygon points="0 0, 4.2 2.1, 0 4.2" fill="#facc15" />
+          </marker>
+        </defs>
+      `;
+
+      const toSvgXY = ([r, c]) => {
+        const vr = flipped ? 7 - r : r;
+        const vc = flipped ? 7 - c : c;
+        return [vc * 100 + 50, vr * 100 + 50];
+      };
+
+      for (const [p1, p2] of trajectoryLines) {
+        const [x1, y1] = toSvgXY(p1);
+        const [x2, y2] = toSvgXY(p2);
+        svgInner += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(255,255,255,0.75)" stroke-width="10" stroke-dasharray="18 14" stroke-linecap="round"/>`;
+      }
+
+      if (hintArrow && hintArrow.showArrow && hintArrow.fromSq && hintArrow.toSq) {
+        const rc1 = CheckersEngine.sqToRC(hintArrow.fromSq);
+        const rc2 = CheckersEngine.sqToRC(hintArrow.toSq);
+        if (rc1 && rc2) {
+          const [x1, y1] = toSvgXY(rc1);
+          const [x2, y2] = toSvgXY(rc2);
+          const dx = x2 - x1;
+          const dy = y2 - y1;
+          const len = Math.hypot(dx, dy) || 1;
+          const ux = dx / len;
+          const uy = dy / len;
+          const sx = x1 + ux * 20;
+          const sy = y1 + uy * 20;
+          const ex = x2 - ux * 26;
+          const ey = y2 - uy * 26;
+          svgInner += `<line x1="${sx}" y1="${sy}" x2="${ex}" y2="${ey}" stroke="#facc15" stroke-width="18" stroke-linecap="round" opacity="0.92" marker-end="url(#hint-arrowhead-${hostId})"/>`;
+        }
+      }
+
+      let html = `
+        <div class="board-frame theme-${App.boardTheme}">
+          <div class="board-matrix">
+            <div></div>
+            <div class="coords-row">${files.map(f => `<span class="coord-lbl">${f}</span>`).join('')}</div>
+            <div></div>
+
+            <div class="coords-col">${ranks.map(rk => `<span class="coord-lbl">${rk}</span>`).join('')}</div>
+
+            <div class="board-stage">
+              <div class="board-grid" id="${hostId}-grid">
+      `;
+
+      for (let vr = 0; vr < 8; vr++) {
+        for (let vc = 0; vc < 8; vc++) {
+          const r = flipped ? 7 - vr : vr;
+          const c = flipped ? 7 - vc : vc;
+          const key = `${r},${c}`;
+          const sqName = CheckersEngine.rcToSq(r, c);
+          const dark = CheckersEngine.isDark(r, c);
+
+          let piece = board[r][c];
+          if (hiddenKey === key) piece = null;
+
+          if (selection && selectedDisplayRC) {
+            if (key === startOriginKey && (selectedDisplayRC[0] !== r || selectedDisplayRC[1] !== c)) {
+              piece = null;
+            }
+            if (selectedDisplayRC[0] === r && selectedDisplayRC[1] === c) {
+              piece = selectedPieceVisual;
+            }
+          }
+
+          const isSelected = selectedDisplayRC && selectedDisplayRC[0] === r && selectedDisplayRC[1] === c;
+          const isNextStep = nextStepTargets.has(key);
+          const isShortcut = shortcutTargets.has(key);
+          const isPendingCap = pendingCapturesSet.has(key);
+
+          const cls = ['sq', dark ? 'sq-dark' : 'sq-light'];
+          if (key === lastFromKey || key === lastToKey) cls.push('sq-last');
+          if (isSelected) cls.push('sq-selected');
+          if (trailSet.has(key)) cls.push('sq-trail');
+          if (errorSq === sqName) cls.push('sq-error');
+          if (hintArrow && hintArrow.fromSq === sqName) cls.push('sq-hint-from');
+          if (hintArrow && hintArrow.showArrow && hintArrow.toSq === sqName) cls.push('sq-hint-to');
+
+          const canSelect = interactive && !editorSetupMode && piece && CheckersEngine.pieceColor(piece) === activeTurn &&
+            legalMoves.some(m => m.path[0][0] === r && m.path[0][1] === c);
+
+          if ((editorSetupMode && dark) || canSelect || isNextStep || isShortcut || isSelected) {
+            cls.push('sq-clickable');
+          }
+
+          html += `<div class="${cls.join(' ')}" data-r="${r}" data-c="${c}">`;
+
+          if (piece) {
+            const pCls = [];
+            if (isPendingCap) pCls.push('piece-captured-pending');
+            else if (mustCaptureSet.has(key) && !selection) pCls.push('piece-must-capture');
+            html += `<div class="piece-wrap ${pCls.join(' ')}">${getPieceSVG(piece)}</div>`;
+          }
+
+          if (isPendingCap) {
+            html += `<div class="captured-ring"></div>`;
+          }
+
+          if (isNextStep) {
+            const info = nextStepTargets.get(key);
+            html += `<div class="${info.isCapture ? 'dot-capture' : 'dot-quiet'}"></div>`;
+          } else if (isShortcut) {
+            html += `<div class="dot-shortcut" title="Выполнить всю цепочку взятий одним кликом"></div>`;
+          }
+
+          html += `</div>`;
+        }
+      }
+
+      html += `</div>`;
+      html += `<svg class="board-svg-overlay" viewBox="0 0 800 800">${svgInner}</svg>`;
+
+      if (animOverlay) {
+        const avr = flipped ? 7 - animOverlay.r : animOverlay.r;
+        const avc = flipped ? 7 - animOverlay.c : animOverlay.c;
+        html += `<div class="anim-piece" style="left:${avc * 12.5}%;top:${avr * 12.5}%;"><div class="piece-wrap">${getPieceSVG(animOverlay.piece)}</div></div>`;
+      }
+
+      html += `
+            </div>
+
+            <div class="coords-col">${ranks.map(rk => `<span class="coord-lbl">${rk}</span>`).join('')}</div>
+
+            <div></div>
+            <div class="coords-row">${files.map(f => `<span class="coord-lbl">${f}</span>`).join('')}</div>
+            <div></div>
+          </div>
+        </div>
+      `;
+
+      host.innerHTML = html;
+
+      const gridEl = document.getElementById(`${hostId}-grid`);
+      if (gridEl && onSquareClick) {
+        gridEl.addEventListener('click', (e) => {
+          const sq = e.target.closest('.sq');
+          if (!sq) return;
+          onSquareClick(parseInt(sq.dataset.r, 10), parseInt(sq.dataset.c, 10));
+        });
+      }
+    }
+
+    /* =========================================================================
+       7. АНИМАЦИЯ ХОДА И ОБЩИЙ ОБРАБОТЧИК МНОГОХОДОВЫХ ВЗЯТИЙ
+       ========================================================================= */
+    function animateMoveOnHost(ctxObj, boardRef, hostId, flipped, move, renderFn, onComplete) {
+      const [r0, c0] = move.path[0];
+      let currentPiece = boardRef[r0][c0];
+      ctxObj.animating = true;
+      ctxObj.selection = null;
+      ctxObj.hiddenSourceRC = [r0, c0];
+      ctxObj.pendingCapturesAnim = [];
+      ctxObj.animOverlay = { piece: currentPiece, r: r0, c: c0 };
+      renderFn();
+
+      let stepIdx = 0;
+      const totalSteps = move.path.length - 1;
+
+      function nextHop() {
+        stepIdx++;
+        if (stepIdx > totalSteps) {
+          ctxObj.animating = false;
+          ctxObj.animOverlay = null;
+          ctxObj.hiddenSourceRC = null;
+          ctxObj.pendingCapturesAnim = null;
+          onComplete();
+          return;
+        }
+
+        const [nr, nc] = move.path[stepIdx];
+        if (move.captures.length > 0 && move.captures[stepIdx - 1]) {
+          ctxObj.pendingCapturesAnim.push(move.captures[stepIdx - 1]);
+          SoundFX.playCapture();
+        } else {
+          SoundFX.playMove();
+        }
+
+        if (move.promotesAtStep !== null && stepIdx >= move.promotesAtStep) {
+          currentPiece = currentPiece.toUpperCase();
+        }
+
+        const stage = document.querySelector(`#${hostId} .board-stage`);
+        const animEl = stage ? stage.querySelector('.anim-piece') : null;
+        const gridEl = document.getElementById(`${hostId}-grid`);
+
+        ctxObj.animOverlay = { piece: currentPiece, r: nr, c: nc };
+
+        if (animEl) {
+          const avr = flipped ? 7 - nr : nr;
+          const avc = flipped ? 7 - nc : nc;
+          animEl.style.left = `${avc * 12.5}%`;
+          animEl.style.top = `${avr * 12.5}%`;
+          if (move.promotesAtStep === stepIdx) {
+            animEl.innerHTML = `<div class="piece-wrap">${getPieceSVG(currentPiece)}</div>`;
+          }
+          if (gridEl && move.captures[stepIdx - 1]) {
+            const [cr, cc] = move.captures[stepIdx - 1];
+            const capSq = gridEl.querySelector(`.sq[data-r="${cr}"][data-c="${cc}"]`);
+            if (capSq && !capSq.querySelector('.captured-ring')) {
+              const ring = document.createElement('div');
+              ring.className = 'captured-ring';
+              capSq.appendChild(ring);
+              const pw = capSq.querySelector('.piece-wrap');
+              if (pw) pw.classList.add('piece-captured-pending');
+            }
+          }
+        } else {
+          renderFn();
+        }
+
+        setTimeout(nextHop, 235);
+      }
+
+      requestAnimationFrame(() => requestAnimationFrame(nextHop));
+    }
+
+    function setChainBanner(bannerId, textId, msg) {
+      const b = document.getElementById(bannerId);
+      const t = document.getElementById(textId);
+      if (!b || !t) return;
+      if (msg) {
+        t.textContent = msg;
+        b.classList.remove('hidden');
+      } else {
+        b.classList.add('hidden');
+      }
+    }
+
+    function handleBoardInteraction(ctxObj, board, turn, r, c, onMoveChosen, renderFn, bannerId, textId) {
+      if (ctxObj.animating) return;
+      const legalMoves = CheckersEngine.getLegalMoves(board, turn);
+      if (legalMoves.length === 0) return;
+
+      const sel = ctxObj.selection;
+      if (sel) {
+        const step = sel.step;
+        const curRC = sel.candidates[0].path[step];
+
+        // 1. Пошаговый клик по следующему полю цепочки
+        const matchingNext = sel.candidates.filter(m =>
+          m.path[step + 1] && m.path[step + 1][0] === r && m.path[step + 1][1] === c
+        );
+        if (matchingNext.length > 0) {
+          const nextStep = step + 1;
+          const completed = matchingNext.find(m => m.path.length - 1 === nextStep);
+          if (completed && matchingNext.length === 1) {
+            ctxObj.selection = null;
+            setChainBanner(bannerId, textId, null);
+            if (completed.captures.length > 0) SoundFX.playCapture();
+            else SoundFX.playMove();
+            onMoveChosen(completed, true);
+            return;
+          }
+
+          SoundFX.playCapture();
+          ctxObj.selection = { startRC: sel.startRC, step: nextStep, candidates: matchingNext };
+          const left = matchingNext[0].path.length - 1 - nextStep;
+          setChainBanner(bannerId, textId, `Серия взятий: осталось прыжков — ${left}. Выберите следующее поле.`);
+          renderFn();
+          return;
+        }
+
+        // 2. Прямой клик по однозначному конечному полю всей цепочки
+        const finalMatches = sel.candidates.filter(m => {
+          const last = m.path[m.path.length - 1];
+          return last[0] === r && last[1] === c;
+        });
+        if (finalMatches.length === 1) {
+          ctxObj.selection = null;
+          setChainBanner(bannerId, textId, null);
+          onMoveChosen(finalMatches[0], false);
+          return;
+        }
+
+        // 3. Повторный клик по выбранной шашке
+        if (curRC[0] === r && curRC[1] === c) {
+          ctxObj.selection = null;
+          setChainBanner(bannerId, textId, null);
+          renderFn();
+          return;
+        }
+      }
+
+      // 4. Выбор своей шашки
+      const piece = board[r][c];
+      if (piece && CheckersEngine.pieceColor(piece) === turn) {
+        const pieceMoves = legalMoves.filter(m => m.path[0][0] === r && m.path[0][1] === c);
+        if (pieceMoves.length > 0) {
+          ctxObj.selection = { startRC: [r, c], step: 0, candidates: pieceMoves };
+          if (pieceMoves.some(m => m.captures.length > 1)) {
+            setChainBanner(bannerId, textId, 'Многоходовое взятие: кликайте пошагово или сразу по конечному полю.');
+          } else {
+            setChainBanner(bannerId, textId, null);
+          }
+          renderFn();
+          return;
+        } else if (legalMoves[0].captures.length > 0) {
+          SoundFX.playError();
+          showToast('В русских шашках взятие обязательно! Выберите подсвеченную шашку.', 'warn');
+        }
+      }
+
+      if (sel) {
+        ctxObj.selection = null;
+        setChainBanner(bannerId, textId, null);
+        renderFn();
+      }
+    }
+
+    function cancelActiveSelection() {
+      if (App.mode === 'puzzle') {
+        App.puzzle.selection = null;
+        setChainBanner('puzzle-chain-banner', 'puzzle-chain-text', null);
+        renderPuzzleView();
+      } else if (App.mode === 'free') {
+        App.free.selection = null;
+        setChainBanner('free-chain-banner', 'free-chain-text', null);
+        renderFreeView();
+      } else if (App.mode === 'editor') {
+        App.editor.selection = null;
+        setChainBanner('editor-chain-banner', 'editor-chain-text', null);
+        renderEditorView();
+      }
+    }
+
+    /* =========================================================================
+       8. РЕЖИМ 1: РЕШАТЬ ЗАДАЧИ (ГЛАВНАЯ ЛИНИЯ, BRANCHES, ALTWINS, ALTTRIES)
+       ========================================================================= */
+    function getActiveBranchContext(puzzle, branchIdx) {
+      if (branchIdx < 0 || !puzzle.branches || !puzzle.branches[branchIdx]) {
+        return {
+          key: 'main',
+          label: 'Главная линия',
+          moves: puzzle.mainLine.slice(),
+          altWins: puzzle.altWins || {},
+          altTries: puzzle.altTries || {}
+        };
+      }
+      const br = puzzle.branches[branchIdx];
+      const prefix = puzzle.mainLine.slice(0, br.afterPly);
+      const mergedAltWins = {};
+      const mergedAltTries = {};
+
+      // Копируем альтернативы до точки ветвления из основной задачи, после — из ветки
+      if (puzzle.altWins) {
+        for (const [k, v] of Object.entries(puzzle.altWins)) {
+          if (parseInt(k, 10) < br.afterPly) mergedAltWins[k] = v;
+        }
+      }
+      if (br.altWins) {
+        for (const [k, v] of Object.entries(br.altWins)) mergedAltWins[k] = v;
+      }
+      if (puzzle.altTries) {
+        for (const [k, v] of Object.entries(puzzle.altTries)) {
+          if (parseInt(k, 10) < br.afterPly) mergedAltTries[k] = v;
+        }
+      }
+      if (br.altTries) {
+        for (const [k, v] of Object.entries(br.altTries)) mergedAltTries[k] = v;
+      }
+
+      return {
+        key: `br-${branchIdx}`,
+        label: br.label || `Вариант ${branchIdx + 1}`,
+        moves: prefix.concat(br.moves),
+        altWins: mergedAltWins,
+        altTries: mergedAltTries
+      };
+    }
+
+    function clearPuzzleTimers() {
+      if (App.puzzle.demoTimer) { clearTimeout(App.puzzle.demoTimer); App.puzzle.demoTimer = null; }
+      if (App.puzzle.replyTimer) { clearTimeout(App.puzzle.replyTimer); App.puzzle.replyTimer = null; }
+    }
+
+    function loadPuzzle(puzzleId, branchIdx = -1) {
+      clearPuzzleTimers();
+      const puzzle = getPuzzleById(puzzleId);
+      const ps = App.puzzle;
+
+      ps.currentId = puzzle.id;
+      ps.branchIdx = (branchIdx >= 0 && puzzle.branches && puzzle.branches[branchIdx]) ? branchIdx : -1;
+      ps.board = CheckersEngine.boardFromPuzzle(puzzle);
+      ps.turn = puzzle.turn === 'b' ? 'b' : 'w';
+      ps.ply = 0;
+      ps.moveHistory = [];
+      ps.lastMove = null;
+      ps.status = 'playing';
+      ps.hadMistake = false;
+      ps.hintLevel = 0;
+      ps.errorSq = null;
+      ps.selection = null;
+      ps.animating = false;
+      ps.animOverlay = null;
+      ps.hiddenSourceRC = null;
+      ps.pendingCapturesAnim = null;
+
+      setChainBanner('puzzle-chain-banner', 'puzzle-chain-text', null);
+      document.getElementById('stat-delta').textContent = '';
+
+      const ctx = getActiveBranchContext(puzzle, ps.branchIdx);
+      if (ps.branchIdx >= 0) {
+        setPuzzleFeedback(`Активный вариант: ${ctx.label}. Сделайте выигрывающий ход белых.`, 'alttry');
+      } else {
+        setPuzzleFeedback('Ход белых — найдите выигрывающую комбинацию.', '');
+      }
+
+      renderPuzzleView();
+    }
+
+    function setPuzzleFeedback(htmlOrText, style = '', isHtml = false) {
+      const el = document.getElementById('puzzle-feedback');
+      el.className = `feedback-box ${style}`.trim();
+      if (isHtml) el.innerHTML = htmlOrText;
+      else el.textContent = htmlOrText;
+    }
+
+    function renderPuzzleView() {
+      const puzzle = getPuzzleById(App.puzzle.currentId);
+      const ps = App.puzzle;
+      const ctx = getActiveBranchContext(puzzle, ps.branchIdx);
+
+      // Шапка и статистика
+      document.getElementById('header-rating').textContent = App.userRating;
+      document.getElementById('stat-rating').textContent = App.userRating;
+      document.getElementById('stat-streak').textContent = App.streak;
+
+      const all = getAllPuzzles();
+      const solvedCount = App.solvedIds.filter(id => all.some(p => p.id === id)).length;
+      const pct = all.length ? Math.round((solvedCount / all.length) * 100) : 0;
+      document.getElementById('stat-solved-pct').textContent = `${pct}%`;
+      document.getElementById('stat-solved-frac').textContent = `${solvedCount}/${all.length}`;
+
+      // Метаданные
+      const diffBadge = document.getElementById('puzzle-diff-badge');
+      diffBadge.textContent = difficultyLabel(puzzle.difficulty || 1);
+      diffBadge.className = `badge badge-diff-${puzzle.difficulty || 1}`;
+      document.getElementById('puzzle-section-badge').textContent = puzzle.section;
+
+      const solvedBadge = document.getElementById('puzzle-solved-badge');
+      if (App.solvedIds.includes(puzzle.id)) solvedBadge.classList.remove('hidden');
+      else solvedBadge.classList.add('hidden');
+
+      document.getElementById('puzzle-title').textContent = `Комбинация №${puzzle.number}`;
+      document.getElementById('puzzle-author').textContent = puzzle.author
+        ? `${puzzle.author} • Э. Г. Цукерник (1987)`
+        : 'Э. Г. Цукерник — «Антология шашечных комбинаций» (1987)';
+
+      // Переключатель веток защиты
+      const brBar = document.getElementById('puzzle-branches-bar');
+      if (puzzle.branches && puzzle.branches.length > 0) {
+        const solvedKeys = App.solvedBranchKeys[puzzle.id] || [];
+        let brHtml = `<button class="branch-pill ${ps.branchIdx === -1 ? 'active' : ''}" onclick="loadPuzzle('${puzzle.id}', -1)">
+          ${solvedKeys.includes('main') ? '<span class="br-check">✓</span>' : ''}Главная линия
+        </button>`;
+        puzzle.branches.forEach((b, i) => {
+          const isSolvedBr = solvedKeys.includes(`br-${i}`);
+          brHtml += `<button class="branch-pill ${ps.branchIdx === i ? 'active' : ''}" onclick="loadPuzzle('${puzzle.id}', ${i})">
+            ${isSolvedBr ? '<span class="br-check">✓</span>' : ''}${escapeHtml(b.label || `Вариант ${i + 1}`)}
+          </button>`;
+        });
+        brBar.innerHTML = brHtml;
+        brBar.classList.remove('hidden');
+      } else {
+        brBar.classList.add('hidden');
+      }
+
+      // Кнопка показа решения
+      const showBtn = document.getElementById('btn-show-sol');
+      showBtn.textContent = ps.status === 'demo' ? '■ Остановить' : '▶ Решение';
+
+      // Индикатор очереди хода
+      const turnPill = document.getElementById('puzzle-turn-pill');
+      if (ps.status === 'solved' || ps.status === 'altwin') {
+        turnPill.innerHTML = `<span class="turn-dot done"></span><span>Комбинация решена</span>`;
+      } else if (ps.status === 'demo') {
+        turnPill.innerHTML = `<span class="turn-dot white"></span><span>Показ книжного решения...</span>`;
+      } else if (ps.turn === 'w') {
+        const legals = CheckersEngine.getLegalMoves(ps.board, 'w');
+        const capTxt = legals.length > 0 && legals[0].captures.length > 0 ? ' • Обязательный бой' : '';
+        turnPill.innerHTML = `<span class="turn-dot white"></span><span>Ход белых${capTxt}</span>`;
+      } else {
+        turnPill.innerHTML = `<span class="turn-dot black"></span><span>Ответ чёрных...</span>`;
+      }
+
+      // Подсказка на доске (уровень 1: шашка, уровень 2: стрелка и целевое поле)
+      let hintArrow = null;
+      if (ps.status === 'playing' && ps.hintLevel >= 1 && ctx.moves[ps.ply]) {
+        const expectedRes = CheckersEngine.resolveNotation(ps.board, ps.turn, ctx.moves[ps.ply]);
+        if (expectedRes.move) {
+          const path = expectedRes.move.path;
+          hintArrow = {
+            fromSq: CheckersEngine.rcToSq(path[0][0], path[0][1]),
+            toSq: CheckersEngine.rcToSq(path[path.length - 1][0], path[path.length - 1][1]),
+            showArrow: ps.hintLevel >= 2
+          };
+        }
+      }
+
+      // Нотация и счетчик полуходов
+      document.getElementById('puzzle-moves-log').innerHTML = renderMovesLog(ps.moveHistory);
+      document.getElementById('puzzle-ply-counter').textContent = `Ход ${Math.min(ps.ply, ctx.moves.length)} / ${ctx.moves.length}`;
+
+      // Доска
+      const legals = (ps.status === 'playing' && ps.turn === 'w')
+        ? CheckersEngine.getLegalMoves(ps.board, 'w')
+        : [];
+
+      renderInteractiveBoard({
+        hostId: 'puzzle-board-host',
+        board: ps.board,
+        flipped: false,
+        legalMoves: legals,
+        activeTurn: ps.turn,
+        selection: ps.selection,
+        lastMove: ps.lastMove,
+        hintArrow,
+        errorSq: ps.errorSq,
+        animOverlay: ps.animOverlay,
+        hiddenSourceRC: ps.hiddenSourceRC,
+        pendingCapturesOverride: ps.pendingCapturesAnim,
+        interactive: ps.status === 'playing' && ps.turn === 'w' && !ps.animating,
+        onSquareClick: (r, c) => {
+          if (ps.status !== 'playing' || ps.turn !== 'w' || ps.animating) return;
+          handleBoardInteraction(
+            ps,
+            ps.board,
+            'w',
+            r,
+            c,
+            (move, manualStepped) => onPlayerPuzzleMove(move, manualStepped),
+            renderPuzzleView,
+            'puzzle-chain-banner',
+            'puzzle-chain-text'
+          );
+        }
+      });
+    }
+
+    function markBranchSolved(puzzleId, branchKey) {
+      if (!App.solvedBranchKeys[puzzleId]) App.solvedBranchKeys[puzzleId] = [];
+      if (!App.solvedBranchKeys[puzzleId].includes(branchKey)) {
+        App.solvedBranchKeys[puzzleId].push(branchKey);
+      }
+    }
+
+    function awardPuzzleWin(puzzle, isAltWin, altMoveNotation) {
+      const ps = App.puzzle;
+      const ctx = getActiveBranchContext(puzzle, ps.branchIdx);
+      ps.status = isAltWin ? 'altwin' : 'solved';
+      SoundFX.playWin();
+
+      markBranchSolved(puzzle.id, ctx.key);
+
+      const firstTime = !App.solvedIds.includes(puzzle.id);
+      if (firstTime) {
+        App.solvedIds.push(puzzle.id);
+        if (!ps.hadMistake) {
+          App.streak += 1;
+          const pRating = difficultyRating(puzzle.difficulty || 1);
+          const expected = 1 / (1 + Math.pow(10, (pRating - App.userRating) / 400));
+          const gain = Math.max(8, Math.round(28 * (1 - expected)));
+          App.userRating += gain;
+          const dEl = document.getElementById('stat-delta');
+          dEl.textContent = `+${gain}`;
+          dEl.className = 'stat-delta up';
+        }
+      } else if (!ps.hadMistake && ps.branchIdx >= 0) {
+        // Небольшое поощрение серии не дублируем, только сохраняем ветку
+      }
+      saveStorage();
+
+      // Проверяем, есть ли нерешённые боковые ветки
+      const unsolvedBranches = [];
+      if (puzzle.branches && puzzle.branches.length > 0) {
+        const solvedKeys = App.solvedBranchKeys[puzzle.id] || [];
+        if (!solvedKeys.includes('main')) unsolvedBranches.push({ idx: -1, label: 'Главная линия' });
+        puzzle.branches.forEach((b, i) => {
+          if (!solvedKeys.includes(`br-${i}`)) unsolvedBranches.push({ idx: i, label: b.label || `Вариант ${i + 1}` });
+        });
+      }
+
+      if (isAltWin) {
+        const bookMove = ctx.moves[ps.ply - 1] || '';
+        let html = `<div><strong>✓ Альтернативный выигрыш найден (${escapeHtml(altMoveNotation)})!</strong></div>`;
+        html += `<div style="font-size:12.5px;opacity:0.92;margin-top:4px;">Этот ход равноценен книжному (${escapeHtml(bookMove)}).</div>`;
+        html += `<div class="feedback-actions">
+          <button class="btn btn-ghost-light btn-sm" onclick="toggleShowSolution()">▶ Посмотреть главную книжную линию</button>
+          ${unsolvedBranches.length > 0 ? `<button class="btn btn-ghost-light btn-sm" onclick="loadPuzzle('${puzzle.id}', ${unsolvedBranches[0].idx})">🌿 ${escapeHtml(unsolvedBranches[0].label)}</button>` : ''}
+        </div>`;
+        setPuzzleFeedback(html, 'altwin', true);
+      } else {
+        let html = `<div><strong>✓ Браво! Комбинация решена!</strong></div>`;
+        if (unsolvedBranches.length > 0) {
+          html += `<div style="font-size:12.5px;opacity:0.92;margin-top:4px;">В этой задаче есть ещё боковой вариант защиты соперника:</div>`;
+          html += `<div class="feedback-actions">
+            <button class="btn btn-ghost-light btn-sm" onclick="loadPuzzle('${puzzle.id}', ${unsolvedBranches[0].idx})">🌿 Проверить: ${escapeHtml(unsolvedBranches[0].label)}</button>
+          </div>`;
+        }
+        setPuzzleFeedback(html, 'win', true);
+      }
+
+      renderPuzzleView();
+    }
+
+    function onPlayerPuzzleMove(move, manualStepped) {
+      const ps = App.puzzle;
+      const puzzle = getPuzzleById(ps.currentId);
+      const ctx = getActiveBranchContext(puzzle, ps.branchIdx);
+
+      const expectedStr = ctx.moves[ps.ply];
+      const expectedRes = CheckersEngine.resolveNotation(ps.board, 'w', expectedStr);
+      const expectedMove = expectedRes.move;
+
+      const altWinsAtPly = (ctx.altWins && ctx.altWins[String(ps.ply)]) || [];
+      const altTriesAtPly = (ctx.altTries && ctx.altTries[String(ps.ply)]) || [];
+
+      const matchedAltWin = altWinsAtPly.find(aw => {
+        const r = CheckersEngine.resolveNotation(ps.board, 'w', aw);
+        return r.move && r.move.notation === move.notation;
+      });
+
+      const matchedAltTry = altTriesAtPly.find(at => {
+        const mvStr = typeof at === 'string' ? at : at.move;
+        const r = CheckersEngine.resolveNotation(ps.board, 'w', mvStr);
+        return r.move && r.move.notation === move.notation;
+      });
+
+      const evaluateMove = () => {
+        // 1. Главный книжный ход
+        if (expectedMove && move.notation === expectedMove.notation) {
+          ps.board = CheckersEngine.applyMove(ps.board, move);
+          ps.lastMove = move;
+          ps.moveHistory.push(move.notation);
+          ps.ply += 1;
+          ps.hintLevel = 0;
+
+          if (ps.ply >= ctx.moves.length) {
+            awardPuzzleWin(puzzle, false, move.notation);
+            return;
+          }
+
+          // Автоответ соперника через 350мс
+          ps.turn = 'b';
+          ps.status = 'waiting';
+          setPuzzleFeedback(`Точный ход (${move.notation})! Соперник отвечает...`, 'ok');
+          renderPuzzleView();
+
+          ps.replyTimer = setTimeout(() => {
+            if (App.mode !== 'puzzle' || ps.currentId !== puzzle.id || ps.status !== 'waiting') return;
+            const oppRes = CheckersEngine.resolveNotation(ps.board, 'b', ctx.moves[ps.ply]);
+            if (!oppRes.move) {
+              awardPuzzleWin(puzzle, false, move.notation);
+              return;
+            }
+            const oppMove = oppRes.move;
+            animateMoveOnHost(ps, ps.board, 'puzzle-board-host', false, oppMove, renderPuzzleView, () => {
+              ps.board = CheckersEngine.applyMove(ps.board, oppMove);
+              ps.lastMove = oppMove;
+              ps.moveHistory.push(oppMove.notation);
+              ps.ply += 1;
+              ps.turn = 'w';
+
+              if (ps.ply >= ctx.moves.length) {
+                awardPuzzleWin(puzzle, false, oppMove.notation);
+              } else {
+                ps.status = 'playing';
+                setPuzzleFeedback(`Чёрные ответили ${oppMove.notation}. Продолжайте комбинацию!`, '');
+                renderPuzzleView();
+              }
+            });
+          }, 350);
+          return;
+        }
+
+        // 2. Равноценный альтернативный выигрыш (altWin)
+        if (matchedAltWin) {
+          ps.board = CheckersEngine.applyMove(ps.board, move);
+          ps.lastMove = move;
+          ps.moveHistory.push(move.notation);
+          ps.ply += 1;
+          ps.hintLevel = 0;
+          awardPuzzleWin(puzzle, true, move.notation);
+          return;
+        }
+
+        // 3. Альтернативная попытка (altTry — не ошибка и не сбрасывает стрик!)
+        if (matchedAltTry) {
+          const msg = (typeof matchedAltTry === 'object' && matchedAltTry.message)
+            ? matchedAltTry.message
+            : `Хороший ход (${move.notation}), но в книге Цукерника есть более точный удар. Попробуйте найти главную идею!`;
+          setPuzzleFeedback(`💡 ${msg}`, 'alttry');
+          renderPuzzleView();
+          return;
+        }
+
+        // 4. Ошибочный ход
+        SoundFX.playError();
+        const endRC = move.path[move.path.length - 1];
+        ps.errorSq = CheckersEngine.rcToSq(endRC[0], endRC[1]);
+
+        if (!ps.hadMistake) {
+          ps.hadMistake = true;
+          App.streak = 0;
+          if (!App.solvedIds.includes(puzzle.id)) {
+            const pRating = difficultyRating(puzzle.difficulty || 1);
+            const expected = 1 / (1 + Math.pow(10, (pRating - App.userRating) / 400));
+            const penalty = Math.max(6, Math.round(14 * expected));
+            App.userRating = Math.max(800, App.userRating - penalty);
+            const dEl = document.getElementById('stat-delta');
+            dEl.textContent = `−${penalty}`;
+            dEl.className = 'stat-delta down';
+          }
+          saveStorage();
+        }
+
+        setPuzzleFeedback(`Неточный ход (${move.notation}). Попробуйте другую идею или нажмите «Подсказка».`, 'err');
+        renderPuzzleView();
+
+        const frame = document.querySelector('#puzzle-board-host .board-frame');
+        if (frame) {
+          frame.classList.add('animate-shake');
+          setTimeout(() => frame.classList.remove('animate-shake'), 360);
+        }
+        setTimeout(() => {
+          ps.errorSq = null;
+          renderPuzzleView();
+        }, 550);
+      };
+
+      if (!manualStepped && move.path.length > 2) {
+        animateMoveOnHost(ps, ps.board, 'puzzle-board-host', false, move, renderPuzzleView, evaluateMove);
+      } else {
+        evaluateMove();
+      }
+    }
+
+    function requestPuzzleHint() {
+      const ps = App.puzzle;
+      if (ps.status !== 'playing' || ps.turn !== 'w') return;
+      if (ps.hintLevel === 0) {
+        ps.hintLevel = 1;
+        setPuzzleFeedback('Подсказка 1/2: обратите внимание на подсвеченную шашку.', 'warn');
+      } else {
+        ps.hintLevel = 2;
+        setPuzzleFeedback('Подсказка 2/2: стрелкой показано направление и целевое поле хода.', 'warn');
+      }
+      renderPuzzleView();
+    }
+
+    function toggleShowSolution() {
+      const ps = App.puzzle;
+      const puzzle = getPuzzleById(ps.currentId);
+      const ctx = getActiveBranchContext(puzzle, ps.branchIdx);
+
+      if (ps.status === 'demo') {
+        clearPuzzleTimers();
+        loadPuzzle(puzzle.id, ps.branchIdx);
+        return;
+      }
+
+      clearPuzzleTimers();
+      ps.board = CheckersEngine.boardFromPuzzle(puzzle);
+      ps.turn = puzzle.turn === 'b' ? 'b' : 'w';
+      ps.ply = 0;
+      ps.moveHistory = [];
+      ps.lastMove = null;
+      ps.hintLevel = 0;
+      ps.selection = null;
+      ps.status = 'demo';
+      setPuzzleFeedback(`Пошаговый показ решения (${ctx.label})...`, 'alttry');
+      renderPuzzleView();
+
+      function stepDemo() {
+        if (App.mode !== 'puzzle' || ps.status !== 'demo') return;
+        if (ps.ply >= ctx.moves.length) {
+          ps.status = 'solved';
+          setPuzzleFeedback(`Показ завершён (${ctx.label}). Нажмите «Начать заново», чтобы решить самостоятельно.`, 'ok');
+          renderPuzzleView();
+          return;
+        }
+        const res = CheckersEngine.resolveNotation(ps.board, ps.turn, ctx.moves[ps.ply]);
+        if (!res.move) {
+          ps.status = 'solved';
+          renderPuzzleView();
+          return;
+        }
+        const mv = res.move;
+        animateMoveOnHost(ps, ps.board, 'puzzle-board-host', false, mv, renderPuzzleView, () => {
+          ps.board = CheckersEngine.applyMove(ps.board, mv);
+          ps.lastMove = mv;
+          ps.moveHistory.push(mv.notation);
+          ps.ply += 1;
+          ps.turn = ps.turn === 'w' ? 'b' : 'w';
+          renderPuzzleView();
+          ps.demoTimer = setTimeout(stepDemo, 520);
+        });
+      }
+
+      ps.demoTimer = setTimeout(stepDemo, 320);
+    }
+
+    function restartCurrentPuzzle() {
+      loadPuzzle(App.puzzle.currentId, App.puzzle.branchIdx);
+    }
+
+    function nextPuzzle() {
+      const list = getAllPuzzles();
+      const idx = list.findIndex(p => p.id === App.puzzle.currentId);
+      loadPuzzle(list[(idx + 1) % list.length].id, -1);
+    }
+
+    function prevPuzzle() {
+      const list = getAllPuzzles();
+      const idx = list.findIndex(p => p.id === App.puzzle.currentId);
+      loadPuzzle(list[(idx - 1 + list.length) % list.length].id, -1);
+    }
+
+    function analyzeCurrentOnFreeBoard() {
+      const puzzle = getPuzzleById(App.puzzle.currentId);
+      const fs = App.free;
+      fs.board = CheckersEngine.cloneBoard(App.puzzle.board);
+      fs.turn = App.puzzle.turn;
+      fs.originBoard = CheckersEngine.cloneBoard(App.puzzle.board);
+      fs.originTurn = App.puzzle.turn;
+      fs.originTitle = `Комбинация №${puzzle.number} (${puzzle.section})`;
+      fs.history = [];
+      fs.lastMove = null;
+      fs.winner = null;
+      fs.selection = null;
+      fs.flipped = false;
+      switchMode('free');
+      showToast(`Позиция из задачи №${puzzle.number} открыта для свободного разбора`, 'info');
+    }
+
+    /* =========================================================================
+       9. РЕЖИМ 2: КАТАЛОГ ЦУКЕРНИКА
+       ========================================================================= */
+    function renderCatalogView() {
+      const all = getAllPuzzles();
+
+      // Прогресс по разделам
+      const sectionsMap = new Map();
+      for (const p of all) {
+        const sec = p.section || 'Без раздела';
+        if (!sectionsMap.has(sec)) sectionsMap.set(sec, { total: 0, solved: 0 });
+        const entry = sectionsMap.get(sec);
+        entry.total++;
+        if (App.solvedIds.includes(p.id)) entry.solved++;
+      }
+
+      const secSelect = document.getElementById('cat-section');
+      const prevSec = secSelect.value;
+      secSelect.innerHTML = `<option value="all">Все разделы (${all.length})</option>` +
+        Array.from(sectionsMap.entries()).map(([sec, st]) =>
+          `<option value="${escapeHtml(sec)}">${escapeHtml(sec)} (${st.solved}/${st.total})</option>`
+        ).join('');
+      if (sectionsMap.has(prevSec)) secSelect.value = prevSec;
+
+      document.getElementById('catalog-chapters-progress').innerHTML = Array.from(sectionsMap.entries()).map(([sec, st]) => {
+        const pct = st.total ? Math.round((st.solved / st.total) * 100) : 0;
+        return `
+          <div class="chapter-chip">
+            <div class="chapter-chip-head">
+              <span>${escapeHtml(sec)}</span>
+              <span style="color:var(--text-muted);">${st.solved} / ${st.total} (${pct}%)</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+          </div>
+        `;
+      }).join('');
+
+      // Фильтрация
+      const query = (document.getElementById('cat-search').value || '').trim().toLowerCase();
+      const secVal = secSelect.value;
+      const diffVal = document.getElementById('cat-diff').value;
+      const statVal = document.getElementById('cat-status').value;
+
+      const filtered = all.filter(p => {
+        if (secVal !== 'all' && p.section !== secVal) return false;
+        if (diffVal !== 'all' && String(p.difficulty || 1) !== diffVal) return false;
+        const isSolved = App.solvedIds.includes(p.id);
+        if (statVal === 'solved' && !isSolved) return false;
+        if (statVal === 'unsolved' && isSolved) return false;
+        if (query) {
+          const hay = `${p.number} ${p.author || ''} ${p.section || ''} ${p.id}`.toLowerCase();
+          if (!hay.includes(query)) return false;
+        }
+        return true;
+      });
+
+      const grid = document.getElementById('catalog-grid');
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="card" style="grid-column:1/-1;text-align:center;color:var(--text-muted);">По выбранным фильтрам задачи не найдены.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(p => {
+        const isSolved = App.solvedIds.includes(p.id);
+        const isCustom = App.customPuzzles.some(cp => cp.id === p.id);
+        const brCount = (p.branches || []).length;
+        const confirmDel = App.deleteConfirmId === p.id;
+        const totalMoves = Math.ceil((p.mainLine || []).length / 2);
+
+        return `
+          <div class="catalog-card ${isSolved ? 'solved' : ''}">
+            <div>
+              <div class="badge-row">
+                <span class="badge badge-diff-${p.difficulty || 1}">${difficultyLabel(p.difficulty || 1)}</span>
+                ${isCustom ? `<span class="badge badge-custom">Своя</span>` : ''}
+                ${isSolved ? `<span class="badge badge-solved">✓ Решена</span>` : ''}
+              </div>
+              <div style="font-size:16px;font-weight:800;color:var(--text-main);">Комбинация №${p.number}</div>
+              <div style="font-size:12.5px;color:var(--text-secondary);margin-top:3px;">${escapeHtml(p.section)}</div>
+              ${p.author ? `<div style="font-size:12px;color:var(--text-muted);margin-top:2px;">Автор: ${escapeHtml(p.author)}</div>` : ''}
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;font-size:11.5px;color:var(--text-muted);font-weight:600;">
+                <span>Ходов: ${totalMoves}</span>
+                ${brCount > 0 ? `<span>• 🌿 Веток защиты: ${brCount}</span>` : ''}
+                ${p.altTries ? `<span>• 💡 С разбором попыток</span>` : ''}
+              </div>
+            </div>
+            <div class="catalog-card-footer">
+              <span style="font-size:12px;color:var(--text-muted);font-family:var(--font-mono);">Б:${(p.white || []).length + (p.whiteKings || []).length} / Ч:${(p.black || []).length + (p.blackKings || []).length}</span>
+              <div style="display:flex;gap:6px;">
+                ${isCustom ? (
+                  confirmDel
+                    ? `<button class="btn btn-danger btn-sm" onclick="confirmDeleteCustom('${p.id}')">Удалить?</button>
+                       <button class="btn btn-secondary btn-sm" onclick="cancelDeleteCustom()">Нет</button>`
+                    : `<button class="btn btn-secondary btn-sm" onclick="askDeleteCustom('${p.id}')" title="Удалить задачу">✕</button>`
+                ) : ''}
+                <button class="btn btn-primary btn-sm" onclick="openPuzzleFromCatalog('${p.id}')">${isSolved ? 'Повторить' : 'Решать →'}</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openPuzzleFromCatalog(id) {
+      loadPuzzle(id, -1);
+      switchMode('puzzle');
+    }
+
+    function askDeleteCustom(id) { App.deleteConfirmId = id; renderCatalogView(); }
+    function cancelDeleteCustom() { App.deleteConfirmId = null; renderCatalogView(); }
+    function confirmDeleteCustom(id) {
+      App.customPuzzles = App.customPuzzles.filter(p => p.id !== id);
+      App.solvedIds = App.solvedIds.filter(sid => sid !== id);
+      delete App.solvedBranchKeys[id];
+      App.deleteConfirmId = null;
+      saveStorage();
+      if (App.puzzle.currentId === id) loadPuzzle(BUILTIN_PUZZLES[0].id, -1);
+      runFullDatabaseValidation(false);
+      renderCatalogView();
+      showToast('Задача удалена из каталога', 'info');
+    }
+
+    /* =========================================================================
+       10. РЕЖИМ 3: ИМПОРТ (JSON / PDN) И АВТОВАЛИДАТОР
+       ========================================================================= */
+    function runFullDatabaseValidation(withToast = false) {
+      const all = getAllPuzzles();
+      let validCount = 0;
+      let totalBranches = 0;
+      let totalAlts = 0;
+
+      App.dbValidationReport = all.map(p => {
+        const res = CheckersEngine.validatePuzzle(p);
+        if (res.valid) validCount++;
+        totalBranches += res.stats.branches;
+        totalAlts += res.stats.altWins + res.stats.altTries;
+        return { puzzle: p, result: res };
+      });
+
+      const allOk = validCount === all.length;
+
+      // Шапка
+      const pill = document.getElementById('header-valid-pill');
+      pill.className = `header-pill ${allOk ? 'valid-ok' : 'valid-err'}`;
+      document.getElementById('header-valid-icon').textContent = allOk ? '✓' : '!';
+      document.getElementById('header-valid-count').textContent = `${validCount}/${all.length}`;
+
+      // Вкладка валидатора
+      const summary = document.getElementById('validator-summary-box');
+      if (summary) {
+        summary.className = `feedback-box ${allOk ? 'ok' : 'err'}`;
+        summary.textContent = allOk
+          ? `✓ ${validCount} / ${all.length} задач, ${totalBranches} боковых веток и ${totalAlts} альтернативных ходов прошли 100% проверку движка!`
+          : `⚠ Проверено: ${validCount} из ${all.length} валидны. Проверьте ошибки в таблице ниже.`;
+      }
+
+      const tbody = document.getElementById('validator-db-tbody');
+      if (tbody) {
+        tbody.innerHTML = App.dbValidationReport.map(({ puzzle, result }) => `
+          <tr>
+            <td style="font-weight:700;white-space:nowrap;">№${puzzle.number}</td>
+            <td>
+              <div style="font-weight:600;">${escapeHtml(puzzle.section)}</div>
+              ${puzzle.author ? `<div style="font-size:11.5px;color:var(--text-muted);">${escapeHtml(puzzle.author)}</div>` : ''}
+            </td>
+            <td style="font-size:12px;color:var(--text-secondary);white-space:nowrap;">
+              ${result.stats.plies} п/х${result.stats.branches ? `, +${result.stats.branches} вет.` : ''}${(result.stats.altWins + result.stats.altTries) ? `, +${result.stats.altWins + result.stats.altTries} альт.` : ''}
+            </td>
+            <td>
+              ${result.valid
+                ? `<span class="badge badge-solved">OK</span>`
+                : `<span class="badge" style="background:var(--danger-bg);color:var(--danger);border:1px solid var(--danger-border);">Ошибка</span>
+                   <div style="font-size:11px;color:var(--danger);margin-top:4px;">${escapeHtml(result.errors.join('; '))}</div>`
+              }
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      if (withToast) {
+        showToast(allOk ? `Все ${validCount} задач прошли проверку!` : `Найдены ошибки в ${all.length - validCount} задачах`, allOk ? 'success' : 'warn');
+      }
+    }
+
+    /**
+     * Парсер PDN (Portable Draughts Notation) с поддержкой:
+     * - [FEN "W:Wa1,b2,Kc3:Bb4,d6"] (алгебраический)
+     * - [FEN "W:W21,22,K25:B10,14"] (цифровой 1–32)
+     * - ходов 1. h4-g5 f6:h4 или 1. 24-20 15x24
+     */
+    function parsePDNText(raw) {
+      const blocks = raw.split(/(?=\[(?:Event|Site|White|FEN)\s+")/i).map(b => b.trim()).filter(Boolean);
+      const parsed = [];
+      let autoNum = getAllPuzzles().length + 101;
+
+      for (const block of blocks) {
+        const fenMatch = block.match(/\[FEN\s+"([^"]+)"\]/i);
+        if (!fenMatch) continue;
+
+        const eventMatch = block.match(/\[Event\s+"([^"]+)"\]/i);
+        const whiteMatch = block.match(/\[White\s+"([^"]+)"\]/i);
+        const fenStr = fenMatch[1].trim();
+        const fenParts = fenStr.split(':');
+        const turn = fenParts[0].toUpperCase() === 'B' ? 'b' : 'w';
+
+        const white = [], black = [], whiteKings = [], blackKings = [];
+        for (let i = 1; i < fenParts.length; i++) {
+          const seg = fenParts[i].trim();
+          if (!seg) continue;
+          const color = seg[0].toUpperCase();
+          const items = seg.slice(1).split(',').map(s => s.trim()).filter(Boolean);
+          for (const item of items) {
+            const isK = item[0].toUpperCase() === 'K';
+            const coordRaw = isK ? item.slice(1) : item;
+            const sq = /^\d{1,2}$/.test(coordRaw) ? CheckersEngine.pdnNumToSq(coordRaw) : coordRaw.toLowerCase();
+            if (!sq) continue;
+            if (color === 'W') (isK ? whiteKings : white).push(sq);
+            else if (color === 'B') (isK ? blackKings : black).push(sq);
+          }
+        }
+
+        // Убираем заголовки [Tag "..."], комментарии {...} и результаты 1-0 / 0-1 / 1/2-1/2 / *
+        const moveText = block
+          .replace(/\[[^\]]*\]/g, ' ')
+          .replace(/\{[^}]*\}/g, ' ')
+          .replace(/\([^)]*\)/g, ' ')
+          .replace(/\b(1-0|0-1|1\/2-1\/2|\*)\b/g, ' ')
+          .replace(/\d+\.+/g, ' ');
+
+        const rawMoves = moveText.split(/\s+/).map(s => s.trim()).filter(s => s && (/[-:x]/.test(s) || /^[a-h][a-h][1-8]/.test(s)));
+
+        // Нормализуем ходы в полную нотацию движка прямо при парсинге, если возможно
+        const puzzleObj = {
+          id: `pdn_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
+          number: autoNum++,
+          section: eventMatch ? eventMatch[1] : 'Импорт из PDN',
+          difficulty: 2,
+          author: whiteMatch ? whiteMatch[1] : '',
+          white, black, whiteKings, blackKings,
+          turn,
+          mainLine: rawMoves,
+          branches: []
+        };
+
+        // Попытка привести короткую/цифровую запись mainLine к канонической нотации
+        let tmpBoard = CheckersEngine.boardFromPuzzle(puzzleObj);
+        let tmpSide = turn;
+        const canonical = [];
+        let okCanon = true;
+        for (const mStr of rawMoves) {
+          const r = CheckersEngine.resolveNotation(tmpBoard, tmpSide, mStr);
+          if (!r.move) { okCanon = false; break; }
+          canonical.push(r.move.notation);
+          tmpBoard = CheckersEngine.applyMove(tmpBoard, r.move);
+          tmpSide = tmpSide === 'w' ? 'b' : 'w';
+        }
+        if (okCanon && canonical.length > 0) puzzleObj.mainLine = canonical;
+        parsed.push(puzzleObj);
+      }
+
+      return parsed;
+    }
+
+    function normalizeImportedPuzzle(item, fallbackNum) {
+      return {
+        id: item.id && !getAllPuzzles().some(p => p.id === item.id)
+          ? String(item.id)
+          : `imp_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
+        number: Number(item.number) || fallbackNum,
+        section: String(item.section || 'Импортированные задачи'),
+        difficulty: [1, 2, 3].includes(Number(item.difficulty)) ? Number(item.difficulty) : 1,
+        author: String(item.author || ''),
+        white: Array.isArray(item.white) ? item.white : [],
+        black: Array.isArray(item.black) ? item.black : [],
+        whiteKings: Array.isArray(item.whiteKings) ? item.whiteKings : [],
+        blackKings: Array.isArray(item.blackKings) ? item.blackKings : [],
+        turn: item.turn === 'b' ? 'b' : 'w',
+        mainLine: Array.isArray(item.mainLine) ? item.mainLine : [],
+        altWins: item.altWins || undefined,
+        altTries: item.altTries || undefined,
+        branches: Array.isArray(item.branches) ? item.branches : []
+      };
+    }
+
+    function parseAndValidateImport() {
+      const raw = (document.getElementById('import-textarea').value || '').trim();
+      if (!raw) {
+        showToast('Вставьте JSON или текст PDN в поле импорта.', 'warn');
+        return;
+      }
+
+      let candidates = [];
+      try {
+        if (raw.startsWith('{') || raw.startsWith('[')) {
+          const parsed = JSON.parse(raw);
+          const arr = Array.isArray(parsed) ? parsed : (Array.isArray(parsed.puzzles) ? parsed.puzzles : [parsed]);
+          let num = getAllPuzzles().length + 100;
+          candidates = arr.map(item => normalizeImportedPuzzle(item, num++));
+        } else {
+          candidates = parsePDNText(raw);
+        }
+      } catch (err) {
+        showToast(`Ошибка разбора данных: ${err.message}`, 'error');
+        return;
+      }
+
+      if (candidates.length === 0) {
+        showToast('Не удалось распознать ни одной задачи. Проверьте формат JSON или PDN.', 'warn');
+        return;
+      }
+
+      const validList = [];
+      const rowsHtml = candidates.map((p, idx) => {
+        const res = CheckersEngine.validatePuzzle(p);
+        if (res.valid) validList.push(p);
+        return `
+          <tr>
+            <td><strong>№${p.number}</strong> — ${escapeHtml(p.section)}</td>
+            <td>${res.valid
+              ? `<span class="badge badge-solved">OK</span>`
+              : `<span class="badge" style="background:var(--danger-bg);color:var(--danger);border:1px solid var(--danger-border);">Ошибка</span>`
+            }</td>
+            <td style="font-size:12px;color:${res.valid ? 'var(--text-secondary)' : 'var(--danger)'};">
+              ${res.valid ? `${res.stats.plies} полуходов, веток: ${res.stats.branches}` : escapeHtml(res.errors.join('; '))}
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      App.pendingImportValid = validList;
+
+      document.getElementById('import-report-area').classList.remove('hidden');
+      const sumBox = document.getElementById('import-summary-box');
+      sumBox.className = `feedback-box ${validList.length === candidates.length ? 'ok' : (validList.length > 0 ? 'warn' : 'err')}`;
+      sumBox.textContent = `Разобрано задач: ${candidates.length}. Полностью валидны: ${validList.length}, с ошибками: ${candidates.length - validList.length}.`;
+
+      document.getElementById('import-preview-tbody').innerHTML = rowsHtml;
+
+      const commitBtn = document.getElementById('btn-commit-import');
+      if (validList.length > 0) {
+        commitBtn.textContent = `+ Добавить все валидные (${validList.length}) в каталог`;
+        commitBtn.classList.remove('hidden');
+      } else {
+        commitBtn.classList.add('hidden');
+      }
+    }
+
+    function commitValidatedImport() {
+      if (!App.pendingImportValid || App.pendingImportValid.length === 0) return;
+      const count = App.pendingImportValid.length;
+      App.customPuzzles.push(...App.pendingImportValid);
+      App.pendingImportValid = [];
+      saveStorage();
+      runFullDatabaseValidation(false);
+      document.getElementById('btn-commit-import').classList.add('hidden');
+      showToast(`В каталог добавлено ${count} проверенных задач!`, 'success');
+    }
+
+    function handleImportFile(event) {
+      const file = event.target.files[0];
+      event.target.value = '';
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        document.getElementById('import-textarea').value = e.target.result;
+        parseAndValidateImport();
+      };
+      reader.readAsText(file);
+    }
+
+    function insertSampleJSON() {
+      const sample = [
+        {
+          id: "sample-tsukernik-33",
+          number: 33,
+          section: "Финальный удар шашкой a3",
+          difficulty: 1,
+          author: "Пример импорта JSON",
+          white: ["a3", "b4", "c5"],
+          black: ["a7", "e7", "g7", "b8"],
+          whiteKings: [],
+          blackKings: [],
+          turn: "w",
+          mainLine: ["c5-b6", "a7:c5", "b4:d6:f8:h6"],
+          branches: []
+        }
+      ];
+      document.getElementById('import-textarea').value = JSON.stringify(sample, null, 2);
+      showToast('Вставлен пример JSON — нажмите «Проверить и разобрать»', 'info');
+    }
+
+    function insertSamplePDN() {
+      const pdn = `[Event "Пример из PDN"]
+[White "Учебная комбинация"]
+[FEN "W:Wa3,b4,c5:Ba7,e7,g7,b8"]
+1. c5-b6 a7:c5 2. b4:h6 1-0`;
+      document.getElementById('import-textarea').value = pdn;
+      showToast('Вставлен пример PDN — нажмите «Проверить и разобрать»', 'info');
+    }
+
+    function clearImportArea() {
+      document.getElementById('import-textarea').value = '';
+      document.getElementById('import-report-area').classList.add('hidden');
+      document.getElementById('btn-commit-import').classList.add('hidden');
+      App.pendingImportValid = [];
+    }
+
+    function exportDatabaseJSON(includeBuiltin) {
+      const list = includeBuiltin ? getAllPuzzles() : App.customPuzzles;
+      if (list.length === 0) {
+        showToast('Нет пользовательских задач для экспорта.', 'warn');
+        return;
+      }
+      const blob = new Blob([JSON.stringify(list, null, 2)], { type: 'application/json;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = includeBuiltin ? 'tsukernik_full_db.json' : 'tsukernik_custom_puzzles.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      showToast(`Экспортировано задач: ${list.length}`, 'success');
+    }
+
+    /* =========================================================================
+       11. РЕЖИМ 4: РЕДАКТОР ЗАДАЧ (ГЛАВНАЯ ЛИНИЯ + BRANCHES + ALTWINS/TRIES)
+       ========================================================================= */
+    function initEditorPalette() {
+      document.getElementById('ed-icon-w').innerHTML = getPieceSVG('w');
+      document.getElementById('ed-icon-W').innerHTML = getPieceSVG('W');
+      document.getElementById('ed-icon-b').innerHTML = getPieceSVG('b');
+      document.getElementById('ed-icon-B').innerHTML = getPieceSVG('B');
+    }
+
+    function setEditorTool(tool) {
+      App.editor.tool = tool;
+      renderEditorView();
+    }
+
+    function editorClearBoard() {
+      const ed = App.editor;
+      ed.step = 1;
+      ed.initialBoard = CheckersEngine.createEmptyBoard();
+      ed.mainLine = [];
+      ed.branches = [];
+      ed.altWins = {};
+      ed.altTries = {};
+      ed.editingBranchIdx = -1;
+      ed.selection = null;
+      renderEditorView();
+    }
+
+    function editorLoadStandard() {
+      const ed = App.editor;
+      ed.step = 1;
+      ed.initialBoard = CheckersEngine.createStandardBoard();
+      ed.mainLine = [];
+      ed.branches = [];
+      ed.altWins = {};
+      ed.altTries = {};
+      ed.editingBranchIdx = -1;
+      ed.selection = null;
+      renderEditorView();
+    }
+
+    function rebuildEditorRecState() {
+      const ed = App.editor;
+      let board = CheckersEngine.cloneBoard(ed.initialBoard);
+      let side = 'w';
+      let lastMove = null;
+
+      const seq = ed.editingBranchIdx === -1
+        ? ed.mainLine
+        : ed.mainLine.slice(0, ed.branches[ed.editingBranchIdx].afterPly).concat(ed.branches[ed.editingBranchIdx].moves);
+
+      for (const mStr of seq) {
+        const res = CheckersEngine.resolveNotation(board, side, mStr);
+        if (!res.move) break;
+        board = CheckersEngine.applyMove(board, res.move);
+        lastMove = res.move;
+        side = side === 'w' ? 'b' : 'w';
+      }
+
+      ed.recBoard = board;
+      ed.recTurn = side;
+      ed.recLastMove = lastMove;
+      ed.selection = null;
+    }
+
+    function editorEnterRecordMode() {
+      const ed = App.editor;
+      const counts = CheckersEngine.countPieces(ed.initialBoard);
+      if (counts.w === 0 || counts.b === 0) {
+        showToast('Расставьте хотя бы по одной белой и одной чёрной шашке.', 'warn');
+        return;
+      }
+      if (CheckersEngine.getLegalMoves(ed.initialBoard, 'w').length === 0) {
+        showToast('У белых нет легальных ходов в этой позиции.', 'warn');
+        return;
+      }
+      ed.step = 2;
+      ed.editingBranchIdx = -1;
+      rebuildEditorRecState();
+      renderEditorView();
+    }
+
+    function editorReturnToSetup() {
+      const ed = App.editor;
+      ed.step = 1;
+      ed.selection = null;
+      setChainBanner('editor-chain-banner', 'editor-chain-text', null);
+      renderEditorView();
+    }
+
+    function editorSwitchToMainLine() {
+      App.editor.editingBranchIdx = -1;
+      rebuildEditorRecState();
+      renderEditorView();
+    }
+
+    function editorSelectBranch(idx) {
+      App.editor.editingBranchIdx = idx;
+      rebuildEditorRecState();
+      renderEditorView();
+    }
+
+    function editorDeleteBranch(idx) {
+      const ed = App.editor;
+      ed.branches.splice(idx, 1);
+      ed.editingBranchIdx = -1;
+      rebuildEditorRecState();
+      renderEditorView();
+    }
+
+    function editorStartNewBranch() {
+      const ed = App.editor;
+      const afterPly = parseInt(document.getElementById('ed-branch-ply').value, 10);
+      if (Number.isNaN(afterPly) || afterPly < 1 || afterPly > ed.mainLine.length) {
+        showToast('Сначала запишите хотя бы 1 ход белых в главной линии.', 'warn');
+        return;
+      }
+      ed.branches.push({
+        label: `Вариант после полухода ${afterPly}`,
+        afterPly,
+        moves: [],
+        altWins: {},
+        altTries: {}
+      });
+      ed.editingBranchIdx = ed.branches.length - 1;
+      rebuildEditorRecState();
+      renderEditorView();
+      showToast('Запишите ответный ход чёрных и опровержение белых на доске.', 'info');
+    }
+
+    function editorUndoRecMove() {
+      const ed = App.editor;
+      if (ed.animating) return;
+      if (ed.editingBranchIdx === -1) {
+        if (ed.mainLine.length === 0) return;
+        ed.mainLine.pop();
+      } else {
+        const br = ed.branches[ed.editingBranchIdx];
+        if (br.moves.length === 0) return;
+        br.moves.pop();
+      }
+      rebuildEditorRecState();
+      renderEditorView();
+    }
+
+    function editorToggleAltMsg() {
+      const kind = document.getElementById('ed-alt-kind').value;
+      const inp = document.getElementById('ed-alt-msg');
+      if (kind === 'altTry') inp.classList.remove('hidden');
+      else inp.classList.add('hidden');
+    }
+
+    function editorGetActiveLineSequence() {
+      const ed = App.editor;
+      if (ed.editingBranchIdx === -1) return ed.mainLine;
+      const br = ed.branches[ed.editingBranchIdx];
+      return ed.mainLine.slice(0, br.afterPly).concat(br.moves);
+    }
+
+    function editorRefreshAltMoves() {
+      const ed = App.editor;
+      const plySelect = document.getElementById('ed-alt-ply');
+      const moveSelect = document.getElementById('ed-alt-move');
+      const targetPly = parseInt(plySelect.value, 10);
+      if (Number.isNaN(targetPly)) {
+        moveSelect.innerHTML = `<option value="">Нет ходов</option>`;
+        return;
+      }
+
+      const seq = editorGetActiveLineSequence();
+      let b = CheckersEngine.cloneBoard(ed.initialBoard);
+      let s = 'w';
+      for (let i = 0; i < targetPly; i++) {
+        const r = CheckersEngine.resolveNotation(b, s, seq[i]);
+        if (!r.move) break;
+        b = CheckersEngine.applyMove(b, r.move);
+        s = s === 'w' ? 'b' : 'w';
+      }
+
+      const mainMoveAtPly = seq[targetPly];
+      const legals = CheckersEngine.getLegalMoves(b, s).filter(m => m.notation !== mainMoveAtPly);
+      if (legals.length === 0) {
+        moveSelect.innerHTML = `<option value="">Нет других легальных ходов</option>`;
+      } else {
+        moveSelect.innerHTML = legals.map(m => `<option value="${m.notation}">${m.notation}</option>`).join('');
+      }
+    }
+
+    function editorAddAltMove() {
+      const ed = App.editor;
+      const ply = document.getElementById('ed-alt-ply').value;
+      const mv = document.getElementById('ed-alt-move').value;
+      const kind = document.getElementById('ed-alt-kind').value;
+      const msg = document.getElementById('ed-alt-msg').value.trim();
+
+      if (!ply || !mv) {
+        showToast('Выберите ход белых и альтернативный легальный ход.', 'warn');
+        return;
+      }
+
+      const targetObj = ed.editingBranchIdx === -1 ? ed : ed.branches[ed.editingBranchIdx];
+      if (!targetObj.altWins) targetObj.altWins = {};
+      if (!targetObj.altTries) targetObj.altTries = {};
+
+      if (kind === 'altWin') {
+        if (!targetObj.altWins[ply]) targetObj.altWins[ply] = [];
+        if (!targetObj.altWins[ply].includes(mv)) targetObj.altWins[ply].push(mv);
+      } else {
+        if (!targetObj.altTries[ply]) targetObj.altTries[ply] = [];
+        targetObj.altTries[ply].push({
+          move: mv,
+          message: msg || `Неплохой ход (${mv}), но в книге точнее главная линия. Попробуйте найти её!`
+        });
+        document.getElementById('ed-alt-msg').value = '';
+      }
+
+      renderEditorView();
+      showToast(`Добавлен альтернативный ход ${mv}`, 'success');
+    }
+
+    function editorRemoveAlt(kind, ply, idx) {
+      const ed = App.editor;
+      const targetObj = ed.editingBranchIdx === -1 ? ed : ed.branches[ed.editingBranchIdx];
+      const map = kind === 'altWin' ? targetObj.altWins : targetObj.altTries;
+      if (map && map[ply]) {
+        map[ply].splice(idx, 1);
+        if (map[ply].length === 0) delete map[ply];
+      }
+      renderEditorView();
+    }
+
+    function editorBuildPuzzleObject() {
+      const ed = App.editor;
+      const lists = CheckersEngine.boardToLists(ed.initialBoard);
+      const cleanBranches = ed.branches
+        .filter(b => b.moves.length > 0)
+        .map(b => {
+          const obj = { label: b.label, afterPly: b.afterPly, moves: b.moves.slice() };
+          if (b.altWins && Object.keys(b.altWins).length) obj.altWins = JSON.parse(JSON.stringify(b.altWins));
+          if (b.altTries && Object.keys(b.altTries).length) obj.altTries = JSON.parse(JSON.stringify(b.altTries));
+          return obj;
+        });
+
+      const puzzle = {
+        id: `custom_${Date.now()}`,
+        number: parseInt(document.getElementById('ed-number').value, 10) || (getAllPuzzles().length + 1),
+        section: document.getElementById('ed-section').value.trim() || 'Своя комбинация',
+        difficulty: parseInt(document.getElementById('ed-diff').value, 10) || 1,
+        author: document.getElementById('ed-author').value.trim(),
+        white: lists.white,
+        black: lists.black,
+        whiteKings: lists.whiteKings,
+        blackKings: lists.blackKings,
+        turn: 'w',
+        mainLine: ed.mainLine.slice(),
+        branches: cleanBranches
+      };
+
+      if (Object.keys(ed.altWins).length) puzzle.altWins = JSON.parse(JSON.stringify(ed.altWins));
+      if (Object.keys(ed.altTries).length) puzzle.altTries = JSON.parse(JSON.stringify(ed.altTries));
+      return puzzle;
+    }
+
+    function editorSavePuzzle() {
+      const puzzle = editorBuildPuzzleObject();
+      const val = CheckersEngine.validatePuzzle(puzzle);
+      if (!val.valid) {
+        showToast(`Нельзя сохранить: ${val.errors[0]}`, 'error');
+        return;
+      }
+      if (puzzle.mainLine.length % 2 === 0) {
+        showToast('Завершите главную линию ходом белых.', 'warn');
+        return;
+      }
+
+      App.customPuzzles.push(puzzle);
+      saveStorage();
+      runFullDatabaseValidation(false);
+
+      // Подготовка редактора к следующей задаче
+      document.getElementById('ed-number').value = puzzle.number + 1;
+      editorClearBoard();
+
+      showToast(`Задача №${puzzle.number} сохранена и проверена!`, 'success');
+      loadPuzzle(puzzle.id, -1);
+      switchMode('puzzle');
+    }
+
+    function editorExportCurrentJSON() {
+      const puzzle = editorBuildPuzzleObject();
+      const val = CheckersEngine.validatePuzzle(puzzle);
+      if (!val.valid) {
+        showToast(`Сначала исправьте задачу: ${val.errors[0]}`, 'warn');
+        return;
+      }
+      const blob = new Blob([JSON.stringify([puzzle], null, 2)], { type: 'application/json;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `puzzle_${puzzle.number}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      showToast(`Задача №${puzzle.number} экспортирована в JSON`, 'success');
+    }
+
+    function renderEditorView() {
+      const ed = App.editor;
+      const isSetup = ed.step === 1;
+
+      document.getElementById('ed-pill-setup').className = `badge ${isSetup ? 'badge-diff-2' : 'badge-solved'}`;
+      document.getElementById('ed-pill-rec').className = `badge ${isSetup ? 'badge-section' : 'badge-diff-2'}`;
+      document.getElementById('ed-palette').classList.toggle('hidden', !isSetup);
+      document.getElementById('ed-rec-toolbar').classList.toggle('hidden', isSetup);
+      document.getElementById('ed-step1-panel').classList.toggle('hidden', !isSetup);
+      document.getElementById('ed-step2-panel').classList.toggle('hidden', isSetup);
+
+      document.querySelectorAll('[data-ed-tool]').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.edTool === ed.tool);
+      });
+
+      // Живая проверка
+      const vPill = document.getElementById('ed-validation-pill');
+      if (ed.mainLine.length === 0) {
+        vPill.className = 'feedback-box';
+        vPill.textContent = 'Расставьте шашки и запишите ходы решения.';
+      } else {
+        const testObj = editorBuildPuzzleObject();
+        const check = CheckersEngine.validatePuzzle(testObj);
+        if (check.valid && ed.mainLine.length % 2 === 1) {
+          vPill.className = 'feedback-box ok';
+          vPill.textContent = `✓ Валидно: ${check.stats.plies} п/х, веток: ${check.stats.branches}, альт. ходов: ${check.stats.altWins + check.stats.altTries}.`;
+        } else if (check.valid) {
+          vPill.className = 'feedback-box warn';
+          vPill.textContent = 'Сделайте завершающий ход белых в главной линии.';
+        } else {
+          vPill.className = 'feedback-box err';
+          vPill.textContent = `Ошибка: ${check.errors[0]}`;
+        }
+      }
+
+      if (isSetup) {
+        renderInteractiveBoard({
+          hostId: 'editor-board-host',
+          board: ed.initialBoard,
+          editorSetupMode: true,
+          interactive: true,
+          onSquareClick: (r, c) => {
+            if (!CheckersEngine.isDark(r, c)) {
+              showToast('Шашки ставятся только на тёмные поля.', 'info');
+              return;
+            }
+            if (ed.tool === 'erase') {
+              ed.initialBoard[r][c] = null;
+            } else {
+              let p = ed.tool;
+              if (p === 'w' && r === 0) p = 'W';
+              if (p === 'b' && r === 7) p = 'B';
+              ed.initialBoard[r][c] = (ed.initialBoard[r][c] === p) ? null : p;
+              SoundFX.playMove();
+            }
+            ed.mainLine = [];
+            ed.branches = [];
+            ed.altWins = {};
+            ed.altTries = {};
+            renderEditorView();
+          }
+        });
+      } else {
+        // Режим записи
+        const activeName = ed.editingBranchIdx === -1
+          ? 'Главная линия'
+          : ed.branches[ed.editingBranchIdx].label;
+        document.getElementById('ed-active-line-name').textContent = activeName;
+        document.getElementById('ed-back-main-btn').classList.toggle('hidden', ed.editingBranchIdx === -1);
+        document.getElementById('ed-rec-status-text').textContent =
+          `${activeName}: ход ${ed.recTurn === 'w' ? 'БЕЛЫХ' : 'ЧЁРНЫХ'}`;
+
+        const seq = editorGetActiveLineSequence();
+        document.getElementById('ed-active-moves-log').innerHTML = renderMovesLog(seq);
+
+        // Заполнение выбора точки ветвления (после любого хода белых: ply = 1, 3, 5...)
+        const brPlySel = document.getElementById('ed-branch-ply');
+        let brOpts = '';
+        for (let i = 0; i < ed.mainLine.length; i += 2) {
+          const moveNum = Math.floor(i / 2) + 1;
+          brOpts += `<option value="${i + 1}">После ${moveNum}. ${ed.mainLine[i]}</option>`;
+        }
+        brPlySel.innerHTML = brOpts || `<option value="">Сначала сделайте ход белых</option>`;
+
+        // Список веток
+        document.getElementById('ed-branches-list').innerHTML = ed.branches.map((b, i) => `
+          <div class="editor-list-item" style="${ed.editingBranchIdx === i ? 'border-color:var(--primary);background:#eef1f6;' : ''}">
+            <div style="cursor:pointer;flex:1;" onclick="editorSelectBranch(${i})">
+              <strong>${escapeHtml(b.label)}</strong>
+              <span style="color:var(--text-muted);margin-left:6px;font-family:var(--font-mono);">${escapeHtml(b.moves.join(' ') || '(пусто)')}</span>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="editorDeleteBranch(${i})">✕</button>
+          </div>
+        `).join('');
+
+        // Селектор полуходов белых для altWin/altTry
+        const altPlySel = document.getElementById('ed-alt-ply');
+        const prevAltPly = altPlySel.value;
+        let altOpts = '';
+        for (let i = 0; i < seq.length; i += 2) {
+          altOpts += `<option value="${i}">Ход ${Math.floor(i / 2) + 1} белых (вместо ${seq[i]})</option>`;
+        }
+        altPlySel.innerHTML = altOpts || `<option value="">Нет ходов белых</option>`;
+        if (prevAltPly && seq[parseInt(prevAltPly, 10)]) altPlySel.value = prevAltPly;
+        editorRefreshAltMoves();
+
+        // Список добавленных альтернативных ходов
+        const targetObj = ed.editingBranchIdx === -1 ? ed : ed.branches[ed.editingBranchIdx];
+        let altsHtml = '';
+        for (const [ply, arr] of Object.entries(targetObj.altWins || {})) {
+          arr.forEach((mv, idx) => {
+            altsHtml += `<div class="editor-list-item"><span><strong style="color:var(--success);">altWin</strong> (п/х ${Number(ply)+1}): <code>${escapeHtml(mv)}</code></span><button class="btn btn-secondary btn-sm" onclick="editorRemoveAlt('altWin','${ply}',${idx})">✕</button></div>`;
+          });
+        }
+        for (const [ply, arr] of Object.entries(targetObj.altTries || {})) {
+          arr.forEach((at, idx) => {
+            altsHtml += `<div class="editor-list-item"><span><strong style="color:var(--info);">altTry</strong> (п/х ${Number(ply)+1}): <code>${escapeHtml(at.move)}</code></span><button class="btn btn-secondary btn-sm" onclick="editorRemoveAlt('altTry','${ply}',${idx})">✕</button></div>`;
+          });
+        }
+        document.getElementById('ed-alts-list').innerHTML = altsHtml;
+
+        const legals = CheckersEngine.getLegalMoves(ed.recBoard, ed.recTurn);
+        renderInteractiveBoard({
+          hostId: 'editor-board-host',
+          board: ed.recBoard,
+          legalMoves: legals,
+          activeTurn: ed.recTurn,
+          selection: ed.selection,
+          lastMove: ed.recLastMove,
+          animOverlay: ed.animOverlay,
+          hiddenSourceRC: ed.hiddenSourceRC,
+          pendingCapturesOverride: ed.pendingCapturesAnim,
+          interactive: !ed.animating,
+          onSquareClick: (r, c) => {
+            if (ed.animating) return;
+            handleBoardInteraction(
+              ed,
+              ed.recBoard,
+              ed.recTurn,
+              r,
+              c,
+              (move, manualStepped) => {
+                const commit = () => {
+                  if (ed.editingBranchIdx === -1) {
+                    ed.mainLine.push(move.notation);
+                  } else {
+                    const br = ed.branches[ed.editingBranchIdx];
+                    br.moves.push(move.notation);
+                    if (br.moves.length === 1) {
+                      const moveNum = Math.floor(br.afterPly / 2) + 1;
+                      br.label = `Защита ${moveNum}... ${move.notation}`;
+                    }
+                  }
+                  rebuildEditorRecState();
+                  renderEditorView();
+                };
+                if (!manualStepped && move.path.length > 2) {
+                  animateMoveOnHost(ed, ed.recBoard, 'editor-board-host', false, move, renderEditorView, commit);
+                } else {
+                  commit();
+                }
+              },
+              renderEditorView,
+              'editor-chain-banner',
+              'editor-chain-text'
+            );
+          }
+        });
+      }
+    }
+
+    /* =========================================================================
+       12. РЕЖИМ 5: СВОБОДНАЯ ДОСКА
+       ========================================================================= */
+    function renderFreeView() {
+      const fs = App.free;
+      const legals = fs.winner ? [] : CheckersEngine.getLegalMoves(fs.board, fs.turn);
+      const counts = CheckersEngine.countPieces(fs.board);
+
+      document.getElementById('free-count-w').textContent = counts.w;
+      document.getElementById('free-count-b').textContent = counts.b;
+
+      const originCard = document.getElementById('free-origin-card');
+      if (fs.originTitle) {
+        document.getElementById('free-origin-title').textContent = `Разбор позиции: ${fs.originTitle}`;
+        originCard.classList.remove('hidden');
+      } else {
+        originCard.classList.add('hidden');
+      }
+
+      const turnPill = document.getElementById('free-turn-pill');
+      const statusBox = document.getElementById('free-status-box');
+
+      if (fs.winner) {
+        const wt = fs.winner === 'w' ? 'Победа белых!' : 'Победа чёрных!';
+        turnPill.innerHTML = `<span class="turn-dot done"></span><span>${wt}</span>`;
+        statusBox.className = 'feedback-box ok';
+        statusBox.textContent = `${wt} У соперника не осталось легальных ходов.`;
+      } else {
+        const isCap = legals.length > 0 && legals[0].captures.length > 0;
+        const sideTxt = fs.turn === 'w' ? 'Ход белых' : 'Ход чёрных';
+        turnPill.innerHTML = `<span class="turn-dot ${fs.turn === 'w' ? 'white' : 'black'}"></span><span>${sideTxt}${isCap ? ' • Обязательный бой' : ''}</span>`;
+        statusBox.className = `feedback-box ${isCap ? 'warn' : ''}`.trim();
+        statusBox.textContent = isCap
+          ? `${sideTxt}: обязательное взятие! Подсвеченные шашки обязаны бить.`
+          : `${sideTxt}. Легальных ходов: ${legals.length}.`;
+      }
+
+      document.getElementById('free-moves-log').innerHTML = renderMovesLog(fs.history.map(h => h.notation));
+
+      renderInteractiveBoard({
+        hostId: 'free-board-host',
+        board: fs.board,
+        flipped: fs.flipped,
+        legalMoves: legals,
+        activeTurn: fs.turn,
+        selection: fs.selection,
+        lastMove: fs.lastMove,
+        animOverlay: fs.animOverlay,
+        hiddenSourceRC: fs.hiddenSourceRC,
+        pendingCapturesOverride: fs.pendingCapturesAnim,
+        interactive: !fs.winner && !fs.animating,
+        onSquareClick: (r, c) => {
+          if (fs.winner || fs.animating) return;
+          handleBoardInteraction(
+            fs,
+            fs.board,
+            fs.turn,
+            r,
+            c,
+            (move, manualStepped) => commitFreeMove(move, manualStepped),
+            renderFreeView,
+            'free-chain-banner',
+            'free-chain-text'
+          );
+        }
+      });
+    }
+
+    function commitFreeMove(move, manualStepped) {
+      const fs = App.free;
+      const applyNow = () => {
+        fs.history.push({
+          boardBefore: CheckersEngine.cloneBoard(fs.board),
+          turnBefore: fs.turn,
+          lastMoveBefore: fs.lastMove,
+          notation: move.notation
+        });
+        fs.board = CheckersEngine.applyMove(fs.board, move);
+        fs.lastMove = move;
+        fs.turn = fs.turn === 'w' ? 'b' : 'w';
+
+        if (CheckersEngine.getLegalMoves(fs.board, fs.turn).length === 0) {
+          fs.winner = fs.turn === 'w' ? 'b' : 'w';
+          SoundFX.playWin();
+        }
+        renderFreeView();
+      };
+
+      if (!manualStepped && move.path.length > 2) {
+        animateMoveOnHost(fs, fs.board, 'free-board-host', fs.flipped, move, renderFreeView, applyNow);
+      } else {
+        applyNow();
+      }
+    }
+
+    function undoFreeMove() {
+      const fs = App.free;
+      if (fs.animating || fs.history.length === 0) return;
+      const prev = fs.history.pop();
+      fs.board = prev.boardBefore;
+      fs.turn = prev.turnBefore;
+      fs.lastMove = prev.lastMoveBefore;
+      fs.winner = null;
+      fs.selection = null;
+      setChainBanner('free-chain-banner', 'free-chain-text', null);
+      renderFreeView();
+    }
+
+    function resetFreeStandard() {
+      const fs = App.free;
+      fs.board = CheckersEngine.createStandardBoard();
+      fs.turn = 'w';
+      fs.history = [];
+      fs.lastMove = null;
+      fs.winner = null;
+      fs.selection = null;
+      fs.originTitle = null;
+      fs.originBoard = null;
+      setChainBanner('free-chain-banner', 'free-chain-text', null);
+      renderFreeView();
+    }
+
+    function resetFreeToOrigin() {
+      const fs = App.free;
+      if (!fs.originBoard) return;
+      fs.board = CheckersEngine.cloneBoard(fs.originBoard);
+      fs.turn = fs.originTurn;
+      fs.history = [];
+      fs.lastMove = null;
+      fs.winner = null;
+      fs.selection = null;
+      setChainBanner('free-chain-banner', 'free-chain-text', null);
+      renderFreeView();
+    }
+
+    function flipFreeBoard() {
+      App.free.flipped = !App.free.flipped;
+      renderFreeView();
+    }
+
+    /* =========================================================================
+       13. НАВИГАЦИЯ, ТЕМЫ И ИНИЦИАЛИЗАЦИЯ
+       ========================================================================= */
+    function switchMode(mode) {
+      if (App.mode === 'puzzle' && mode !== 'puzzle' && App.puzzle.status === 'demo') {
+        clearPuzzleTimers();
+        App.puzzle.status = 'playing';
+      }
+      App.mode = mode;
+
+      document.querySelectorAll('.mode-view').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(`view-${mode}`);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.nav === mode);
+      });
+
+      if (mode === 'puzzle') renderPuzzleView();
+      else if (mode === 'catalog') renderCatalogView();
+      else if (mode === 'validator') runFullDatabaseValidation(false);
+      else if (mode === 'editor') renderEditorView();
+      else if (mode === 'free') renderFreeView();
+    }
+
+    function setBoardTheme(theme) {
+      App.boardTheme = theme;
+      saveStorage();
+      document.querySelectorAll('[data-theme-btn]').forEach(b => {
+        b.classList.toggle('active', b.dataset.themeBtn === theme);
+      });
+      if (App.mode === 'puzzle') renderPuzzleView();
+      else if (App.mode === 'free') renderFreeView();
+      else if (App.mode === 'editor') renderEditorView();
+    }
+
+    function toggleSound() {
+      App.soundEnabled = !App.soundEnabled;
+      saveStorage();
+      updateSoundIcon();
+      if (App.soundEnabled) SoundFX.playMove();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadStorage();
+      initEditorPalette();
+      updateSoundIcon();
+      setBoardTheme(App.boardTheme);
+
+      // Обязательная автовалидация всей базы при старте
+      runFullDatabaseValidation(false);
+
+      const firstUnsolved = getAllPuzzles().find(p => !App.solvedIds.includes(p.id));
+      loadPuzzle(firstUnsolved ? firstUnsolved.id : BUILTIN_PUZZLES[0].id, -1);
+      switchMode('puzzle');
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') cancelActiveSelection();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,2897 @@
+[
+  {
+    "id": "tsukernik-973",
+    "number": 973,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c3",
+      "d2",
+      "d4",
+      "e3",
+      "f2",
+      "h4"
+    ],
+    "black": [
+      "b6",
+      "e5",
+      "f6",
+      "f8",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h4-g5",
+      "h6:f4",
+      "e3:g5:e7",
+      "f8:d6",
+      "d4:f6:h8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-974",
+    "number": 974,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c1",
+      "c3",
+      "d4",
+      "f2",
+      "g1",
+      "h4"
+    ],
+    "black": [
+      "b6",
+      "e5",
+      "e7",
+      "f6",
+      "h2",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h2:f4",
+      "h4-g5",
+      "f6:h4",
+      "d4:f6:d8:a5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-975",
+    "number": 975,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c3",
+      "d4",
+      "g1",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "d6",
+      "e5",
+      "e7",
+      "f4",
+      "f6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h2-g3",
+      "f4:h2",
+      "h4-g5",
+      "f6:h4",
+      "d4:f6:d8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-976",
+    "number": 976,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "A. nJIaKxuH+--3. U.YKepHuK, 1977",
+    "goal": "draw",
+    "white": [
+      "b4",
+      "c3",
+      "c5",
+      "d4",
+      "g3",
+      "h4"
+    ],
+    "black": [
+      "a5",
+      "d6",
+      "e5",
+      "e7",
+      "f4",
+      "f6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c5-b6",
+      "a5:c7",
+      "b4-a5",
+      "f4:h2",
+      "h4-g5",
+      "f6:h4",
+      "d4:f6:d8:b6"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-977",
+    "number": 977,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "A. IOpacoB",
+    "goal": "win",
+    "white": [
+      "c1",
+      "c3",
+      "d2",
+      "d4",
+      "e3",
+      "g3",
+      "h4",
+      "h6"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "b6",
+      "c5",
+      "e5",
+      "e7",
+      "f6",
+      "f8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-b2",
+      "a3:c1",
+      "h4-g5",
+      "f6:h4:f2",
+      "d4:f6:d8",
+      "f2:d4:b2",
+      "d8-g5",
+      "c1:e3",
+      "g5:c1:a3:d6"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-979",
+    "number": 979,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b2",
+      "c3",
+      "d2",
+      "d4",
+      "f2",
+      "g5",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "e5",
+      "e7",
+      "f6",
+      "f8",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h4:f2",
+      "d2-e3",
+      "f6:h4",
+      "d4:f6:d8:a5",
+      "f2:d4",
+      "c3:e5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-980",
+    "number": 980,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "3. MaJIeB - H. nOJISlKOB, 1971",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c3",
+      "c5",
+      "d4",
+      "f2",
+      "g5"
+    ],
+    "black": [
+      "a5",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c5-b6",
+      "a5:c7",
+      "f2-g3",
+      "h4:f2",
+      "b4-a5",
+      "f6:h4",
+      "d4:f6:d8:b6:g1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-981",
+    "number": 981,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "JI. LJepHoB",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c3",
+      "d2",
+      "e3",
+      "f2",
+      "g5"
+    ],
+    "black": [
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "c7-b6",
+      "f2-g3",
+      "h4:f2",
+      "d2-e3",
+      "f6:h4",
+      "d4:f6:d8:a5",
+      "f2:d4:b2",
+      "b4-c5",
+      "d6:b4",
+      "a5:c3:a1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-982",
+    "number": 982,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "C. OaJl)KaJIapCKuH",
+    "goal": "win",
+    "white": [
+      "a5",
+      "b4",
+      "c3",
+      "c5",
+      "d4",
+      "e3",
+      "f4",
+      "g3",
+      "h4"
+    ],
+    "black": [
+      "a7",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c5-b6",
+      "a7:c5:a3",
+      "h4-g5",
+      "f6:h4:f2",
+      "d4:f6:d8:b6",
+      "f2:d4:b2",
+      "b6-c5",
+      "d6:b4",
+      "a5:c3:a1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-983",
+    "number": 983,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "H. CurHaeBcKuH",
+    "goal": "win",
+    "white": [
+      "a3",
+      "c3",
+      "c5",
+      "d2",
+      "d4",
+      "e3",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "e5",
+      "e7",
+      "f4",
+      "f6",
+      "g3",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a3-b4",
+      "g5-h4",
+      "e3:g5",
+      "g3-f2",
+      "d2-e3",
+      "f2-g1",
+      "c5-b6",
+      "a5:c7",
+      "h2-g3",
+      "h4:f2",
+      "b4-c5",
+      "f6:h4",
+      "d4:f6:d8:b6",
+      "f2:d4:b2",
+      "b6-a7",
+      "g1:b6"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-985",
+    "number": 985,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c3",
+      "c5",
+      "d2",
+      "d4",
+      "e1",
+      "f2",
+      "g3",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "a7",
+      "b8",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "f8",
+      "g5",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "g3-f4",
+      "g5:e3:c1",
+      "e1-d2",
+      "c1:e3:g1",
+      "h4-g5",
+      "f6:h4",
+      "d4:f6:d8:a5",
+      "g1:b6",
+      "a5:c7:e5:h8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-986",
+    "number": 986,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "c3",
+      "c5",
+      "d4",
+      "e1",
+      "e3",
+      "f2",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b8",
+      "e5",
+      "e7",
+      "f6",
+      "f8",
+      "g5",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-f4",
+      "g5:e3:g1",
+      "h4-g5",
+      "f6:h4",
+      "d4:f6:d8",
+      "g1:b6",
+      "c3-b4",
+      "a5:c3",
+      "d8:a5:d2"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-987",
+    "number": 987,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "10. LJepHSleB",
+    "goal": "win",
+    "white": [
+      "a5",
+      "b4",
+      "c3",
+      "d4",
+      "f2",
+      "h4"
+    ],
+    "black": [
+      "a7",
+      "c7",
+      "e3",
+      "e5",
+      "e7",
+      "f6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b4-c5",
+      "e3:g1",
+      "a5-b6",
+      "c7:a5",
+      "h4-g5",
+      "f6:h4",
+      "d4:f6:d8",
+      "g1:b6",
+      "c3-b4",
+      "a5:c3",
+      "d8:a5:e1",
+      "a7-b6",
+      "e1-f2",
+      "b6-a5",
+      "f2-e1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-988",
+    "number": 988,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "A. HarYMaHoB",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c3",
+      "c5",
+      "d4",
+      "e1",
+      "f2",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b8",
+      "e3",
+      "e5",
+      "e7",
+      "f6",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h4-g5",
+      "e3:g1",
+      "e1-d2",
+      "f6:h4",
+      "d4:f6:h8",
+      "g1:b6",
+      "h2-g3",
+      "h4:f2",
+      "d2-e3",
+      "f2:d4:b2",
+      "h8:a1",
+      "a5:c3",
+      "a1:f6:d8:a5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-989",
+    "number": 989,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "c1",
+      "c3",
+      "d4",
+      "e3",
+      "f2",
+      "g1",
+      "h2",
+      "h6"
+    ],
+    "black": [
+      "a3",
+      "a7",
+      "c7",
+      "e5",
+      "e7",
+      "f6",
+      "f8",
+      "h4",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-b2",
+      "a3:c1:f4",
+      "f2-g3",
+      "h4:f2",
+      "g1:e3:g5",
+      "f6:h4",
+      "d4:f6:d8:a5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-990",
+    "number": 990,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "b2",
+      "c3",
+      "d4",
+      "e3",
+      "f2",
+      "g1",
+      "h2",
+      "h6"
+    ],
+    "black": [
+      "b6",
+      "c5",
+      "c7",
+      "d8",
+      "e5",
+      "e7",
+      "f6",
+      "f8",
+      "g7",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a3-b4",
+      "c5:a3:c1:f4",
+      "f2-g3",
+      "h4:f2",
+      "g1:e3:g5",
+      "f6:h4",
+      "d4:f6:h8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-991",
+    "number": 991,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "M. KY3HetI,OR+-A. III 0 lIII1H , 18 98",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b2",
+      "c1",
+      "c3",
+      "e1",
+      "f2",
+      "f4",
+      "g1",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "c5",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f6",
+      "f8",
+      "g7",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-g5",
+      "h6:f4",
+      "a3-b4",
+      "c5:a3",
+      "c1-d2",
+      "a3:c1:e3",
+      "f2:d4",
+      "h4:f2",
+      "g1:e3:g5",
+      "f6:h4",
+      "d4:f6:d8:a5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-992",
+    "number": 992,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c3",
+      "c5",
+      "d4",
+      "e3",
+      "f4"
+    ],
+    "black": [
+      "b8",
+      "c7",
+      "e7",
+      "f8",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c5-d6",
+      "c7:e5:g3",
+      "e3-f4",
+      "g3:e5",
+      "d4:f6:d8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-993",
+    "number": 993,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "A. nJIaKXHH - E. CeMeHoB, 1963",
+    "goal": "win",
+    "white": [
+      "a3",
+      "c3",
+      "d4",
+      "e3",
+      "e5",
+      "f4",
+      "g1"
+    ],
+    "black": [
+      "b6",
+      "b8",
+      "c5",
+      "c7",
+      "e7",
+      "g7",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e5-d6",
+      "c7:e5:g3",
+      "a3-b4",
+      "c5:a3",
+      "e3-f4",
+      "g3:e5",
+      "d4:f6:d8:a5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-994",
+    "number": 994,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "H. faJIaHOB (H3 napTlm)",
+    "goal": "win",
+    "white": [
+      "a5",
+      "c3",
+      "c5",
+      "d4",
+      "e1",
+      "e3",
+      "e5"
+    ],
+    "black": [
+      "a7",
+      "b6",
+      "b8",
+      "c7",
+      "g3",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e5-d6",
+      "c7:e5",
+      "a5:c7",
+      "b8:d6:b4:d2:f4",
+      "d4:f6:h4:f2",
+      "a7-b6",
+      "e1-d2"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-995",
+    "number": 995,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "I1,neH 51. BepTMaHa",
+    "goal": "win",
+    "white": [
+      "a3",
+      "a5",
+      "b4",
+      "c3",
+      "d4",
+      "e3",
+      "f4",
+      "g1"
+    ],
+    "black": [
+      "b6",
+      "b8",
+      "c5",
+      "c7",
+      "d6",
+      "f8",
+      "g7",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-e5",
+      "d6:f4:d2",
+      "b4:d6",
+      "d2:b4",
+      "a5:c3",
+      "c7:e5",
+      "d4:f6:h8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-996",
+    "number": 996,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "a5",
+      "b4",
+      "c3",
+      "d4",
+      "e3",
+      "f4",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "b6",
+      "b8",
+      "c5",
+      "c7",
+      "d6",
+      "d8",
+      "f8",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-e5",
+      "d6:f4:h2",
+      "b4:d6",
+      "c7:e5",
+      "d4:f6:h8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-997",
+    "number": 997,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b4",
+      "c3",
+      "d4",
+      "e5",
+      "f2",
+      "f4",
+      "g1"
+    ],
+    "black": [
+      "b8",
+      "c7",
+      "d8",
+      "e7",
+      "f8",
+      "g5",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b4-c5",
+      "g5:e3",
+      "e5-d6",
+      "c7:e5",
+      "d4:f6:h8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-998",
+    "number": 998,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b2",
+      "c3",
+      "d4",
+      "e3",
+      "f4",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "b6",
+      "b8",
+      "c5",
+      "c7",
+      "e7",
+      "f8",
+      "h4",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-e5",
+      "h4:f2",
+      "e5-d6",
+      "c7:e5",
+      "d4:f6:d8:a5",
+      "f2:d4",
+      "c3:e5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-999",
+    "number": 999,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "<1>. liaxTuo3uH",
+    "goal": "win",
+    "white": [
+      "c3",
+      "c5",
+      "e3",
+      "e5",
+      "f2",
+      "f4",
+      "h6"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "c7",
+      "e7",
+      "f8",
+      "g5",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "g5:e3:g1",
+      "e5-d6",
+      "c7:e5",
+      "d4:f6:d8",
+      "g1:b6",
+      "c3-b4",
+      "a5:c3",
+      "d8:a5:e1",
+      "a7-b6",
+      "e1-f2",
+      "b6-a5",
+      "f2-e1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1000",
+    "number": 1000,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "H. ToponoB",
+    "goal": "win",
+    "white": [
+      "c3",
+      "c5",
+      "d4",
+      "e5",
+      "f2",
+      "f4",
+      "g3"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "c7",
+      "e7",
+      "g5",
+      "g7",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "g3-h4",
+      "g5:e3:g1",
+      "e5-d6",
+      "c7:e5",
+      "d4:f6:d8",
+      "g1:b6",
+      "h4-g5",
+      "h6:f4",
+      "c3-b4",
+      "a5:c3",
+      "d8:a5:d2:h6:f8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1001",
+    "number": 1001,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "c3",
+      "d2",
+      "d4",
+      "e3",
+      "e5",
+      "f2",
+      "h4"
+    ],
+    "black": [
+      "a5",
+      "b6",
+      "c5",
+      "c7",
+      "f6",
+      "f8",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a3-b4",
+      "c5:a3",
+      "e5-d6",
+      "c7:e5",
+      "h4-g5",
+      "h6:f4",
+      "e3:g5:e7",
+      "f8:d6",
+      "d4:f6:h8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1002",
+    "number": 1002,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b6",
+      "c3",
+      "d4",
+      "e3",
+      "e5",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a5",
+      "b8",
+      "c7",
+      "d8",
+      "f6",
+      "f8",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e5-d6",
+      "c7:e5",
+      "g3-h4",
+      "a5:c7",
+      "h4-g5",
+      "f6:h4",
+      "d4:f6:h8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1004",
+    "number": 1004,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c1",
+      "c5",
+      "d2",
+      "d4",
+      "d6",
+      "e3",
+      "e5"
+    ],
+    "black": [
+      "a3",
+      "a7",
+      "b8",
+      "c7",
+      "e7",
+      "f8",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-b2",
+      "a3:c1",
+      "d2-c3",
+      "c1:f4",
+      "e5:g3",
+      "c7:e5",
+      "d4:f6:d8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1006",
+    "number": 1006,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "A. POKUTHUlI,KU\"+- C. ,l1. aHUJIUH, 1956",
+    "goal": "win",
+    "white": [
+      "a1",
+      "c1",
+      "c3",
+      "d4",
+      "e5",
+      "f4",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "b6",
+      "b8",
+      "e7",
+      "g7",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-b2",
+      "a3:c1:g5",
+      "e5-f6",
+      "g7:e5",
+      "d4:f6:d8",
+      "g5-h4",
+      "c3-b4",
+      "h4:e1",
+      "d8-h4",
+      "a5:c3",
+      "g1-f2",
+      "e1:g3",
+      "h4:e1:a5:d8"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "g5-c1",
+          "g3-f4",
+          "c1:g5",
+          "d8:h4"
+        ]
+      },
+      {
+        "afterPly": 7,
+        "moves": [
+          "a5:c3",
+          "d8:a5:e1",
+          "h4:f2",
+          "e1:h4"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tsukernik-1007",
+    "number": 1007,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "P. KapnoB - B. 4epHbIlIIeBu4, 1970.' 5eJIhIM rpo3HT nOJIHOe oKpy)!{eHHe. HanpHMep, nJIOXO",
+    "goal": "draw",
+    "white": [
+      "c1",
+      "c3",
+      "d4",
+      "e3",
+      "e5",
+      "f2",
+      "f4"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "b6",
+      "e7",
+      "g7",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h4:f2",
+      "e3:g1",
+      "e7-f6"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1008",
+    "number": 1008,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "l'lneH <1>. KaYJIeHa",
+    "goal": "win",
+    "white": [
+      "c3",
+      "c5",
+      "d4",
+      "e3",
+      "e5"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b6",
+      "e7",
+      "g3"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c5-d6",
+      "e7:c5",
+      "e5-d6",
+      "c5:e7",
+      "e3-f4",
+      "g3:e5",
+      "d4:f6:d8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1011",
+    "number": 1011,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "r. TOP4UHCKU\"",
+    "goal": "win",
+    "white": [
+      "c1",
+      "c3",
+      "d4",
+      "e3",
+      "f2",
+      "g1",
+      "g5"
+    ],
+    "black": [
+      "a3",
+      "b6",
+      "e5",
+      "e7",
+      "f6",
+      "f8",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h4:f2",
+      "e3-f4",
+      "e5:g3",
+      "g1:e3",
+      "f6:h4",
+      "e3-f4",
+      "g3:e5",
+      "d4:f6:d8:a5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1012",
+    "number": 1012,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c5",
+      "d4",
+      "e3",
+      "e5",
+      "f2",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "b8",
+      "c7",
+      "e7",
+      "f6",
+      "f8",
+      "g7",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h4:f2",
+      "c5-d6",
+      "e7:c5",
+      "d4:b6:d8:h4:e1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1013",
+    "number": 1013,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c1",
+      "c5",
+      "d4",
+      "e1",
+      "e3",
+      "e5",
+      "f2",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b8",
+      "c7",
+      "e7",
+      "f8",
+      "g5",
+      "g7",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-b2",
+      "a5:c3:a1",
+      "c5-d6",
+      "e7:c5",
+      "d4:b6:d8",
+      "a1:f6",
+      "e3-f4",
+      "g5:e3",
+      "d8:g5:c1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1014",
+    "number": 1014,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "b2",
+      "b4",
+      "c3",
+      "c5",
+      "e5",
+      "f2",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b8",
+      "c7",
+      "e7",
+      "f8",
+      "g5",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-d4",
+      "a5:c3",
+      "f2-e3",
+      "h4:f2",
+      "c5-d6",
+      "e7:c5",
+      "d4:b6:d8:h4:e1:a5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1015",
+    "number": 1015,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c5",
+      "d4",
+      "e1",
+      "g1",
+      "g5",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "c7",
+      "e7",
+      "f6",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h2-g3",
+      "h4:f2",
+      "g1:e3",
+      "f6:h4",
+      "c5-b6",
+      "a7:c5",
+      "d4:b6:d8:f6"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1016",
+    "number": 1016,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "3. IJ.UpUK - <1>. CepoB, 1954",
+    "goal": "win",
+    "white": [
+      "c5",
+      "d4",
+      "e3",
+      "f2",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "c7",
+      "e7",
+      "g5",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-f4",
+      "g5:e3",
+      "c5-b6"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1017",
+    "number": 1017,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a3",
+      "c3",
+      "c5",
+      "e3",
+      "f2",
+      "f4",
+      "g1"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "c7",
+      "f6",
+      "g5",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "g5:e3",
+      "f2-g3",
+      "h4:f2",
+      "c5-b6",
+      "a7:c5",
+      "d4:b6:d8:h4:e1"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "e3:c5",
+          "b6:d8:h4:e1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tsukernik-1018",
+    "number": 1018,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "A. lllBu)l.Ku\" - B. JIeBuH, 1969",
+    "goal": "win",
+    "white": [
+      "a3",
+      "a5",
+      "c3",
+      "c5",
+      "f2",
+      "f4"
+    ],
+    "black": [
+      "a7",
+      "c7",
+      "e7",
+      "g5",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h4:f2",
+      "c3-d4",
+      "g5:e3",
+      "c5-b6",
+      "a7:c5",
+      "d4:b6:d8:h4:e1"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "e3:c5",
+          "b6:d8:h4:e1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tsukernik-1022",
+    "number": 1022,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "H. ToponoB",
+    "goal": "win",
+    "white": [
+      "b2",
+      "c1",
+      "d4",
+      "e1",
+      "e3",
+      "f4",
+      "g3",
+      "h6"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "c7",
+      "d6",
+      "f6",
+      "f8",
+      "g7",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-g5",
+      "h4:f2",
+      "g5:e7:c5",
+      "f2-g1",
+      "c5-b6",
+      "a7:c5",
+      "d4:b6:d8",
+      "g1:d4:a1",
+      "d8-e7",
+      "f8:d6",
+      "h6:f8:b4",
+      "a5:c3",
+      "c1-b2",
+      "c3-d2",
+      "e1:c3"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1024",
+    "number": 1024,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "A. 080,11,08 +-- C. BaeJfJlbeB, 1901",
+    "goal": "win",
+    "white": [
+      "c1",
+      "c3",
+      "d2",
+      "d4",
+      "e1",
+      "e3",
+      "e5",
+      "h2"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "a7",
+      "b8",
+      "c7",
+      "d6",
+      "g5",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-b4",
+      "d6:f4",
+      "d2-c3",
+      "f4:d2",
+      "c1:e3",
+      "a3:c5",
+      "d4:b6:d8:h4"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1025",
+    "number": 1025,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "B. rOpO,1l,ell,KU\"",
+    "goal": "win",
+    "white": [
+      "c1",
+      "c3",
+      "d2",
+      "d4",
+      "f2"
+    ],
+    "black": [
+      "a3",
+      "c7",
+      "e7",
+      "f4",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-e3",
+      "h8-g7",
+      "e3:g5",
+      "g7-h6",
+      "c3-b4",
+      "h6:f4",
+      "d2-e3",
+      "f4:d2",
+      "c1:e3",
+      "a3:c5",
+      "d4:b6:d8:h4"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "a3:c5:e3",
+          "d2:f4",
+          "c7-b6",
+          "c1-b2",
+          "b6-a5",
+          "b2-a3"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tsukernik-1026",
+    "number": 1026,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c3",
+      "c5",
+      "d2",
+      "d4",
+      "e3"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "g3",
+      "g5",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c5-b6",
+      "a5:c7",
+      "c3-b4",
+      "a3:c5",
+      "d4:b6:d8:h4:e1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1027",
+    "number": 1027,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c3",
+      "c5",
+      "d2",
+      "d4",
+      "f2",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a3",
+      "b8",
+      "e5",
+      "f6",
+      "f8",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-e3",
+      "h4:f2",
+      "c5-d6",
+      "e5:c7",
+      "c3-b4",
+      "a3:c5",
+      "d4:b6:d8:h4:e1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1028",
+    "number": 1028,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "A. rypaJIbHuK",
+    "goal": "win",
+    "white": [
+      "a7",
+      "c1",
+      "c3",
+      "d4",
+      "e1",
+      "e3",
+      "f4",
+      "g3",
+      "h6"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "b8",
+      "d6",
+      "f6",
+      "f8",
+      "g7",
+      "h4",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f4-g5",
+      "h4:f2",
+      "g5:e7:c5",
+      "f2-g1",
+      "c5-b6",
+      "a5:c7",
+      "c3-b4",
+      "a3:c5",
+      "d4:b6:d8",
+      "g1:c5",
+      "e1-f2",
+      "c5:g1",
+      "d8-e7",
+      "f8:d6",
+      "h6:f8:c5",
+      "g1:b6",
+      "a7:c5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1034",
+    "number": 1034,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "A. fypaJIbHJfK",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a5",
+      "c1",
+      "c3",
+      "e1",
+      "e3",
+      "f2",
+      "f4",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a3",
+      "c7",
+      "d6",
+      "f6",
+      "f8",
+      "g7",
+      "h4",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-b2",
+      "a3:c1",
+      "e3-d4",
+      "c1:g5",
+      "e1-d2",
+      "g5:c1",
+      "a1-b2",
+      "c1:a3",
+      "f2-e3",
+      "h4:f2",
+      "c3-b4",
+      "a3:c5",
+      "d4:b6:d8:h4:e1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1037",
+    "number": 1037,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "B. COKOB",
+    "goal": "win",
+    "white": [
+      "a1",
+      "c5",
+      "d2",
+      "d4",
+      "e3",
+      "e5",
+      "g1"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "b8",
+      "f8",
+      "g3",
+      "g5",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c5-b6",
+      "a5:c7",
+      "e5-f6",
+      "g5:e7",
+      "d2-c3"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1038",
+    "number": 1038,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "}I)],eH n. CBSITOro",
+    "goal": "win",
+    "white": [
+      "b2",
+      "c1",
+      "c3",
+      "d2",
+      "e1",
+      "e3",
+      "f2",
+      "f4",
+      "g1"
+    ],
+    "black": [
+      "a3",
+      "b8",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f8",
+      "h4",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "e5:g3",
+      "f2-e3"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1039",
+    "number": 1039,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "A. fypaJIbHHK",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "c3",
+      "d2",
+      "e3",
+      "f4",
+      "g1"
+    ],
+    "black": [
+      "b8",
+      "c5",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "f8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a3-b4",
+      "c5:a3",
+      "e3-d4",
+      "e5:g3",
+      "d2-e3"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1040",
+    "number": 1040,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "b6",
+      "c1",
+      "c5",
+      "d4",
+      "e1",
+      "g1"
+    ],
+    "black": [
+      "a3",
+      "a7",
+      "d8",
+      "e7",
+      "f4",
+      "g3",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b6-c7",
+      "d8:b6",
+      "c1-b2",
+      "a3:c1",
+      "e1-d2",
+      "c1:e3",
+      "d4:f2:h4:f6:d8:a5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1041",
+    "number": 1041,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "C. BOPOHI.I,OB - D. MHPOTHH, 1924",
+    "goal": "draw",
+    "white": [
+      "c1",
+      "d2",
+      "d4",
+      "e5",
+      "f2",
+      "h2"
+    ],
+    "black": [
+      "a3",
+      "c7",
+      "d6",
+      "g5",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-e3",
+      "d6:f4",
+      "d4-c5",
+      "h4-g3",
+      "c1-b2",
+      "a3:c1",
+      "e3-d4",
+      "c1:e3",
+      "d4:f2:h4:f6"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1043",
+    "number": 1043,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "C. nJlOXOB",
+    "goal": "win",
+    "white": [
+      "b2",
+      "b4",
+      "c1",
+      "c5",
+      "d4",
+      "e3",
+      "g1"
+    ],
+    "black": [
+      "a3",
+      "c7",
+      "d6",
+      "e7",
+      "g3",
+      "g5",
+      "h2"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-d2",
+      "a3:c1",
+      "d4-e5",
+      "d6:f4",
+      "e3-d4",
+      "c1:e3",
+      "d4:f2:h4:f6:d8:b6"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1044",
+    "number": 1044,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "a5",
+      "b4",
+      "c3",
+      "e3",
+      "g3",
+      "g5"
+    ],
+    "black": [
+      "a7",
+      "c5",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "g3-f4",
+      "e5:g3",
+      "c3-d4",
+      "h6:f4:d2",
+      "d4:b6:d8:h4:e1:c3"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1045",
+    "number": 1045,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b2",
+      "c3",
+      "d2",
+      "e1",
+      "e3",
+      "e5",
+      "f4",
+      "h2"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "c5",
+      "c7",
+      "d6",
+      "f8",
+      "g3",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e1-f2",
+      "g3:e1",
+      "c3-d4",
+      "e1:c3:a1",
+      "d4:b6:d8",
+      "a1:f6",
+      "d8:h4"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1046",
+    "number": 1046,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "10. fopo6ell, - A. MOrHJISlHeKHH, 1959. Y 6eJIbIX TH:rKeJIaH rro3HUHH. Ha",
+    "goal": "draw",
+    "white": [
+      "a3",
+      "a5",
+      "b2",
+      "b4",
+      "e1",
+      "e3",
+      "e5",
+      "f2",
+      "f4"
+    ],
+    "black": [
+      "b8",
+      "c5",
+      "c7",
+      "d6",
+      "g5",
+      "g7",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "f2-g3",
+      "h4:f2:d4:f6",
+      "b2-c3",
+      "g5:e3",
+      "c3-d4"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1047",
+    "number": 1047,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "<1». liaxTHo3HH",
+    "goal": "win",
+    "white": [
+      "c3",
+      "d2",
+      "e1",
+      "e3",
+      "f2",
+      "g5",
+      "h2"
+    ],
+    "black": [
+      "a7",
+      "c5",
+      "c7",
+      "e7",
+      "f4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h2-g3",
+      "f4:h2",
+      "c3-d4",
+      "h6:f4",
+      "d4:b6:d8:g5",
+      "f4:h6",
+      "f2-g3",
+      "h2:f4",
+      "e3:g5",
+      "h6:f4",
+      "d2-e3",
+      "f4:d2",
+      "e1:c3"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1048",
+    "number": 1048,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "3. Ll.HPHK",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c1",
+      "c3",
+      "d2",
+      "f2",
+      "g1",
+      "h4"
+    ],
+    "black": [
+      "a3",
+      "c5",
+      "c7",
+      "d6",
+      "f6",
+      "g3",
+      "g5"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "d2-e3",
+      "g3:e1",
+      "e3-f4",
+      "g5:e3",
+      "c3-d4",
+      "e1:a5",
+      "d4:b6:d8:g5:d2",
+      "a5:e1",
+      "g1-f2",
+      "e1:g3",
+      "h4:f2"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1049",
+    "number": 1049,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "b6",
+      "c1",
+      "c3",
+      "e1",
+      "e3",
+      "h2",
+      "h4"
+    ],
+    "black": [
+      "a5",
+      "b8",
+      "c7",
+      "d8",
+      "e5",
+      "f6",
+      "g7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "h4-g5",
+      "f6:h4",
+      "c3-b4",
+      "a5:c3",
+      "e3-d4",
+      "c7:a5",
+      "d4:f6:h8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1050",
+    "number": 1050,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "<1». KOpOJIeB+- B. Pyeeo, 1910",
+    "goal": "win",
+    "white": [
+      "a1",
+      "a3",
+      "b4",
+      "c1",
+      "c3",
+      "e1",
+      "e3",
+      "f2",
+      "f4",
+      "g1"
+    ],
+    "black": [
+      "a7",
+      "b8",
+      "c5",
+      "c7",
+      "d8",
+      "e5",
+      "f8",
+      "g7",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "b4:d6",
+      "e5:g3",
+      "e3-d4",
+      "c7:e5",
+      "d4:f6:h8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1051",
+    "number": 1051,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "a5",
+      "c3",
+      "e3",
+      "f4",
+      "h2"
+    ],
+    "black": [
+      "c5",
+      "d6",
+      "e7",
+      "g3",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a5-b6",
+      "c5:a7",
+      "e3-d4",
+      "g3:e5",
+      "d4:f6:d8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1052",
+    "number": 1052,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "E. CopoKHHa - H. CJIaBOBa, 1981",
+    "goal": "win",
+    "white": [
+      "a5",
+      "c3",
+      "e1",
+      "e3",
+      "e5",
+      "f4",
+      "g1",
+      "h2"
+    ],
+    "black": [
+      "b8",
+      "c7",
+      "d6",
+      "f8",
+      "g3",
+      "g5",
+      "g7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "g1-f2",
+      "g5-h4",
+      "a5-b6",
+      "c7:a5",
+      "e5:c7",
+      "b8:d6",
+      "e3-d4",
+      "g3:e5",
+      "d4:f6:h8"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1053",
+    "number": 1053,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "A. TPOI.l,KHX+-f. KHpeaHoB, 1983",
+    "goal": "win",
+    "white": [
+      "b6",
+      "c1",
+      "c3",
+      "e3",
+      "f4",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "b8",
+      "d6",
+      "d8",
+      "e5",
+      "e7",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "e3-d4",
+      "h4:f2",
+      "g1:e3",
+      "e5:g3",
+      "b6-c7",
+      "d8:b6",
+      "e3-f4",
+      "g3:e5",
+      "d4:f6:d8:a5"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1055",
+    "number": 1055,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "B. COKOB - A. A3HMOB, 1932",
+    "goal": "win",
+    "white": [
+      "a3",
+      "a5",
+      "b4",
+      "c5",
+      "e1",
+      "e3",
+      "f2",
+      "f4",
+      "g3"
+    ],
+    "black": [
+      "a7",
+      "b8",
+      "c7",
+      "d6",
+      "e5",
+      "e7",
+      "g5",
+      "h4",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a5-b6",
+      "c7:a5:c3",
+      "e3-d4",
+      "d6:b4",
+      "a3:c5",
+      "g5:e3:g1",
+      "d4:f6:d8",
+      "g1:b6",
+      "d8:a5:d2",
+      "h4:f2",
+      "e1:g3"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1056",
+    "number": 1056,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "draw",
+    "white": [
+      "a3",
+      "b2",
+      "c3",
+      "e3",
+      "f4",
+      "g3"
+    ],
+    "black": [
+      "a5",
+      "c5",
+      "c7",
+      "d6",
+      "e5",
+      "e7"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a3-b4",
+      "c5:a3:c1",
+      "c3-b4",
+      "a5:c3",
+      "e3-d4",
+      "c1:h6",
+      "d4:f6:d8:a5:e1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1057",
+    "number": 1057,
+    "section": "Антология Цукерника",
+    "difficulty": 2,
+    "author": "6. <l>e)l.OpoB",
+    "goal": "win",
+    "white": [
+      "a3",
+      "b2",
+      "c3",
+      "e3",
+      "f4",
+      "g1",
+      "g3"
+    ],
+    "black": [
+      "a5",
+      "b6",
+      "c5",
+      "d6",
+      "e5",
+      "e7",
+      "h6"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "a3-b4",
+      "c5:a3:c1",
+      "e3-d4",
+      "c1:g5",
+      "d4:f6:d8",
+      "g5-h4",
+      "c3-b4",
+      "h4:e1",
+      "d8-h4",
+      "a5:c3",
+      "g1-f2",
+      "e1:g3",
+      "h4:e1:a5:c7:f4"
+    ],
+    "branches": [
+      {
+        "afterPly": 7,
+        "moves": [
+          "a5:c3",
+          "d8:a5:e1",
+          "h4:f2",
+          "e1:g3:b8"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tsukernik-1060",
+    "number": 1060,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "H. ToponoB",
+    "goal": "win",
+    "white": [
+      "b2",
+      "c1",
+      "c3",
+      "c5",
+      "e3",
+      "f2"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "a7",
+      "e5",
+      "e7",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-d2",
+      "a3:c1",
+      "e3-d4",
+      "c1:e3:g1",
+      "d4:f6:d8",
+      "g1:b6",
+      "c3-b4",
+      "a5:c3",
+      "d8:a5:e1"
+    ],
+    "branches": []
+  },
+  {
+    "id": "tsukernik-1061",
+    "number": 1061,
+    "section": "Антология Цукерника",
+    "difficulty": 1,
+    "author": "",
+    "goal": "win",
+    "white": [
+      "c1",
+      "c3",
+      "c5",
+      "d2",
+      "e3",
+      "f2",
+      "g3",
+      "h2"
+    ],
+    "black": [
+      "a3",
+      "a5",
+      "a7",
+      "e5",
+      "e7",
+      "g5",
+      "g7",
+      "h4"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c1-b2",
+      "a3:c1",
+      "e3-d4",
+      "c1:e3:g1",
+      "d4:f6:d8",
+      "h4:f2",
+      "d8:h4:e1",
+      "g1:b6",
+      "c3-b4",
+      "a5:c3",
+      "e1:a5:d8"
+    ],
+    "branches": [
+      {
+        "afterPly": 5,
+        "moves": [
+          "g1:b6",
+          "c3-b4",
+          "h4:f2",
+          "d8:h4:e1",
+          "a5:c3",
+          "e1:a5:d8"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tsukernik-1062",
+    "number": 1062,
+    "section": "Антология Цукерника",
+    "difficulty": 3,
+    "author": "10. lllMu)l.T",
+    "goal": "win",
+    "white": [
+      "b4",
+      "c3",
+      "d2",
+      "e1",
+      "e3",
+      "f4",
+      "g3",
+      "h4"
+    ],
+    "black": [
+      "a5",
+      "a7",
+      "b6",
+      "d6",
+      "e5",
+      "e7",
+      "g7",
+      "h6",
+      "h8"
+    ],
+    "whiteKings": [],
+    "blackKings": [],
+    "turn": "w",
+    "mainLine": [
+      "c3-d4",
+      "e5:c3",
+      "e1-f2",
+      "c3:e1",
+      "h4-g5",
+      "a5:c3",
+      "g3-h4",
+      "e1:g3:e5",
+      "e3-d4",
+      "h6:f4",
+      "d4:f6:d8:a5:d2:h6:f8"
+    ],
+    "branches": []
+  }
+]
